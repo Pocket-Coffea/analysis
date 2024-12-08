@@ -1,0 +1,1472 @@
+{
+    "EGamma_2018_A": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/EGamma/crab_EGamma_2018_A_v1/241126_160206/0000/EGamma_2018_A.root"
+        ],
+        "metadata": {
+            "das_name": "/EGamma/Run2018A-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_EGamma",
+            "year": "2018",
+            "isMC": "False",
+            "nevents": 339013216.0,
+            "primaryDataset": "EGamma",
+            "era": "A"
+        }
+    },
+    "EGamma_2018_B": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/EGamma/crab_EGamma_2018_B_v1/241126_160239/0000/EGamma_2018_B.root"
+        ],
+        "metadata": {
+            "das_name": "/EGamma/Run2018B-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_EGamma",
+            "year": "2018",
+            "isMC": "False",
+            "nevents": 153792768.0,
+            "primaryDataset": "EGamma",
+            "era": "B"
+        }
+    },
+    "EGamma_2018_C": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/EGamma/crab_EGamma_2018_C_v1/241126_160313/0000/EGamma_2018_C.root"
+        ],
+        "metadata": {
+            "das_name": "/EGamma/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_EGamma",
+            "year": "2018",
+            "isMC": "False",
+            "nevents": 147827904.0,
+            "primaryDataset": "EGamma",
+            "era": "C"
+        }
+    },
+    "EGamma_2018_D": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/EGamma/crab_EGamma_2018_D_v3/241126_160348/0000/EGamma_2018_D.root"
+        ],
+        "metadata": {
+            "das_name": "/EGamma/Run2018D-UL2018_MiniAODv2_NanoAODv9-v3/NANOAOD",
+            "sample": "DATA_EGamma",
+            "year": "2018",
+            "isMC": "False",
+            "nevents": 752524672.0,
+            "primaryDataset": "EGamma",
+            "era": "D"
+        }
+    },
+    "GJets_100To200_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8_2016_preVFP_v1/241126_165929/0000/GJets_100To200_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODAPVv9-4cores5k_106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 16923236.0,
+            "xsec": "8598",
+            "part": "100To200"
+        }
+    },
+    "GJets_100To200_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8_2016_v1/241126_165637/0000/GJets_100To200_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODv9-4cores5k_106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 19248144.0,
+            "xsec": "8608",
+            "part": "100To200"
+        }
+    },
+    "GJets_100To200_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8_2017_v1/241126_162747/0000/GJets_100To200_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17NanoAODv9-4cores5k_106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 23353504.0,
+            "xsec": "8607",
+            "part": "100To200"
+        }
+    },
+    "GJets_100To200_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8_2018_v1/241126_160605/0000/GJets_100To200_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL18NanoAODv9-4cores5k_106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 31723000.0,
+            "xsec": "8591",
+            "part": "100To200"
+        }
+    },
+    "GJets_200To400_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8_2016_preVFP_v1/241126_165710/0000/GJets_200To400_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 38075116.0,
+            "xsec": "2192",
+            "part": "200To400"
+        }
+    },
+    "GJets_200To400_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8_2016_v1/241126_165421/0000/GJets_200To400_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 36631688.0,
+            "xsec": "2192",
+            "part": "200To400"
+        }
+    },
+    "GJets_200To400_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8_2017_v1/241126_162821/0000/GJets_200To400_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 54956720.0,
+            "xsec": "2188",
+            "part": "200To400"
+        }
+    },
+    "GJets_200To400_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8_2018_v1/241126_160640/0000/GJets_200To400_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 62439148.0,
+            "xsec": "2186",
+            "part": "200To400"
+        }
+    },
+    "GJets_400To600_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8_2016_preVFP_v1/241126_165745/0000/GJets_400To600_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 8676588.0,
+            "xsec": "260.1",
+            "part": "400To600"
+        }
+    },
+    "GJets_400To600_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8_2016_v1/241126_165454/0000/GJets_400To600_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 8622316.0,
+            "xsec": "260.4",
+            "part": "400To600"
+        }
+    },
+    "GJets_400To600_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8_2017_v1/241126_162855/0000/GJets_400To600_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 11970409.0,
+            "xsec": "259.3",
+            "part": "400To600"
+        }
+    },
+    "GJets_400To600_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8_2018_v1/241126_160714/0000/GJets_400To600_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 16896944.0,
+            "xsec": "260.2",
+            "part": "400To600"
+        }
+    },
+    "GJets_40To100_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8_2016_preVFP_v1/241126_165822/0000/GJets_40To100_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 16493542.0,
+            "xsec": "18680",
+            "part": "40To100"
+        }
+    },
+    "GJets_40To100_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8_2016_v1/241126_165529/0000/GJets_40To100_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 17821764.0,
+            "xsec": "18570",
+            "part": "40To100"
+        }
+    },
+    "GJets_40To100_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8_2017_v1/241126_162930/0000/GJets_40To100_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 21764864.0,
+            "xsec": "18630",
+            "part": "40To100"
+        }
+    },
+    "GJets_40To100_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8_2018_v1/241126_160748/0000/GJets_40To100_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 30564376.0,
+            "xsec": "18650",
+            "part": "40To100"
+        }
+    },
+    "GJets_600ToInf_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8_2016_preVFP_v1/241126_165856/0000/GJets_600ToInf_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 9249532.0,
+            "xsec": "86.56",
+            "part": "600ToInf"
+        }
+    },
+    "GJets_600ToInf_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8_2016_v1/241126_165603/0000/GJets_600ToInf_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 8081598.0,
+            "xsec": "86.37",
+            "part": "600ToInf"
+        }
+    },
+    "GJets_600ToInf_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8_2017_v1/241126_163006/0000/GJets_600ToInf_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 11425129.0,
+            "xsec": "86.41",
+            "part": "600ToInf"
+        }
+    },
+    "GJets_600ToInf_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/crab_GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8_2018_v1/241126_160823/0000/GJets_600ToInf_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "GJets",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 16621072.0,
+            "xsec": "85.96",
+            "part": "600ToInf"
+        }
+    },
+    "ST_s-channel_4f_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8/crab_ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8_2016_preVFP_v1/241126_170724/0000/ST_s-channel_4f_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 9400000.0,
+            "xsec": "7.104",
+            "part": "s-channel_4f"
+        }
+    },
+    "ST_s-channel_4f_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8/crab_ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8_2016_v1/241126_170650/0000/ST_s-channel_4f_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 10600000.0,
+            "xsec": "7.104",
+            "part": "s-channel_4f"
+        }
+    },
+    "ST_s-channel_4f_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8/crab_ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8_2017_v1/241126_163617/0000/ST_s-channel_4f_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 11696999.0,
+            "xsec": "7.104",
+            "part": "s-channel_4f"
+        }
+    },
+    "ST_s-channel_4f_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8/crab_ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8_2018_v1/241126_161508/0000/ST_s-channel_4f_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 16259000.0,
+            "xsec": "7.104",
+            "part": "s-channel_4f"
+        }
+    },
+    "ST_t-channel_antitop_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/crab_ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_2016_preVFP_v1/241126_170906/0000/ST_t-channel_antitop_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 62048000.0,
+            "xsec": "67.93",
+            "part": "t-channel_antitop"
+        }
+    },
+    "ST_t-channel_antitop_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/crab_ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_2016_v1/241126_170758/0000/ST_t-channel_antitop_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 61218000.0,
+            "xsec": "67.93",
+            "part": "t-channel_antitop"
+        }
+    },
+    "ST_t-channel_antitop_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/crab_ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_2017_v1/241126_163650/0000/ST_t-channel_antitop_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 69793000.0,
+            "xsec": "67.93",
+            "part": "t-channel_antitop"
+        }
+    },
+    "ST_t-channel_antitop_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/crab_ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_2018_v1/241126_161545/0000/ST_t-channel_antitop_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 95627000.0,
+            "xsec": "67.93",
+            "part": "t-channel_antitop"
+        }
+    },
+    "ST_t-channel_top_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/crab_ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_2016_preVFP_v1/241126_170941/0000/ST_t-channel_top_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 111922000.0,
+            "xsec": "113.4",
+            "part": "t-channel_top"
+        }
+    },
+    "ST_t-channel_top_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/crab_ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_2016_v1/241126_170832/0000/ST_t-channel_top_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 126146000.0,
+            "xsec": "113.4",
+            "part": "t-channel_top"
+        }
+    },
+    "ST_t-channel_top_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/crab_ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_2017_v1/241126_163724/0000/ST_t-channel_top_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 129903000.0,
+            "xsec": "113.4",
+            "part": "t-channel_top"
+        }
+    },
+    "ST_t-channel_top_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/crab_ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_2018_v1/241126_161619/0000/ST_t-channel_top_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 178336000.0,
+            "xsec": "113.4",
+            "part": "t-channel_top"
+        }
+    },
+    "ST_tW_antitop_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/crab_ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8_2016_preVFP_v1/241126_171131/0000/ST_tW_antitop_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 4600000.0,
+            "xsec": "32.51",
+            "part": "tW_antitop"
+        }
+    },
+    "ST_tW_antitop_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/crab_ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8_2016_v2/241126_171020/0000/ST_tW_antitop_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 5108000.0,
+            "xsec": "32.51",
+            "part": "tW_antitop"
+        }
+    },
+    "ST_tW_antitop_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/crab_ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8_2017_v2/241126_164459/0000/ST_tW_antitop_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM",
+            "sample": "ST",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 5674000.0,
+            "xsec": "32.51",
+            "part": "tW_antitop"
+        }
+    },
+    "ST_tW_antitop_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/crab_ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8_2018_v2/241126_161656/0000/ST_tW_antitop_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM",
+            "sample": "ST",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 7749000.0,
+            "xsec": "32.51",
+            "part": "tW_antitop"
+        }
+    },
+    "ST_tW_top_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/crab_ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8_2016_preVFP_v1/241126_171205/0000/ST_tW_top_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 4600000.0,
+            "xsec": "32.45",
+            "part": "tW_top"
+        }
+    },
+    "ST_tW_top_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/crab_ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8_2016_v2/241126_171057/0000/ST_tW_top_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM",
+            "sample": "ST",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 4982000.0,
+            "xsec": "32.45",
+            "part": "tW_top"
+        }
+    },
+    "ST_tW_top_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/crab_ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8_2017_v2/241126_163856/0000/ST_tW_top_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM",
+            "sample": "ST",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 5649000.0,
+            "xsec": "32.45",
+            "part": "tW_top"
+        }
+    },
+    "ST_tW_top_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/crab_ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8_2018_v2/241126_161732/0000/ST_tW_top_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM",
+            "sample": "ST",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 7956000.0,
+            "xsec": "32.45",
+            "part": "tW_top"
+        }
+    },
+    "SinglePhoton_2016_PreVFP_B": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2016_B_ver1_HIPM_v2/241126_164558/0000/SinglePhoton_2016_PreVFP_B.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2016B-ver1_HIPM_UL2016_MiniAODv2_NanoAODv9-v2/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2016_PreVFP",
+            "isMC": "False",
+            "nevents": 26238924.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "B"
+        }
+    },
+    "SinglePhoton_2016_PreVFP_C": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2016_C_HIPM_v4/241126_164702/0000/SinglePhoton_2016_PreVFP_C.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2016C-HIPM_UL2016_MiniAODv2_NanoAODv9-v4/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2016_PreVFP",
+            "isMC": "False",
+            "nevents": 46294472.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "C"
+        }
+    },
+    "SinglePhoton_2016_PreVFP_D": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2016_D_HIPM_v2/241126_164735/0000/SinglePhoton_2016_PreVFP_D.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2016D-HIPM_UL2016_MiniAODv2_NanoAODv9-v2/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2016_PreVFP",
+            "isMC": "False",
+            "nevents": 59602716.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "D"
+        }
+    },
+    "SinglePhoton_2016_PreVFP_E": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2016_E_HIPM_v2/241126_164808/0000/SinglePhoton_2016_PreVFP_E.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2016E-HIPM_UL2016_MiniAODv2_NanoAODv9-v2/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2016_PreVFP",
+            "isMC": "False",
+            "nevents": 44645736.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "E"
+        }
+    },
+    "SinglePhoton_2016_PreVFP_F": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2016_F_HIPM_v2/241126_164840/0000/SinglePhoton_2016_PreVFP_F.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2016F-HIPM_UL2016_MiniAODv2_NanoAODv9-v2/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2016_PreVFP",
+            "isMC": "False",
+            "nevents": 25612292.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "F"
+        }
+    },
+    "SinglePhoton_2016_PostVFP_F": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2016_F_v1/241126_164913/0000/SinglePhoton_2016_PostVFP_F.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2016F-UL2016_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2016_PostVFP",
+            "isMC": "False",
+            "nevents": 3721522.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "F"
+        }
+    },
+    "SinglePhoton_2016_PostVFP_G": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2016_G_v2/241126_164947/0000/SinglePhoton_2016_PostVFP_G.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2016G-UL2016_MiniAODv2_NanoAODv9-v2/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2016_PostVFP",
+            "isMC": "False",
+            "nevents": 66577720.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "G"
+        }
+    },
+    "SinglePhoton_2016_PostVFP_H": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2016_H_v1/241126_165023/0000/SinglePhoton_2016_PostVFP_H.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2016H-UL2016_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2016_PostVFP",
+            "isMC": "False",
+            "nevents": 70071320.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "H"
+        }
+    },
+    "SinglePhoton_2017_B": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2017_B_v1/241126_162144/0000/SinglePhoton_2017_B.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2017B-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2017",
+            "isMC": "False",
+            "nevents": 15950935.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "B"
+        }
+    },
+    "SinglePhoton_2017_C": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2017_C_v1/241126_162216/0000/SinglePhoton_2017_C.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2017C-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2017",
+            "isMC": "False",
+            "nevents": 42182952.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "C"
+        }
+    },
+    "SinglePhoton_2017_D": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2017_D_v1/241126_162420/0000/SinglePhoton_2017_D.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2017D-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2017",
+            "isMC": "False",
+            "nevents": 9753462.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "D"
+        }
+    },
+    "SinglePhoton_2017_E": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2017_E_v1/241126_162456/0000/SinglePhoton_2017_E.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2017E-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2017",
+            "isMC": "False",
+            "nevents": 19011444.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "E"
+        }
+    },
+    "SinglePhoton_2017_F": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/SinglePhoton/crab_SinglePhoton_2017_F_v1/241126_162531/0000/SinglePhoton_2017_F.root"
+        ],
+        "metadata": {
+            "das_name": "/SinglePhoton/Run2017F-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD",
+            "sample": "DATA_SinglePhoton",
+            "year": "2017",
+            "isMC": "False",
+            "nevents": 29783012.0,
+            "primaryDataset": "SinglePhoton",
+            "era": "F"
+        }
+    },
+    "TGJets_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8/crab_TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8_2016_ext1_preVFP_v1/241126_170041/0000/TGJets_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11_ext1-v1/NANOAODSIM",
+            "sample": "TGJets",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 988000.0,
+            "xsec": "2.997",
+            "part": "nopart"
+        }
+    },
+    "TGJets_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8/crab_TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8_2016_ext1_v1/241126_170004/0000/TGJets_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17_ext1-v1/NANOAODSIM",
+            "sample": "TGJets",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 900000.0,
+            "xsec": "2.997",
+            "part": "nopart"
+        }
+    },
+    "TGJets_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8/crab_TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8_2017_v2/241126_163041/0000/TGJets_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM",
+            "sample": "TGJets",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1965000.0,
+            "xsec": "2.997",
+            "part": "nopart"
+        }
+    },
+    "TGJets_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8/crab_TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8_2018_v2/241126_160856/0000/TGJets_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM",
+            "sample": "TGJets",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1960000.0,
+            "xsec": "2.997",
+            "part": "nopart"
+        }
+    },
+    "TTG_Dilept_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v1/241126_165055/0000/TTG_Dilept_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 4298000.0,
+            "xsec": "1.501",
+            "part": "Dilept"
+        }
+    },
+    "TTG_Dilept_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8_2016_v1/241126_165127/0000/TTG_Dilept_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 4678000.0,
+            "xsec": "1.502",
+            "part": "Dilept"
+        }
+    },
+    "TTG_Dilept_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8_2017_v1/241126_162604/0000/TTG_Dilept_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 10018000.0,
+            "xsec": "1.501",
+            "part": "Dilept"
+        }
+    },
+    "TTG_Dilept_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8_2018_v1/241126_160422/0000/TTG_Dilept_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 14694000.0,
+            "xsec": "1.5",
+            "part": "Dilept"
+        }
+    },
+    "TTG_Hadronic_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v1/241126_165200/0000/TTG_Hadronic_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 4092000.0,
+            "xsec": "4.182",
+            "part": "Hadronic"
+        }
+    },
+    "TTG_Hadronic_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8_2016_v1/241126_165234/0000/TTG_Hadronic_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 4773000.0,
+            "xsec": "4.178",
+            "part": "Hadronic"
+        }
+    },
+    "TTG_Hadronic_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8_2017_v1/241126_162638/0000/TTG_Hadronic_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 10537000.0,
+            "xsec": "4.181",
+            "part": "Hadronic"
+        }
+    },
+    "TTG_Hadronic_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8_2018_v1/241126_160456/0000/TTG_Hadronic_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_Hadronic_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 14763000.0,
+            "xsec": "4.184",
+            "part": "Hadronic"
+        }
+    },
+    "TTG_SingleLept_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v1/241126_165313/0000/TTG_SingleLept_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 8272000.0,
+            "xsec": "5.09",
+            "part": "SingleLept"
+        }
+    },
+    "TTG_SingleLept_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8_2016_v1/241126_165347/0000/TTG_SingleLept_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 9654000.0,
+            "xsec": "5.091",
+            "part": "SingleLept"
+        }
+    },
+    "TTG_SingleLept_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8_2017_v1/241126_162714/0000/TTG_SingleLept_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 18906000.0,
+            "xsec": "5.088",
+            "part": "SingleLept"
+        }
+    },
+    "TTG_SingleLept_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8/crab_TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8_2018_v1/241126_160531/0000/TTG_SingleLept_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/TTGamma_SingleLept_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "TTG",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 27732000.0,
+            "xsec": "5.091",
+            "part": "SingleLept"
+        }
+    },
+    "TT_2L2Nu_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/crab_TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8_2016_preVFP_v1/241126_171238/0000/TT_2L2Nu_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 37505000.0,
+            "xsec": "687.1",
+            "part": "2L2Nu"
+        }
+    },
+    "TT_2L2Nu_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/crab_TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8_2016_v1/241126_171312/0000/TT_2L2Nu_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 43546000.0,
+            "xsec": "687.1",
+            "part": "2L2Nu"
+        }
+    },
+    "TT_2L2Nu_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/crab_TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8_2017_v1/241126_163929/0000/TT_2L2Nu_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 106724000.0,
+            "xsec": "687.1",
+            "part": "2L2Nu"
+        }
+    },
+    "TT_2L2Nu_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/crab_TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8_2018_v1/241126_161807/0000/TT_2L2Nu_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 145019984.0,
+            "xsec": "687.1",
+            "part": "2L2Nu"
+        }
+    },
+    "TT_Hadronic_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/crab_TTToHadronic_TuneCP5_13TeV-powheg-pythia8_2016_preVFP_v1/241126_171346/0000/TT_Hadronic_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 97260000.0,
+            "xsec": "687.1",
+            "part": "Hadronic"
+        }
+    },
+    "TT_Hadronic_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/crab_TTToHadronic_TuneCP5_13TeV-powheg-pythia8_2016_v1/241126_171420/0000/TT_Hadronic_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 107067000.0,
+            "xsec": "687.1",
+            "part": "Hadronic"
+        }
+    },
+    "TT_Hadronic_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/crab_TTToHadronic_TuneCP5_13TeV-powheg-pythia8_2017_v1/241126_164003/0000/TT_Hadronic_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 233000000.0,
+            "xsec": "687.1",
+            "part": "Hadronic"
+        }
+    },
+    "TT_Hadronic_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/crab_TTToHadronic_TuneCP5_13TeV-powheg-pythia8_2018_v1/241126_161844/0000/TT_Hadronic_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 334206016.0,
+            "xsec": "687.1",
+            "part": "Hadronic"
+        }
+    },
+    "TT_SemiLeptonic_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/crab_TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8_2016_preVFP_v1/241126_171453/0000/TT_SemiLeptonic_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 132178000.0,
+            "xsec": "687.1",
+            "part": "SemiLeptonic"
+        }
+    },
+    "TT_SemiLeptonic_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/crab_TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8_2016_v1/241126_171526/0000/TT_SemiLeptonic_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 144721984.0,
+            "xsec": "687.1",
+            "part": "SemiLeptonic"
+        }
+    },
+    "TT_SemiLeptonic_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/crab_TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8_2017_v1/241126_164038/0000/TT_SemiLeptonic_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 346051968.0,
+            "xsec": "687.1",
+            "part": "SemiLeptonic"
+        }
+    },
+    "TT_SemiLeptonic_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/crab_TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8_2018_v1/241126_161919/0000/TT_SemiLeptonic_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "TT",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 476408000.0,
+            "xsec": "687.1",
+            "part": "SemiLeptonic"
+        }
+    },
+    "WGJets_130_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8/crab_WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v1/241126_170330/0000/WGJets_130_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "WGJets",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 1457339.0,
+            "xsec": "0.8095",
+            "part": "130"
+        }
+    },
+    "WGJets_130_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8/crab_WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8_2016_v1/241126_170224/0000/WGJets_130_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "WGJets",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 1330669.0,
+            "xsec": "0.8101",
+            "part": "130"
+        }
+    },
+    "WGJets_130_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8/crab_WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8_2017_v2/241126_163150/0000/WGJets_130_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM",
+            "sample": "WGJets",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 3609634.0,
+            "xsec": "0.8114",
+            "part": "130"
+        }
+    },
+    "WGJets_130_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8/crab_WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8_2018_v2/241126_161003/0000/WGJets_130_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/WGJets_MonoPhoton_PtG-130_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM",
+            "sample": "WGJets",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 4966262.0,
+            "xsec": "0.8092",
+            "part": "130"
+        }
+    },
+    "WGJets_40to130_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8/crab_WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v2/241126_170403/0000/WGJets_40to130_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM",
+            "sample": "WGJets",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 1603255.0,
+            "xsec": "19.79",
+            "part": "40to130"
+        }
+    },
+    "WGJets_40to130_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8/crab_WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8_2016_v2/241126_170257/0000/WGJets_40to130_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM",
+            "sample": "WGJets",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 1386165.0,
+            "xsec": "19.77",
+            "part": "40to130"
+        }
+    },
+    "WGJets_40to130_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8/crab_WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8_2017_v2/241126_163226/0000/WGJets_40to130_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM",
+            "sample": "WGJets",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 3598774.0,
+            "xsec": "19.77",
+            "part": "40to130"
+        }
+    },
+    "WGJets_40to130_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8/crab_WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8_2018_v2/241126_161039/0000/WGJets_40to130_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/WGJets_MonoPhoton_PtG-40to130_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM",
+            "sample": "WGJets",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 4764595.0,
+            "xsec": "19.75",
+            "part": "40to130"
+        }
+    },
+    "WG_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/crab_WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8_2016_preVFP_v1/241126_170150/0000/WG_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "WG",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 5065152.0,
+            "xsec": "8.601",
+            "part": "nopart"
+        }
+    },
+    "WG_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/crab_WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8_2016_v1/241126_170116/0000/WG_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "WG",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 5102027.0,
+            "xsec": "8.635",
+            "part": "nopart"
+        }
+    },
+    "WG_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/crab_WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8_2017_v1/241126_163115/0000/WG_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "WG",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 8703454.0,
+            "xsec": "8.633",
+            "part": "nopart"
+        }
+    },
+    "WG_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/crab_WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8_2018_v1/241126_160929/0000/WG_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/WGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "WG",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 10052611.0,
+            "xsec": "8.66",
+            "part": "nopart"
+        }
+    },
+    "WWG_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WWG_TuneCP5_13TeV-amcatnlo-pythia8/crab_WWG_TuneCP5_13TeV-amcatnlo-pythia8_2016_preVFP_v1/241126_170616/0000/WWG_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/WWG_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "WWG",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 800000.0,
+            "xsec": "0.3369",
+            "part": "nopart"
+        }
+    },
+    "WWG_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WWG_TuneCP5_13TeV-amcatnlo-pythia8/crab_WWG_TuneCP5_13TeV-amcatnlo-pythia8_2016_v1/241126_170543/0000/WWG_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/WWG_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "WWG",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 698000.0,
+            "xsec": "0.3369",
+            "part": "nopart"
+        }
+    },
+    "WWG_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WWG_TuneCP5_13TeV-amcatnlo-pythia8/crab_WWG_TuneCP5_13TeV-amcatnlo-pythia8_2017_v1/241126_163538/0000/WWG_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/WWG_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "WWG",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1736000.0,
+            "xsec": "0.3369",
+            "part": "nopart"
+        }
+    },
+    "WWG_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/WWG_TuneCP5_13TeV-amcatnlo-pythia8/crab_WWG_TuneCP5_13TeV-amcatnlo-pythia8_2018_v2/241126_161429/0000/WWG_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/WWG_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM",
+            "sample": "WWG",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 2500000.0,
+            "xsec": "0.3369",
+            "part": "nopart"
+        }
+    },
+    "ZG_2016_PreVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/crab_ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8_2016_preVFP_v1/241126_170509/0000/ZG_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM",
+            "sample": "ZG",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 2640591.0,
+            "xsec": "4.142",
+            "part": "nopart"
+        }
+    },
+    "ZG_2016_PostVFP": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/crab_ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8_2016_v1/241126_170436/0000/ZG_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM",
+            "sample": "ZG",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 2579970.0,
+            "xsec": "4.133",
+            "part": "nopart"
+        }
+    },
+    "ZG_2017": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/crab_ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8_2017_v1/241126_163301/0000/ZG_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v1/NANOAODSIM",
+            "sample": "ZG",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 5148058.0,
+            "xsec": "4.144",
+            "part": "nopart"
+        }
+    },
+    "ZG_2018": {
+        "files": [
+            "root://eosuser.cern.ch//eos/user/m/msahraei/PocketCoffea_input/ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/crab_ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8_2018_v1/241126_161113/0000/ZG_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/ZGammaToJJGamma_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM",
+            "sample": "ZG",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 4940562.0,
+            "xsec": "4.145",
+            "part": "nopart"
+        }
+    }
+}

@@ -1,0 +1,148 @@
+{
+   "DYJetsToLL_M-50":{
+        "sample": "DYJetsToLL_M-50",
+        "json_output"    : "datasets/DYJetsToLL_M-50.json",
+        "files":[
+            { "das_names": ["/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"],
+              "metadata": {
+                  "year":"2018",
+                  "isMC": true,
+		          "xsec": 6077.22,
+                  "part": ""
+                  }
+            }
+        ]
+  },
+    "DATA_SingleMuon": {
+        "sample": "DATA_SingleMuon",
+        "json_output": "datasets/DATA_SingleMuon.json",
+        "files": [
+             {
+                "das_names": [
+                    "/SingleMuon/Run2018A-UL2018_MiniAODv2_NanoAODv9-v2/NANOAOD"
+                ],
+                "metadata": {
+                    "year": "2018",
+                    "isMC": false,
+                    "primaryDataset": "SingleMuon",
+                    "era": "A"
+                },
+                "das_parents_names": [
+                    "/SingleMuon/Run2018A-UL2018_MiniAODv2-v3/MINIAOD"
+                ]
+            },
+            {
+                "das_names": [
+                    "/SingleMuon/Run2018B-UL2018_MiniAODv2_NanoAODv9-v2/NANOAOD"
+                ],
+                "metadata": {
+                    "year": "2018",
+                    "isMC": false,
+                    "primaryDataset": "SingleMuon",
+                    "era": "B"
+                },
+                "das_parents_names": [
+                    "/SingleMuon/Run2018B-UL2018_MiniAODv2-v2/MINIAOD"
+                ]
+            },
+            {
+                "das_names": [
+                    "/SingleMuon/Run2018C-UL2018_MiniAODv2_NanoAODv9-v2/NANOAOD"
+                ],
+                "metadata": {
+                    "year": "2018",
+                    "isMC": false,
+                    "primaryDataset": "SingleMuon",
+                    "era": "C"
+                },
+                "das_parents_names": [
+                    "/SingleMuon/Run2018C-UL2018_MiniAODv2-v2/MINIAOD"
+                ]
+           }
+       ]
+    },
+    "DYJetsToLL_M10To50":{
+        "sample": "DYJetsToLL_M10To50",
+        "json_output"    : "datasets/DYJetsToLL_M10To50.json",
+        "files":[
+            { "das_names": ["/DYJetsToLL_M-10to50_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM"],
+              "metadata": {
+                  "year":"2018",
+                  "isMC": true,
+		  "xsec": 18610,
+                  "part": ""
+                  }
+            }
+        ]
+     },      
+    "TTTo2L2Nu":{
+       "sample": "TTTo2L2Nu",
+       "json_output"  : "datasets/TTTo2L2Nu.json",
+       "files":[   
+           { "das_names" : ["/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM"],
+             "metadata"  : {
+                  "year" : "2018",
+                  "isMC" : true,
+		  "xsec" : 87.315,
+                  "part":  ""
+                   }
+             }
+        ]
+   }, 
+   "TGJets":{
+       "sample": "TGJets",
+       "json_output"  : "datasets/TGJets.json",
+       "files":[   
+           { "das_names" : ["/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"],
+             "metadata"  : {
+                  "year" :"2018",
+                  "isMC" : true,
+		   "xsec" : 0.952,
+                  "part":  ""
+                  }
+            }
+        ]
+   },
+     "TTToHadronic":{
+       "sample": "TTToHadronic",
+       "json_output"  : "datasets/TTToHadronic.json",
+       "files":[   
+           { "das_names" : ["/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM"],
+             "metadata"  : {
+                  "year" :"2018",
+                  "isMC" : true,
+		   "xsec" : 380.095,
+                  "part":  ""
+                  }
+            }
+        ]
+    }, 
+    "TTToSemiLeptonic":{
+       "sample": "TTToSemiLeptonic",
+       "json_output"  : "datasets/TTToSemiLeptonic.json",
+       "files":[   
+           { "das_names" : ["/TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM"],
+             "metadata"  : {
+                  "year" :"2018",
+                  "isMC" : true,
+		   "xsec" : 364.352,
+                  "part":  ""
+                  }
+            }
+        ]
+   }
+
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+plotting_style:
+
+  #samples_groups:
+   # Top:
+   #   - TTToSemiLeptonic
+   #   - TTTo2L2Nu
+   #   - TTToHadronic
+   
+
+    labels_mc:
+      DYJetsToLL_M-50: DY
+      DYJetsToLL_M10To50: DY low mass
+      TGJets : top+photon
+      TTToHadronic: tthadronic
+      TTToSemiLeptonic: ttsemileptonic
+      TTTo2L2Nu: tt2L2nu
