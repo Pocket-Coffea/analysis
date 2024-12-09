@@ -4,7 +4,7 @@ from pocket_coffea.lib.cut_functions import get_nObj_min, get_HLTsel, get_nPVgoo
 from pocket_coffea.parameters.cuts import passthrough
 from pocket_coffea.parameters.histograms import *
 import workflow
-from workflow import ZmumuBaseProcessor
+from workflow import TopPartnerBaseProcessor
 from pocket_coffea.lib.weights.common import common_weights
 
 # Register custom modules in cloudpickle to propagate them to dask workers
@@ -49,7 +49,7 @@ cfg = Configurator(
         }
     },
 
-    workflow = ZmumuBaseProcessor,
+    workflow = TopPartnerBaseProcessor(final_State="Mu"),
 
     skim = [get_nPVgood(1), eventFlags, goldenJson, # basic skims
             get_nObj_min(1, 18., "Muon"),

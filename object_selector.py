@@ -1,30 +1,61 @@
 import numpy as np
 
-# def photon_selection(events, photon, params, region):
+def photon_selection(events, photon, params, region, leptons_collection=""):
 
-#     photons = events["Photons"]
-#     cuts = params.object_preselection[photon]
-#     # Requirements on pT and eta
-#     passes_eta = abs(photons.eta) < cuts["eta"]
-#     passes_transition = np.invert(( abs(photons.eta) >= 1.4442) & (abs(photons.eta) <= 1.5660))
-#     passes_pt = photons.pt > cuts["pt"]
-#     passes_pixelseed = not photons.pixelSeed
-#     if region == "SR":
-#         if abs(photons.eta) < 1.4442:
-#             passes_hoe = photons.hoe < cuts["barrel"]["SR"]["hoe"]
-#             passes_sieie = photons.sieie < cuts["barrel"]["SR"]["sieie"]
-#             passes_chiso = photons.pfRelIso03_chg < cuts["barrel"]["SR"]["chiso"]
-#         if abs(photons.eta) > 1.5660 and abs(photons.eta) < cuts["eta"]:
-#             passes_hoe = photons.hoe < cuts["endcap"]["SR"]["hoe"]
-#             passes_sieie = photons.sieie < cuts["endcap"]["SR"]["sieie"]
-#             passes_chiso = photons.pfRelIso03_chg < cuts["endcap"]["SR"]["chiso"]
-           
+    photons = events["Photons"]
+    cuts = params.object_preselection[photon]
+    # Requirements on pT and eta
+    passes_eta = abs(photons.eta) < cuts["eta"]
+    passes_transition = np.invert(( abs(photons.eta) >= 1.4442) & (abs(photons.eta) <= 1.5660))
+    passes_pt = photons.pt > cuts["pt"]
+    passes_pixelseed = not photons.pixelSeed
+
+    if leptons_collection != "":
+        dR_photons_lep = photons.metric_table(events[leptons_collection])
+        mask_lepton_cleaning = ak.prod(dR_photons_lep > cuts["dr_lepton"], axis=2) == 1
+    else:
+        mask_lepton_cleaning = True
         
+    bitMap = photons.vidNestedWPBitmap
+    cutbased_ids_medium = parse_photon_vid_cuts(bitMap, 2)
+    cutbased_ids_loose = parse_photon_vid_cuts(bitMap, 1)
+    passed_HNP_id = cutbased_ids["passed_HNP_id"]
     
+    if region == "SR":
+        passes_sieie = cutbased_ids_medium["passSIEIE"]
+        passes_chiso = cutbased_ids_medium["passes_chIso"]
+    if region == "CRB"
+        passes_sieie = not cutbased_ids_loose["passSIEIE"]
+        passes_chiso = cutbased_ids_medium["passes_chIso"]
+    if region == "CRC"
+        passes_sieie = cutbased_ids_medium["passSIEIE"]
+        passes_chiso = not cutbased_ids_loose["passes_chIso"]
+    if region == "CRD"
+        passes_sieie = not cutbased_ids_loose["passSIEIE"]
+        passes_chiso = not cutbased_ids_loose["passes_chIso"]
 
-#     good_photons = passes_eta & passes_pt & passes_pixelseed & passes_id
+    good_photons = passes_eta & passes_pt & passes_pixelseed & passes_transition & passed_HNP_id & passes_sieie & passes_chiso & mask_lepton_cleaning
 
-#     return photons[good_photons]
+    return photons[good_photons]
+
+def parse_photon_vid_cuts(bitMap, cutLevel):
+    cutbased_ids = {}
+    # Create a list of cuts as per the C++ function logic
+    passHoverE = ((bitMap >> 4) & 3) >= cutLevel
+    passSIEIE = ((bitMap >> 6) & 3) >= cutLevel
+    passChIso = ((bitMap >> 8) & 3) >= cutLevel
+    passNeuIso = ((bitMap >> 10) & 3) >= cutLevel
+    passPhoIso = ((bitMap >> 12) & 3) >= cutLevel
+
+    cutbased_ids["passID"] = passHoverE & passSIEIE & passChIso & passNeuIso & passPhoIso
+    cutbased_ids["passed_hoe"] = passHoverE
+    cutbased_ids["passed_neuIso"] = passNeuIso
+    cutbased_ids["passed_phoIso"] = passPhoIso
+    cutbased_ids["passed_HNP_id"] = passHoverE & passNeuIso & passPhoIso
+    cutbased_ids["passed_chIso"] = passChIso
+    cutbased_ids["passSIEIE"] = passSIEIE
+
+    return cutbased_ids
 
 def lepton_selection(events, lepton, params, id):
 
@@ -48,32 +79,9 @@ def lepton_selection(events, lepton, params, id):
 
     return leptons[good_leptons]
 
-
-def jet_selection(events, jet_type, params, year, leptons_collection="", jet_tagger=""):
-
-    jets = events[jet_type]
-    cuts = params.object_preselection[jet_type]
-    # Only jets that are more distant than dr to ALL leptons are tagged as good jets
-    # Mask for  jets not passing the preselection
-    mask_presel = (
-        (jets.pt > cuts["pt"])
-        & (np.abs(jets.eta) < cuts["eta"])
-        & (jets.jetId > cuts["tightLeptonVetoId"])
-    )
-    # Lepton cleaning
-    if leptons_collection != "":
-        dR_jets_lep = jets.metric_table(events[leptons_collection])
-        mask_lepton_cleaning = ak.prod(dR_jets_lep > cuts["dr_lepton"], axis=2) == 1
+def btagging(Jet, btag, params, veto=False):
+    cuts = params.object_preselection["Jet"]["btag"]
+    if veto:
+        return Jet[(Jet[btag["btagging_algorithm"]] < btag["btagging_WP"][cuts["wp"]]) & (abs(Jet.eta < cuts["eta"]))]
     else:
-        mask_lepton_cleaning = True
-
-    if jet_type == "Jet":
-        # Selection on PUid. Only available in Run2 UL, thus we need to determine which sample we run over;
-        if year in ['2016_PreVFP', '2016_PostVFP','2017','2018']:
-            mask_jetpuid = (jets.puId >= params.jet_scale_factors.jet_puId[year]["working_point"][cuts["puId"]["wp"]]) | (
-                jets.pt >= cuts["puId"]["maxpt"]
-            )
-        else:
-            mask_jetpuid = True
-  
-        mask_good_jets = mask_presel & mask_lepton_cleaning & mask_jetpuid
+        return Jet[(Jet[btag["btagging_algorithm"]] > btag["btagging_WP"][cuts["wp"]]) & (abs(Jet.eta < cuts["eta"]))]
