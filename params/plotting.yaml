@@ -8,9 +8,7 @@ plotting_style:
    
 
     labels_mc:
-      DYJetsToLL_M-50: DY
-      DYJetsToLL_M10To50: DY low mass
-      TGJets : top+photon
-      TTToHadronic: tthadronic
-      TTToSemiLeptonic: ttsemileptonic
-      TTTo2L2Nu: tt2L2nu
+        GJets : top+photon
+
+    labels_data:
+        Data_EGamma: data

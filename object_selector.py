@@ -1,14 +1,15 @@
 import numpy as np
+import awkward as ak
 
 def photon_selection(events, photon, params, region, leptons_collection=""):
 
-    photons = events["Photons"]
+    photons = events["Photon"]
     cuts = params.object_preselection[photon]
     # Requirements on pT and eta
     passes_eta = abs(photons.eta) < cuts["eta"]
     passes_transition = np.invert(( abs(photons.eta) >= 1.4442) & (abs(photons.eta) <= 1.5660))
     passes_pt = photons.pt > cuts["pt"]
-    passes_pixelseed = not photons.pixelSeed
+    passes_pixelseed = ~photons.pixelSeed
 
     if leptons_collection != "":
         dR_photons_lep = photons.metric_table(events[leptons_collection])
@@ -19,20 +20,20 @@ def photon_selection(events, photon, params, region, leptons_collection=""):
     bitMap = photons.vidNestedWPBitmap
     cutbased_ids_medium = parse_photon_vid_cuts(bitMap, 2)
     cutbased_ids_loose = parse_photon_vid_cuts(bitMap, 1)
-    passed_HNP_id = cutbased_ids["passed_HNP_id"]
+    passed_HNP_id = cutbased_ids_medium["passed_HNP_id"]
     
     if region == "SR":
         passes_sieie = cutbased_ids_medium["passSIEIE"]
-        passes_chiso = cutbased_ids_medium["passes_chIso"]
-    if region == "CRB"
-        passes_sieie = not cutbased_ids_loose["passSIEIE"]
-        passes_chiso = cutbased_ids_medium["passes_chIso"]
-    if region == "CRC"
+        passes_chiso = cutbased_ids_medium["passed_chIso"]
+    if region == "CRB":
+        passes_sieie = ~cutbased_ids_loose["passSIEIE"]
+        passes_chiso = cutbased_ids_medium["passed_chIso"]
+    if region == "CRC":
         passes_sieie = cutbased_ids_medium["passSIEIE"]
-        passes_chiso = not cutbased_ids_loose["passes_chIso"]
-    if region == "CRD"
-        passes_sieie = not cutbased_ids_loose["passSIEIE"]
-        passes_chiso = not cutbased_ids_loose["passes_chIso"]
+        passes_chiso = ~cutbased_ids_loose["passed_chIso"]
+    if region == "CRD":
+        passes_sieie = ~cutbased_ids_loose["passSIEIE"]
+        passes_chiso = ~cutbased_ids_loose["passed_chIso"]
 
     good_photons = passes_eta & passes_pt & passes_pixelseed & passes_transition & passed_HNP_id & passes_sieie & passes_chiso & mask_lepton_cleaning
 
@@ -71,7 +72,7 @@ def lepton_selection(events, lepton, params, id):
 
         good_leptons = passes_eta & passes_pt & passes_transition & passes_iso & passes_id
 
-    elif lepton_flavour == "Muon":
+    elif lepton == "Muon":
         passes_iso = leptons.pfRelIso04_all < cuts[id]["iso"]
         passes_id = leptons[cuts[id]["id"]]
 

@@ -9,9 +9,11 @@ from pocket_coffea.lib.weights.common import common_weights
 
 # Register custom modules in cloudpickle to propagate them to dask workers
 import cloudpickle
-import custom_cut_functions 
+import custom_cut_functions
+import object_selector
 cloudpickle.register_pickle_by_value(workflow)
 cloudpickle.register_pickle_by_value(custom_cut_functions)
+cloudpickle.register_pickle_by_value(object_selector)
 
 from custom_cut_functions import *
 import os
@@ -23,8 +25,8 @@ default_parameters = defaults.get_default_parameters()
 defaults.register_configuration_dir("config_dir", localdir+"/params")
 
 parameters = defaults.merge_parameters_from_files(default_parameters,
-                                                  f"{localdir}/params/object_preselection.yaml",
-                                                  f"{localdir}/params/triggers.yaml",
+                                                  f"{localdir}/params/object_preselection_had.yaml",
+                                                  f"{localdir}/params/triggers_had.yaml",
                                                   f"{localdir}/params/plotting.yaml",
                                                   update=True)
 
@@ -33,28 +35,29 @@ parameters = defaults.merge_parameters_from_files(default_parameters,
 cfg = Configurator(
     parameters = parameters,
     datasets = {
-        "jsons": [f"{localdir}/datasets/DATA_SingleMuon.json",
-                  f"{localdir}/datasets/DYJetsToLL_M-50.json",
-                  f"{localdir}/datasets/DYJetsToLL_M10To50.json",
-                  f"{localdir}/datasets/TTTo2L2Nu.json",
-                  f"{localdir}/datasets/TGJets.json",
-                  f"{localdir}/datasets/TTToHadronic.json",
-                  f"{localdir}/datasets/TTToSemiLeptonic.json"
-                    ],
+        "jsons": [
+            # f"{localdir}/datasets/local_fileset.json",
+            # f"{localdir}/datasets/DATA_SingleMuon.json",    
+            f"{localdir}/datasets/DYJetsToLL_M-50.json",
+            f"{localdir}/datasets/DYJetsToLL_M10To50.json",
+            f"{localdir}/datasets/TTTo2L2Nu.json",
+            f"{localdir}/datasets/TGJets.json",
+            f"{localdir}/datasets/TTToHadronic.json",
+            f"{localdir}/datasets/TTToSemiLeptonic.json"
+        ],
         "filter" : {
-            "samples": ["DATA_SingleMuon",
-                        "DYJetsToLL_M-50", "DYJetsToLL_M10To50", "TTTo2L2Nu", "TGJets", "TTToHadronic", "TTToSemiLeptonic"],
+            "samples": ["TTTo2L2Nu", "TGJets", "TTToHadronic"],
             "samples_exclude" : [],
             "year": ['2018']
         }
     },
 
-    workflow = TopPartnerBaseProcessor(final_State="Mu"),
+    workflow = TopPartnerBaseProcessor,
 
-    skim = [get_nPVgood(1), eventFlags, goldenJson, # basic skims
-            get_nObj_min(1, 18., "Muon"),
+    skim = [#get_nPVgood(1), eventFlags, goldenJson, # basic skims
+            #get_nObj_min(1, 18., "Muon"),
             # Asking only SingleMuon triggers since we are only using SingleMuon PD data
-            get_HLTsel(primaryDatasets=["SingleMuon"])], 
+            get_HLTsel(primaryDatasets=["EGamma"])], 
     
     preselections = [dimuon_presel],
     categories = {
@@ -67,7 +70,7 @@ cfg = Configurator(
         "common": {
             "inclusive": ["genWeight","lumi","XS",
                           "pileup",
-                          "sf_mu_id","sf_mu_iso",
+                          #"sf_mu_id","sf_mu_iso",
                           ],
             "bycategory" : {
             }
@@ -80,7 +83,7 @@ cfg = Configurator(
         "weights": {
             "common": {
                 "inclusive": [  "pileup",
-                                "sf_mu_id", "sf_mu_iso"
+                                #"sf_mu_id", "sf_mu_iso"
                               ],
                 "bycategory" : {
                 }
@@ -92,14 +95,14 @@ cfg = Configurator(
 
     
    variables = {
-        **muon_hists(coll="MuonGood", pos=0),
-        **count_hist(name="nElectronGood", coll="ElectronGood",bins=3, start=0, stop=3),
-        **count_hist(name="nMuonGood", coll="MuonGood",bins=3, start=0, stop=3),
+        # **muon_hists(coll="MuonGood", pos=0),
+        # **count_hist(name="nElectronGood", coll="ElectronGood",bins=3, start=0, stop=3),
+        # **count_hist(name="nMuonGood", coll="MuonGood",bins=3, start=0, stop=3),
         **count_hist(name="nJets", coll="JetGood",bins=8, start=0, stop=8),
         **count_hist(name="nBJets", coll="BJetGood",bins=8, start=0, stop=8),
         **jet_hists(coll="JetGood", pos=0),
         **jet_hists(coll="JetGood", pos=1),
-        "mll" : HistConf( [Axis(coll="ll", field="mass", bins=100, start=0, stop=200, label=r"$M_{\ell\ell}$ [GeV]")] ),
+        # "mll" : HistConf( [Axis(coll="ll", field="mass", bins=100, start=0, stop=200, label=r"$M_{\ell\ell}$ [GeV]")] ),
     }
 )
 

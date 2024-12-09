@@ -1,0 +1,16 @@
+HLT_triggers:
+    2016_PreVFP:
+        SinglePhoton:
+            - Photon175
+        
+    2016_PostVFP:
+        SinglePhoton:
+            - Photon175
+        
+    "2017":
+        SinglePhoton:
+            - Photon200
+  
+    "2018":
+        EGamma:
+            - Photon200

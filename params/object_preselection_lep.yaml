@@ -30,7 +30,7 @@ object_preselection:
         dr_lepton: 0.4
         pt: 30
         eta: 4.7
-        tightLeptonVetoId: 5
+        jetId: 5
         puId:
             wp: L
             value: 4
