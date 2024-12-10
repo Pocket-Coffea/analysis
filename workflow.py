@@ -124,6 +124,10 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
 
     def count_objects(self, variation):
         self.events["nPhotonSR"] = ak.num(self.events.PhotonSR)
+        self.events["nPhotonCRB"] = ak.num(self.events.PhotonCRB)
+        self.events["nPhotonCRC"] = ak.num(self.events.PhotonCRC)
+        self.events["nPhotonCRD"] = ak.num(self.events.PhotonCRD)
+        self.events["nPhotonPLJ"] = ak.num(self.events.PhotonPLJ)
         # self.events["nMuonGood"] = ak.num(self.events.MuonGood)
         self.events["nMuonLoose"] = ak.num(self.events.MuonLoose)
         self.events["nElectronVeto"] = ak.num(self.events.ElectronVeto)
