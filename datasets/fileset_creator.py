@@ -95,7 +95,7 @@ class FilesetCreator:
 
 
 if __name__ == "__main__":
-    path_to_crab_output = "/eos/user/m/msahraei/PocketCoffea_input/"
+    path_to_crab_output = "/eos/user/m/msahraei/coffea_input/"
     dataset_file = "Had_NanoAODv9.lst"
     xsec_file = "nano_xsec.json"
     fileset_creator = FilesetCreator(path_to_crab_output, dataset_file, xsec_file)

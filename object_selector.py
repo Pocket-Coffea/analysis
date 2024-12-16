@@ -28,6 +28,14 @@ def photon_selection(events, photon, params, region, leptons_collection=""):
             cutbased_ids_medium["passSIEIE"] &
             cutbased_ids_medium["passed_chIso"]
         )
+
+    # if region == "CRA":
+    #     good_photons = (
+    #         passes_eta & passes_pt & passes_pixelseed & passes_transition & mask_lepton_cleaning & 
+    #         cutbased_ids_medium["passed_HNP_id"] &
+    #         ~cutbased_ids_loose["passSIEIE"] &
+    #         cutbased_ids_medium["passed_chIso"]
+            
     if region == "CRB":
         good_photons = (
             passes_eta & passes_pt & passes_pixelseed & passes_transition & mask_lepton_cleaning & 
@@ -50,7 +58,6 @@ def photon_selection(events, photon, params, region, leptons_collection=""):
             ~cutbased_ids_loose["passed_chIso"]
         )
     if region == "PLJ":
-        passes
         good_photons = (
             (passes_eta & passes_pt & passes_pixelseed & passes_transition & mask_lepton_cleaning & 
             cutbased_ids_medium["passed_hoe"]) &
