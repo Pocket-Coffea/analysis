@@ -46,7 +46,7 @@ cfg = Configurator(
             # f"{localdir}/datasets/TTToSemiLeptonic.json"
         ],
         "filter" : {
-            "samples": ["DATA_SinglePhoton", "DATA_EGamma", "TT", "TGJets", "GJets", "ST", "TTG", "WGJets", "WG", "WWG", "ZG"], #"TT", "TGJets", "GJets"
+            "samples": ["DATA_EGamma", "TT"], # "DATA_SinglePhoton", "TGJets", "GJets", "ST", "TTG", "WGJets", "WG", "WWG", "ZG"
             "samples_exclude" : [],
             "year": ['2018']
         },

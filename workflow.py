@@ -55,13 +55,20 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             self.events["PhotonPLJ"] = photon_selection(
                 self.events, "Photon", self.params, "PLJ"
             )
+
+            
             self.events["JetGood"], self.jetGoodMask = jet_selection(
                 self.events, "Jet", self.params, self._year, "PhotonSR"
             )
+            # index = ak.Array([[j for j in range(num)] for num in ak.num(self.events.JetGood)]) # ak.local_index does the same
+            # self.events["JetGood"] = ak.with_field(self.events["JetGood"], index, "index")
             self.events["BJetGood"] = btagging(
                 self.events["JetGood"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
             )
-    
+            self.events["JetGood_NotB"] =btagging(
+                self.events["JetGood"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp, veto=True
+            )
+                
         #####################################################                      #############################################
                                                                  #Muon Channel#
         #####################################################                      #############################################
@@ -153,18 +160,29 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         self.events["nElectronVeto"] = ak.num(self.events.ElectronVeto)
         self.events["nJetGood"] = ak.num(self.events.JetGood)
         self.events["nBJetGood"] = ak.num(self.events.BJetGood)
-
+        self.events["nJetGood_NotB"] = ak.num(self.events.JetGood_NotB)
 
     # Function that defines common variables employed in analyses and save them as attributes of `events`
     def define_common_variables_before_presel(self, variation):
-        #self.events["JetGood_Ht"] = ak.sum(abs(self.events.JetGood.pt), axis=1)
+        # non_btag_mask = []
+        # btagged_indices = self.events.BJetGood.index
+        # for outer_idx, inner_array in enumerate(self.events.JetGood.index):
+        #     inner_btagged_indices = btagged_indices[outer_idx]
+        #     mask = ak.Array([i not in inner_btagged_indices for i in range(len(inner_array))])
+        #     non_btag_mask.append(mask)
+        # non_btag_mask = ak.Array(non_btag_mask)
+        
+        # # events["JetGood"] = ak.with_field(events["JetGood"], btagg_mask, "b_tagged")
+        # # combined_jets = ak.combinations(self.events.JetGood, 3, fields=['j0', 'j1', 'j2'])
+        
+        # self.events["JetGood_NotB"] = self.events.JetGood[non_btag_mask]
+        # self.events["nJetGood_NotB"] = ak.num(self.events.JetGood_NotB)
         pass
 
-    def define_common_variables_after_presel(self, variation):
-        if not self._isMC:
-            mask_CRB = self.events["nPhotonCRB"] == 1
-            self.output["nCRB"] = ak.num(self.events[mask_CRB], axis=0)
-
+    def define_common_variables_after_presel(self, variation):        
+        self.events["W"] = self.events.JetGood_NotB[:, 0] + self.events.JetGood_NotB[:, 1]
+        self.events["top"] = self.events.JetGood_NotB[:, 0] + self.events.JetGood_NotB[:, 1] + self.events.BJetGood[:, 0]
+        
     def process(self, events: ak.Array):
         '''
         This function get called by Coffea on each chunk of NanoAOD file.

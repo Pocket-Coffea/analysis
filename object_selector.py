@@ -113,6 +113,6 @@ def lepton_selection(events, lepton, params, id):
 def btagging(Jet, btag, params, veto=False):
     cuts = params.object_preselection["Jet"]["btag"]
     if veto:
-        return Jet[(Jet[btag["btagging_algorithm"]] < btag["btagging_WP"][cuts["wp"]]) & (abs(Jet.eta < cuts["eta"]))]
+        return Jet[(Jet[btag["btagging_algorithm"]] < btag["btagging_WP"][cuts["wp"]])]
     else:
         return Jet[(Jet[btag["btagging_algorithm"]] > btag["btagging_WP"][cuts["wp"]]) & (abs(Jet.eta < cuts["eta"]))]

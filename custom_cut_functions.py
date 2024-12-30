@@ -12,9 +12,9 @@ def vlt_had_presel(events, params, year, sample, **kwargs):
     
     passed_nMuonLoose = events["nMuonLoose"] == 0
     passed_nElectronVeto = events["nElectronVeto"] == 0
-    passed_nJetGood = events["nJetGood"] > 2
-    passed_nBJetGood = events["nBJetGood"] > 0 
-    passes_other_objects = passed_nMuonLoose & passed_nElectronVeto & passed_nJetGood & passed_nBJetGood
+    passed_nJetGood_NotB = events["nJetGood_NotB"] >= 2
+    passed_nBJetGood = events["nBJetGood"] >= 1
+    passes_other_objects = passed_nMuonLoose & passed_nElectronVeto & passed_nJetGood_NotB & passed_nBJetGood
     
     mask = passes_photon & passes_other_objects
 
