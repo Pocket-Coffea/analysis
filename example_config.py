@@ -1,6 +1,6 @@
 from pocket_coffea.utils.configurator import Configurator
 from pocket_coffea.lib.cut_definition import Cut
-from pocket_coffea.lib.cut_functions import get_nObj_min, get_HLTsel, get_nPVgood, goldenJson, eventFlags
+from pocket_coffea.lib.cut_functions import get_nObj_min, get_HLTsel, get_nPVgood, goldenJson, eventFlags, get_nBtagEq, get_nBtagMin
 from pocket_coffea.parameters.cuts import passthrough
 from pocket_coffea.parameters.histograms import *
 import workflow
@@ -36,19 +36,25 @@ cfg = Configurator(
     parameters = parameters,
     datasets = {
         "jsons": [
-            # f"{localdir}/datasets/local_fileset.json",
+            f"{localdir}/datasets/local_fileset.json",
             # f"{localdir}/datasets/DATA_SingleMuon.json",    
-            f"{localdir}/datasets/DYJetsToLL_M-50.json",
-            f"{localdir}/datasets/DYJetsToLL_M10To50.json",
-            f"{localdir}/datasets/TTTo2L2Nu.json",
-            f"{localdir}/datasets/TGJets.json",
-            f"{localdir}/datasets/TTToHadronic.json",
-            f"{localdir}/datasets/TTToSemiLeptonic.json"
+            # f"{localdir}/datasets/DYJetsToLL_M-50.json",
+            # f"{localdir}/datasets/DYJetsToLL_M10To50.json",
+            # f"{localdir}/datasets/TTTo2L2Nu.json",
+            # f"{localdir}/datasets/TGJets.json",
+            # f"{localdir}/datasets/TTToHadronic.json",
+            # f"{localdir}/datasets/TTToSemiLeptonic.json"
         ],
         "filter" : {
-            "samples": ["TTTo2L2Nu", "TGJets", "TTToHadronic"],
+            "samples": ["DATA_EGamma", "TT"], # "DATA_SinglePhoton", "TGJets", "GJets", "ST", "TTG", "WGJets", "WG", "WWG", "ZG"
             "samples_exclude" : [],
             "year": ['2018']
+        },
+        "subsamples":{
+            "DATA_EGamma": {
+                "EGamma":  [passthrough],
+                "Jet_fake_photon" : [PLJ_cut]
+            }
         }
     },
 
@@ -59,9 +65,14 @@ cfg = Configurator(
             # Asking only SingleMuon triggers since we are only using SingleMuon PD data
             get_HLTsel(primaryDatasets=["EGamma"])], 
     
-    preselections = [dimuon_presel],
+    preselections = [vlt_had_presel],
     categories = {
-        "baseline": [passthrough],
+        # "baseline": [passthrough],
+        "SR": [SR_cut],
+        "CRB": [CRB_cut],
+        "CRC": [CRC_cut],
+        "CRD": [CRD_cut],
+        "PLJ": [PLJ_cut]
     },
 
     weights_classes = common_weights,
