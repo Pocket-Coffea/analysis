@@ -15,11 +15,18 @@ class FilesetCreator:
         self.fileset = {}
     
     def extract_fileset(self, on_GRID=True):
-        for root, _, _ in os.walk(self.base_dir):
+        print("self.base_dir", self.base_dir)
+        for root, dirs, files in os.walk(self.base_dir):
+            print("root", root)
             if root.endswith("0000"):
+                root_files = [f for f in files if f.endswith(".root") and f.startswith("out_")]
+                if not root_files:
+                    print("Skipping directory {0}".format(root))
+                    continue
                 unique_name = self.extract_unique_name(root)
                 print(unique_name)
                 dataset_info = self.sample_list.get_dataset_info(unique_name)
+                print("dataset_info", dataset_info)
                 if dataset_info["isData"]:
                     sample_name = "{}_{}_{}".format(dataset_info["sample"], dataset_info["year"], dataset_info["era"])
                 elif dataset_info["part"] is not None:
@@ -95,8 +102,9 @@ class FilesetCreator:
 
 
 if __name__ == "__main__":
-    path_to_crab_output = "/eos/user/m/msahraei/PocketCoffea_input/"
-    dataset_file = "Had_NanoAODv9.lst"
-    xsec_file = "nano_xsec.json"
+    path_to_crab_output = "/eos/user/e/ekhazaie/PocketCoffea_input/"
+    dataset_file = "Lep_NanoAODv9.lst"
+    xsec_file = "updated_samples_xsec.json"
     fileset_creator = FilesetCreator(path_to_crab_output, dataset_file, xsec_file)
-    fileset_creator.create_fileset_json("local_fileset.json", False)
+    fileset_creator.create_fileset_json("local_Lep_fileset.json", False)
+

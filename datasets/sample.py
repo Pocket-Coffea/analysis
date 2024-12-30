@@ -30,6 +30,16 @@ class SampleNameParser:
         self.regexps.append( re.compile( r'/TTTo(?P<TT>(2L2Nu|SemiLeptonic|Hadronic)).*' )  )
         self.regexps.append( re.compile( r'/GJets_HT-(?P<GJets>40To100|100To200|200To400|400To600|600ToInf).*' )  )
         self.regexps.append( re.compile( r'/WGJets_MonoPhoton_PtG-(?P<WGJets>40to130|130)_TuneCP5.*' )  )
+        self.regexps.append( re.compile( r'/DYJetsToLL_M-(?P<DYJets>50|10to50)_.*amcatnloFXFX.*' ) )
+        self.regexps.append( re.compile( r'/TGJets_TuneCP5_13TeV-amcatnlo-madspin-pythia8.*' ) )
+        self.regexps.append( re.compile( r'/(?P<WZ>[WZ][WZ])_.*' ) )
+        self.regexps.append( re.compile( r'/WGToLNuG_.*' ) )
+        self.regexps.append( re.compile( r'/W(?P<WJets>[1-4])JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8.*' ) )
+        self.regexps.append( re.compile( r'/WWG_TuneCP5_13TeV-amcatnlo-pythia8.*' ) )
+        self.regexps.append( re.compile( r'/WZG_TuneCP5_13TeV-amcatnlo-pythia8.*' ) )
+        self.regexps.append( re.compile( r'/WZTo3LNu_TuneCP5_13TeV-amcatnloFXFX-pythia8.*' ) )
+        self.regexps.append( re.compile( r'/ZGToLLG_01J_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8.*' ) )
+        self.regexps.append( re.compile( r'/VLTquarkToPhotonTop_M-(?P<Signal>600|700|800|900|1000|1100|1200|1300|1400|1500|1600|1700|1800|1900|2000)_PtG-10_TuneCP5_13TeV-madgraph-pythia8/.*' ) )
 
     def parse(self , sample):
         ret = [ re.match( sample ) for re in self.regexps ]
@@ -37,7 +47,7 @@ class SampleNameParser:
         for regexp in [ r for r in ret if r ]:
             for group, value in regexp.groupdict().items():
                 info[group] = value
-        
+        print("info", info)
         return ret , info
     
 class Sample:
@@ -57,6 +67,14 @@ class Sample:
             "TTTo2L2Nu": "TT",
             "TTToHadronic": "TT",
             "TTToSemiLeptonic": "TT",
+            "DYJetsToLL" : "DYJets",
+            "DiBoson" : "diboson",
+            "WGToLNuG" : "WG",
+            "WJetsToLNu" : "WJets",
+            "WZG" : "WZG",
+            "WZTo3LNu" : "WZ",
+            "ZGToLLG": "ZG",
+            "VLTquarkToPhotonTop": "Signal"
         }
 
     def sample_name(self):
@@ -65,6 +83,7 @@ class Sample:
             smpl_name = self.ds.split("/")[1]
         else:
             smpl_name = self.sample_dict.get(sample)
+            print("smpl_name", smpl_name)
         return smpl_name
 
     def prevfp(self):
