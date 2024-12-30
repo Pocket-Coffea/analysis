@@ -3,6 +3,7 @@ from sample import *
 import uproot 
 import json
 import subprocess
+import sys
 
 class FilesetCreator:
     def __init__(self, crab_output, dataset_file, xsections_file):
@@ -16,7 +17,7 @@ class FilesetCreator:
     
     def extract_fileset(self, on_GRID=True):
         for root, _, _ in os.walk(self.base_dir):
-            if root.endswith("0000"):
+            if root.endswith("/0000"):
                 unique_name = self.extract_unique_name(root)
                 print(unique_name)
                 dataset_info = self.sample_list.get_dataset_info(unique_name)
@@ -52,7 +53,7 @@ class FilesetCreator:
             
     def hadd_files(self, dir, target_file):
         if target_file not in os.listdir(dir):
-            files = [os.path.join(dir,f) for f in os.listdir(dir) if ".root" in f]
+            files = [os.path.join(dir,f) for f in os.listdir(dir) if ".root" in f and f.startswith("out_") ]
             cmd = ["hadd", os.path.join(dir, target_file)] + files
             subprocess.run(cmd, check=True)
         return os.path.join(dir, target_file)
@@ -95,8 +96,10 @@ class FilesetCreator:
 
 
 if __name__ == "__main__":
-    path_to_crab_output = "/eos/user/m/msahraei/coffea_input/"
-    dataset_file = "Had_NanoAODv9.lst"
-    xsec_file = "nano_xsec.json"
+
+    path_to_crab_output = sys.argv[1]
+    dataset_file = sys.argv[2]
+    xsec_file = "updated_samples_xsec.json"
     fileset_creator = FilesetCreator(path_to_crab_output, dataset_file, xsec_file)
     fileset_creator.create_fileset_json("local_fileset.json", False)
+
