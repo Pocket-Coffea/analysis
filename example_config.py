@@ -25,8 +25,8 @@ default_parameters = defaults.get_default_parameters()
 defaults.register_configuration_dir("config_dir", localdir+"/params")
 
 parameters = defaults.merge_parameters_from_files(default_parameters,
-                                                  f"{localdir}/params/object_preselection_had.yaml",
-                                                  f"{localdir}/params/triggers_had.yaml",
+                                                  f"{localdir}/params/object_preselection_lep.yaml",
+                                                  f"{localdir}/params/triggers_lep.yaml",
                                                   f"{localdir}/params/plotting.yaml",
                                                   update=True)
 
@@ -46,7 +46,8 @@ cfg = Configurator(
             # f"{localdir}/datasets/TTToSemiLeptonic.json"
         ],
         "filter" : {
-            "samples": ["DATA_EGamma", "TT"], # "DATA_SinglePhoton", "TGJets", "GJets", "ST", "TTG", "WGJets", "WG", "WWG", "ZG"
+            "samples": ["DATA_EGamma", "DYJets", "TT", "TGJets", "GJets", "ST", "TTG", "WJets", "WG", "WWG", "WZG", "ZG"], 
+            # "DATA_SinglePhoton"
             "samples_exclude" : [],
             "year": ['2018']
         }
@@ -57,7 +58,7 @@ cfg = Configurator(
     skim = [#get_nPVgood(1), eventFlags, goldenJson, # basic skims
             #get_nObj_min(1, 18., "Muon"),
             # Asking only SingleMuon triggers since we are only using SingleMuon PD data
-            get_HLTsel(primaryDatasets=["EGamma"])], 
+            get_HLTsel()], 
     
     preselections = [vlt_presel],
     categories = {
@@ -95,15 +96,15 @@ cfg = Configurator(
 
     
    variables = {
-        "photon_hists" : HistConf( [Axis(coll="Photon", field="pt", bins=100, start=0, stop=800, label="Photon")] ),
-        # **count_hist(name="LeptonGood", coll="LeptonGood",bins=3, start=0, stop=3),
-        # **count_hist(name="nJets", coll="JetGood",bins=8, start=0, stop=8),
-        # **count_hist(name="nBJets", coll="BJetGood",bins=8, start=0, stop=8),
-        **jet_hists(coll="JetGood", pos=0),
-        **jet_hists(coll="JetGood", pos=1),
-        # "top": HistConf( [Axis(coll="top", field="pt", bins=100, start=0, stop=500, label="top")] ),
-        # "T": HistConf( [Axis(coll="T", field="pt", bins=100, start=0, stop=2000, label="T")] )
-        # "mll" : HistConf( [Axis(coll="ll", field="mass", bins=100, start=0, stop=200, label=r"$M_{\ell\ell}$ [GeV]")] ),
-    }
+       **lepton_hists(),
+       **jet_hists(),
+       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=50, start=0, stop=500, label="Photon_pt")] ),
+       "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=10, start=-2.5, stop=2.5, label="Photon_eta")] ),
+       "BJet_pt": HistConf( [Axis(coll="PhotonGood", field="eta", bins=50, start=0, stop=200, label="BJet_pt")] ),
+       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=50, start=0, stop=500, label="top_pt")] ),
+       "top_mass": HistConf( [Axis(coll="top", field="pt", bins=50, start=0, stop=500, label="top_mass")] ),
+       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=50, start=0, stop=500, label="VLT_pt")] ),
+       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=100, start=0, stop=2000, label="VLT_mass")] )
+   }
 )
 

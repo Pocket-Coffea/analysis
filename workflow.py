@@ -125,8 +125,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                 "[70, 100]": [70, 100],
                 "[100, 140]": [100, 140],
                 "[140, 200]": [140, 200],
-                "[200, 300]": [200, 300],
-                "[300, np.inf]": [300, np.inf]
+                "[200, np.inf]": [200, np.inf]
             }
     
             self.output["nevents"] = {}
@@ -428,7 +427,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         if not self.cfg.do_postprocessing:
             return accumulator
 
-        
+                
         # Saving dataset metadata directly in the output file reading from the config
         dmeta = accumulator["datasets_metadata"] = {
             "by_datataking_period": {},
@@ -475,5 +474,14 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                 if year not in dmeta["by_datataking_period"]:
                     dmeta["by_datataking_period"][year] = defaultdict(set)
                 dmeta["by_datataking_period"][year]["JetFakePhoton"].add(dataset_name)
+
+        diction = {pt:{} for _, pt_int in accumulator["nevents"].items() for pt in pt_int}
+        for region, dic in accumulator["nevents"].items():
+            for pt_interval, _ in dic.items():
+                diction[pt_interval][region] = dic[pt_interval]
+        
+        EF = accumulator["EF"] = {}
+        for pt_interval, dicti in diction.items():
+            EF[pt_interval] = ((dicti["CRB"]*dicti["CRC"])/dicti["CRD"])/dicti["PLJ"]
 
         return accumulator

@@ -121,7 +121,7 @@
             "year": "2018",
             "isMC": "False",
             "nevents": 339013216.0,
-            "primaryDataset": "EGamma",
+            "primaryDataset": "SingleElectron",
             "era": "A"
         }
     },
@@ -135,7 +135,7 @@
             "year": "2018",
             "isMC": "False",
             "nevents": 153792784.0,
-            "primaryDataset": "EGamma",
+            "primaryDataset": "SingleElectron",
             "era": "B"
         }
     },
@@ -149,7 +149,7 @@
             "year": "2018",
             "isMC": "False",
             "nevents": 147827904.0,
-            "primaryDataset": "EGamma",
+            "primaryDataset": "SingleElectron",
             "era": "C"
         }
     },
@@ -163,7 +163,7 @@
             "year": "2018",
             "isMC": "False",
             "nevents": 752524352.0,
-            "primaryDataset": "EGamma",
+            "primaryDataset": "SingleElectron",
             "era": "D"
         }
     },

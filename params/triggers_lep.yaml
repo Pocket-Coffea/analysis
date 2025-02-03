@@ -1,27 +1,27 @@
 HLT_triggers:
     2016_PreVFP:
-        SingleEle:
+        SingleElectron:
             - Ele27_WPTight_Gsf
         SingleMuon: 
             - IsoMu24
             - IsoTkMu24
 
     2016_PostVFP:
-        SingleEle:
+        SingleElectron:
             - Ele27_WPTight_Gsf
         SingleMuon: 
             - IsoMu24
             - IsoTkMu24
     
     "2017":
-        SingleEle:
+        SingleElectron:
             - Ele32_WPTight_Gsf
             - Ele32_WPTight_Gsf_L1DoubleEG
         SingleMuon: 
             - IsoMu27
   
     "2018":
-        SingleEle:
+        SingleElectron:
             - Ele32_WPTight_Gsf
         SingleMuon: 
             - IsoMu24

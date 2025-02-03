@@ -201,7 +201,7 @@ class CustomHistManager(HistManager):
                 weights[category] = self.__prefetch_weights(category, shape_variation)
         if smpl == "PLJ":
             EF = ExtrapolationFactor(events)
-            # EF_weight = EF.compute_EF().nominal
+            EF_weight = EF.compute_EF(self.year)
         # Cleaning the weights cache decorator between calls.
         self._weights_cache.clear()
         # Looping on the histograms to read the values only once
@@ -254,8 +254,10 @@ class CustomHistManager(HistManager):
                     new_events = events[mask]
                     if smpl == "SR":
                         new_events["VLT"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino + new_events.PhotonSR
+                        new_events["PhotonGood"] = new_events["PhotonSR"]
                     if smpl == "PLJ":
                         new_events["VLT"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino + new_events.PhotonPLJ
+                        new_events["PhotonGood"] = new_events["PhotonPLJ"]
 
                     for ax in histo.axes:
                         # Checkout the collection type
@@ -276,7 +278,7 @@ class CustomHistManager(HistManager):
                                     )
                                 # General collections
                                 if ax.pos == None:
-                                    data = new_events[ax.coll][ax.field]
+                                    data = getattr(new_events[ax.coll], ax.field)
                                 elif ax.pos >= 0:
                                     data = ak.pad_none(
                                         new_events[ax.coll][ax.field], ax.pos + 1, axis=1
@@ -502,11 +504,12 @@ class CustomHistManager(HistManager):
                         # Fill histograms for Data
                         try:
                             if subsample=="JetFakePhoton":
+                                ef_weight = ak.to_numpy(ak.flatten(data_structure * EF_weight) if not (data_structure is None) else EF_weight, allow_missing=False)
                                 for variation in histo.hist_obj.axes["variation"]:
                                     self.histograms[subsample][name].hist_obj.fill(
                                         cat=category,
                                         variation=variation,
-                                        # weight=EF_weight,
+                                        weight=ef_weight,
                                         **{**fill_categorical, **fill_numeric_masked},
                                     )
                             else:

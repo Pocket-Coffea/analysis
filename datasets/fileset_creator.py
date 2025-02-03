@@ -39,7 +39,7 @@ class FilesetCreator:
                     self.fileset[sample_name]["metadata"]["isMC"] = "False" if dataset_info["isData"] else "True"
                     self.fileset[sample_name]["metadata"]["nevents"] = nevents
                     if dataset_info["isData"]:
-                        self.fileset[sample_name]["metadata"]["primaryDataset"] = dataset_info["sample"]
+                        self.fileset[sample_name]["metadata"]["primaryDataset"] = dataset_info["sample"] if not dataset_info["sample"]=="EGamma" else "SingleElectron"
                         self.fileset[sample_name]["metadata"]["era"] = dataset_info["era"]
                     else:
                         xsec = self.xsection(dataset_info["dataset"])

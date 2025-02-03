@@ -14,7 +14,7 @@ def vlt_presel(events, params, **kwargs):
     if events.flavor[0] == "Electron":
         passed_nMuonLoose = events["nMuonLoose"] == 0
         passed_nElectronVeto = events["nElectronVeto"] == events["nLeptonGood"]
-    elif events.LeptonGood.flavor[0] == "Muon":
+    elif events.flavor[0] == "Muon":
         passed_nMuonLoose = events["nMuonLoose"] == events["nLeptonGood"]
         passed_nElectronVeto = events["nElectronVeto"] == 0
     else:
