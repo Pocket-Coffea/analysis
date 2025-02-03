@@ -116,3 +116,51 @@ def btagging(Jet, btag, params, veto=False):
         return Jet[(Jet[btag["btagging_algorithm"]] < btag["btagging_WP"][cuts["wp"]])]
     else:
         return Jet[(Jet[btag["btagging_algorithm"]] > btag["btagging_WP"][cuts["wp"]]) & (abs(Jet.eta < cuts["eta"]))]
+
+def calculateNu4vec(lepton, MET):
+    # MET components
+    MET_pt = MET.pt 
+    MET_phi = MET.phi
+    MET_px = MET_pt * np.cos(MET_phi)
+    MET_py = MET_pt * np.sin(MET_phi) 
+    # Lepton components
+    lep_m = lepton.mass
+    lep_eta = lepton.eta
+    lep_pt = lepton.pt
+    lep_phi = lepton.phi
+    lep_py = lep_pt * np.sin(lep_phi)
+    lep_px = lep_pt * np.cos(lep_phi)
+    lep_pz = lep_pt * np.sinh(lep_eta)
+    lep_E = np.sqrt(lep_px**2 + lep_py**2 + lep_pz**2 + lep_m**2)
+    # Constants
+    MW = 80.38  # W boson mass in GeV
+
+
+    #Discriminant
+    A = pow(lep_pz,2)-pow(lep_E,2)
+    alpha = pow(MW,2)-pow(lep_m,2) + 2 * (lep_px * MET_px + lep_py * MET_py)
+    B = alpha * lep_pz
+    C = (- pow(lep_E,2) * pow(MET_pt,2) ) + np.divide(pow(alpha,2),4)
+    dis = (pow(B,2) - (4*A*C))  # b2-4AC
+
+    condition = dis >= 0
+    
+    root = np.sqrt(ak.where(condition, dis, ak.zeros_like(dis)))
+    root1 = np.divide(- B - root, 2*A)
+    root2 = np.divide(- B + root, 2*A)
+    pz_nu = ak.where(np.abs(root1) < np.abs(root2), root1, root2)
+    E_nu = np.sqrt(MET_pt + pz_nu**2)  
+
+    real_root = ak.where(condition, ak.zeros_like(dis), -B/(2*A)) 
+    pz_nu = ak.where(condition, pz_nu, real_root)
+    E_nu = np.sqrt(MET_pt + pz_nu**2)  
+
+    
+    pt = MET_pt
+    phi = MET_phi
+    theta = np.arctan2(pt, pz_nu)
+    eta = -np.log(np.tan(theta / 2))
+    m = np.sqrt(np.maximum(E_nu**2 - (MET_px**2 + MET_py**2 + pz_nu**2), 0))
+    nu_p4 = ak.zip({"pt": pt, "eta": eta, "phi": phi, "mass": m},with_name="PtEtaPhiMCandidate")
+
+    return nu_p4

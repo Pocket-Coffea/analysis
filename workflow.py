@@ -3,12 +3,16 @@ import copy
 # import os
 # import logging
 import time
+from collections import defaultdict
 
 
 from pocket_coffea.workflows.base import BaseProcessorABC
 from pocket_coffea.utils.configurator import Configurator
-from pocket_coffea.lib.hist_manager import Axis
+from pocket_coffea.lib.categorization import StandardSelection
+from pocket_coffea.parameters.cuts import passthrough
+from custom_hist_manager import CustomHistManager
 from object_selector import *
+from custom_cut_functions import *
 from pocket_coffea.lib.objects import (
     jet_correction,
     jet_selection,
@@ -20,134 +24,50 @@ from pocket_coffea.lib.objects import (
 class TopPartnerBaseProcessor(BaseProcessorABC):
     def __init__(self, cfg: Configurator):
         super().__init__(cfg)
-        self.final_state = "Had"
+        self.lepton = "Electron"
+        self.cfg.subsamples_reversed_map["JetFakePhoton"] = "PLJ"
+        self.cfg.samples_metadata["PLJ"] = {'isMC': False}
 
     def load_metadata_extra(self):
         self._nEvents_primary = self.events.metadata["nevents"]
 
     def apply_object_preselection(self, variation):
-
-        #####################################################                      #############################################
-                                                               #Hadronic Channel#
-        #####################################################                      #############################################
-        if self.final_state == "Had":
-            self.events["MuonLoose"] = lepton_selection(
-                self.events, "Muon", self.params, id="loose"
-            )
-            self.events["ElectronVeto"] = lepton_selection(
-                self.events, "Electron", self.params, id="veto"
-            )
-            self.events["PhotonSR"] = photon_selection(
-                self.events, "Photon", self.params, region = "SR"
-            )
-            self.events["PhotonCRA"] = photon_selection(
-                self.events, "Photon", self.params, region = "CRB"
-            )
-            self.events["PhotonCRB"] = photon_selection(
-                self.events, "Photon", self.params, region = "CRB"
-            )
-            self.events["PhotonCRC"] = photon_selection(
-                self.events, "Photon", self.params, region = "CRC"
-            )
-            self.events["PhotonCRD"] = photon_selection(
-                self.events, "Photon", self.params, region = "CRD"
-            )
-            self.events["PhotonPLJ"] = photon_selection(
-                self.events, "Photon", self.params, "PLJ"
-            )
-
-            
-            self.events["JetGood"], self.jetGoodMask = jet_selection(
-                self.events, "Jet", self.params, self._year, "PhotonSR"
-            )
-            # index = ak.Array([[j for j in range(num)] for num in ak.num(self.events.JetGood)]) # ak.local_index does the same
-            # self.events["JetGood"] = ak.with_field(self.events["JetGood"], index, "index")
-            self.events["BJetGood"] = btagging(
-                self.events["JetGood"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
-            )
-            self.events["JetGood_NotB"] =btagging(
-                self.events["JetGood"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp, veto=True
-            )
-                
-        #####################################################                      #############################################
-                                                                 #Muon Channel#
-        #####################################################                      #############################################
-        if self.final_state == "Mu":
-            self.events["MuonGood"] = lepton_selection(
-                self.events, "Muon", self.params, id="tight"
-            )
-            self.events["MuonLoose"] = lepton_selection(
-                self.events, "Muon", self.params, id="loose"
-            )
-            self.events["ElectronVeto"] = lepton_selection(
-                self.events, "Electron", self.params, id="veto"
-            )
-            self.events["PhotonSR"] = photon_selection(
-                self.events, "Photon", self.params, "SR", "MuonGood"
-            )
-            self.events["PhotonCRB"] = photon_selection(
-                self.events, "Photon", self.params, "CRB", "MuonGood"
-            )
-            self.events["PhotonCRC"] = photon_selection(
-                self.events, "Photon", self.params, "CRC", "MuonGood"
-            )
-            self.events["PhotonCRD"] = photon_selection(
-                self.events, "Photon", self.params, "CRD", "MuonGood"
-            )
-            self.events["PhotonPLJ"] = photon_selection(
-                self.events, "Photon", self.params, "PLJ", "MuonGood"
-            )
-            MuPho = ak.with_name(
-                ak.concatenate((self.events.MuonGood, self.events.PhotonSR), axis=1),
-                name='PtEtaPhiMCandidate',
-            )
-            self.events["MuPho"] = MuPho[ak.argsort(MuPho.pt, ascending=False)]
-            self.events["JetGood"], self.jetGoodMask = jet_selection(
-                self.events, "Jet", self.params, self._year, "MuPho"
-            )
-            self.events["BJetGood"] = btagging(
-                self.events["JetGood"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
-            )
-        #####################################################                      #############################################
-                                                               #Electron Channel#
-        #####################################################                      #############################################
-        if self.final_state == "Ele":
-            self.events["MuonLoose"] = lepton_selection(
-                self.events, "Muon", self.params, id="loose"
-            )
-            self.events["ElectronGood"] = lepton_selection(
-                self.events, "Electron", self.params, id="tight"
-            )
-            self.events["ElectronVeto"] = lepton_selection(
-                self.events, "Electron", self.params, id="veto"
-            )
-            self.events["PhotonSR"] = photon_selection(
-                self.events, "Photon", self.params, "SR", "ElectronGood"
-            )
-            self.events["PhotonCRB"] = photon_selection(
-                self.events, "Photon", self.params, "CRB", "ElectronGood"
-            )
-            self.events["PhotonCRC"] = photon_selection(
-                self.events, "Photon", self.params, "CRC", "ElectronGood"
-            )
-            self.events["PhotonCRD"] = photon_selection(
-                self.events, "Photon", self.params, "CRD", "ElectronGood"
-            )
-            self.events["PhotonPLJ"] = photon_selection(
-                self.events, "Photon", self.params, "PLJ", "ElectronGood"
-            )
-            ElePho = ak.with_name(
-                ak.concatenate((self.events.ElectronGood, self.events.PhotonSR), axis=1),
-                name='PtEtaPhiMCandidate',
-            )
-            self.events["ElePho"] = ElePho[ak.argsort(ElePho.pt, ascending=False)]
-            self.events["JetGood"], self.jetGoodMask = jet_selection(
-                self.events, "Jet", self.params, self._year, "ElePho"
-            )
-            self.events["BJetGood"] = btagging(
-                self.events["JetGood"], self.params.btagging.working_point[self._year], self.params
-            )
-
+        self.events = ak.with_field(self.events, self.lepton, 'flavor')
+        self.events["LeptonGood"] = lepton_selection(
+            self.events, self.lepton, self.params, id="tight"
+        )
+        self.events["MuonLoose"] = lepton_selection(
+            self.events, "Muon", self.params, id="loose"
+        )
+        self.events["ElectronVeto"] = lepton_selection(
+            self.events, "Electron", self.params, id="veto"
+        )
+        self.events["PhotonSR"] = photon_selection(
+            self.events, "Photon", self.params, "SR", "LeptonGood"
+        )
+        self.events["PhotonCRB"] = photon_selection(
+            self.events, "Photon", self.params, "CRB"
+        )
+        self.events["PhotonCRC"] = photon_selection(
+            self.events, "Photon", self.params, "CRC"
+        )
+        self.events["PhotonCRD"] = photon_selection(
+            self.events, "Photon", self.params, "CRD"
+        )
+        self.events["PhotonPLJ"] = photon_selection(
+            self.events, "Photon", self.params, "PLJ"
+        )
+        LepPho = ak.with_name(
+            ak.concatenate((self.events.LeptonGood, self.events.PhotonSR), axis=1),
+            name='PtEtaPhiMCandidate',
+        )
+        self.events["LepPho"] = LepPho[ak.argsort(LepPho.pt, ascending=False)]
+        self.events["JetGood"], self.jetGoodMask = jet_selection(
+            self.events, "Jet", self.params, self._year, "LepPho"
+        )
+        self.events["BJetGood"] = btagging(
+            self.events["JetGood"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+        )
 
     def count_objects(self, variation):
         self.events["nPhotonSR"] = ak.num(self.events.PhotonSR)
@@ -155,33 +75,215 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         self.events["nPhotonCRC"] = ak.num(self.events.PhotonCRC)
         self.events["nPhotonCRD"] = ak.num(self.events.PhotonCRD)
         self.events["nPhotonPLJ"] = ak.num(self.events.PhotonPLJ)
-        # self.events["nMuonGood"] = ak.num(self.events.MuonGood)
+        self.events["nLeptonGood"] = ak.num(self.events.LeptonGood)
         self.events["nMuonLoose"] = ak.num(self.events.MuonLoose)
         self.events["nElectronVeto"] = ak.num(self.events.ElectronVeto)
         self.events["nJetGood"] = ak.num(self.events.JetGood)
         self.events["nBJetGood"] = ak.num(self.events.BJetGood)
-        self.events["nJetGood_NotB"] = ak.num(self.events.JetGood_NotB)
 
     # Function that defines common variables employed in analyses and save them as attributes of `events`
     def define_common_variables_before_presel(self, variation):
-        # non_btag_mask = []
-        # btagged_indices = self.events.BJetGood.index
-        # for outer_idx, inner_array in enumerate(self.events.JetGood.index):
-        #     inner_btagged_indices = btagged_indices[outer_idx]
-        #     mask = ak.Array([i not in inner_btagged_indices for i in range(len(inner_array))])
-        #     non_btag_mask.append(mask)
-        # non_btag_mask = ak.Array(non_btag_mask)
-        
-        # # events["JetGood"] = ak.with_field(events["JetGood"], btagg_mask, "b_tagged")
-        # # combined_jets = ak.combinations(self.events.JetGood, 3, fields=['j0', 'j1', 'j2'])
-        
-        # self.events["JetGood_NotB"] = self.events.JetGood[non_btag_mask]
-        # self.events["nJetGood_NotB"] = ak.num(self.events.JetGood_NotB)
         pass
 
     def define_common_variables_after_presel(self, variation):        
-        self.events["W"] = self.events.JetGood_NotB[:, 0] + self.events.JetGood_NotB[:, 1]
-        self.events["top"] = self.events.JetGood_NotB[:, 0] + self.events.JetGood_NotB[:, 1] + self.events.BJetGood[:, 0]
+        # self.events["MET_"] = ak.zip({
+        #                         "pt": self.events.MET.pt,
+        #                         "eta": ak.zeros_like(self.events.MET.pt),
+        #                         "phi": self.events.MET.phi,
+        #                         "mass": ak.zeros_like(self.events.MET.pt),
+        #                         "charge": ak.zeros_like(self.events.MET.pt),
+        #                         },with_name="PtEtaPhiMCandidate")
+        self.events["neutrino"] = calculateNu4vec(self.events.LeptonGood, self.events.MET)
+        self.events["W_transMass"] = np.sqrt(2*self.events.LeptonGood.pt*self.events.MET.pt*(1-np.cos(self.events.LeptonGood.delta_phi(self.events.MET))))
+
+        # deltaR = self.events.BJetGood.delta_r(self.events.MuonGood)
+        # min_deltaR = ak.argmin(deltaR, axis=1, keepdims=True)
+        # self.events["b_jet"] = self.events.BJetGood[min_deltaR]
+        
+        # top reconstruction: W(mu+nu)+b
+        self.events["top"] = self.events.LeptonGood + self.events.BJetGood + self.events.neutrino
+        # self.events["top_m"] = self.events.top.mass
+        # self.events["top_pt"] = self.events.top.pt
+        # self.events["top_eta"] = self.events.top.eta
+        # self.events["top_phi"] = self.events.top.phi
+
+        self.events["VLT"] = self.events.LeptonGood + self.events.BJetGood + self.events.neutrino
+
+    def process_extra_after_presel(self, variation):
+
+        if not self._isMC:
+            self.regions = StandardSelection({"PLJ": [PLJ_cut], "CRB": [CRB_cut], "CRC": [CRC_cut], "CRD": [CRD_cut]})
+            self.regions.prepare(
+                events=self.events,
+                processor_params={},
+            )
+
+            pt_intervals = {
+                "[30, 40]": [30, 40],
+                "[40, 50]": [40, 50],
+                "[50, 70]": [50, 70],
+                "[70, 100]": [70, 100],
+                "[100, 140]": [100, 140],
+                "[140, 200]": [140, 200],
+                "[200, 300]": [200, 300],
+                "[300, np.inf]": [300, np.inf]
+            }
+    
+            self.output["nevents"] = {}
+            self.output["nevents_dataset"] = {}
+            
+            for region, mask in self.regions.get_masks():
+                masked_events = self.events[mask]
+                photon = ak.flatten(getattr(masked_events, "Photon{}".format(region)))
+                self.output["nevents"][region] = {}
+                self.output["nevents_dataset"][region] = {pt: {} for pt in pt_intervals.keys()}
+                for pt, pt_interval in pt_intervals.items():
+                    selected_events = masked_events[(photon.pt >= pt_interval[0]) & (photon.pt < pt_interval[1])]
+                    self.output["nevents"][region][pt] = len(selected_events)
+                    self.output["nevents_dataset"][region][pt][self._dataset] = len(selected_events)
+            
+
+    def define_categories(self, variation):
+        '''
+        The function saves all the cut masks internally, in order to use them later
+        to define categories (groups of cuts.).
+
+        The categorization objects takes care of the details of the caching of the mask
+        and expose a common interface.
+
+        Moreover it computes the cut masks defining the subsamples for the current
+        chunks and store them in the `self.subsamples` attribute for later use.
+        '''
+
+        # We make sure that for each category the list of cuts is unique in the Configurator validation
+        self._categories.prepare(
+            events=self.events,
+            processor_params=self.params,
+            year=self._year,
+            sample=self._sample,
+            isMC=self._isMC,
+        )
+
+        self._subsamples[self._sample].prepare(
+            events=self.events,
+            processor_params=self.params,
+            year=self._year,
+            sample=self._sample,
+            isMC=self._isMC,
+        )
+        
+        self.PLJ_category.prepare(
+            events=self.events,
+            processor_params=self.params,
+            year=self._year,
+            sample=self._sample,
+            isMC=self._isMC,
+        )
+
+        self.PLJ_subsample["PLJ"].prepare(
+            events=self.events,
+            processor_params=self.params,
+            year=self._year,
+            sample=self._sample,
+            isMC=self._isMC,
+        )
+
+    def define_histograms(self):
+        '''
+        Initialize the HistManager.
+        Redefine to customize completely the creation of the histManager.
+        Only one HistManager is created for all the subsamples.
+        The subsamples masks are passed to `fill_histogram` and used internally.
+        '''
+        self.hists_manager = CustomHistManager(
+            self.cfg.variables,
+            self._year,
+            self._sample,
+            self._subsamples[self._sample].keys(),
+            self._categories,
+            variations_config=self.cfg.variations_config[self._sample] if self._isMC else None,
+            processor_params=self.params,
+            weights_manager=self.weights_manager if self._isMC else None,
+            custom_axes=self.custom_axes,
+            isMC=self._isMC,
+        )            
+            
+    def define_histograms_extra(self):
+        '''
+        Function that get called after the creation of the HistManager.
+        The user can redefine this function to manipulate the HistManager
+        histogram configuration to add customizations directly to the histogram
+        objects before the filling.
+
+        This function should also be redefined to fill the `self.custom_histogram_fields`
+        that are passed to the histogram filling.
+        '''
+        # Here we define a new HistManager for PLJ sample
+        # We use PocketCoffea HistManager with new subsample
+        self.PLJ_category = StandardSelection({"SR": [PLJ_cut]})
+        self.PLJ_subsample = {"PLJ": StandardSelection({"JetFakePhoton": [passthrough]})}
+        
+        if not self._isMC:
+            
+            self.PLJsample_hists_manager = CustomHistManager(
+                self.cfg.variables,
+                self._year,
+                "PLJ",
+                self.PLJ_subsample["PLJ"].keys(),
+                self.PLJ_category,
+                variations_config=self.cfg.variations_config[self._sample] if self._isMC else None,
+                processor_params=self.params,
+                weights_manager=self.weights_manager,
+                custom_axes=self.custom_axes,
+                isMC=self._isMC,
+            )
+        
+
+    # def fill_histograms(self, variation):
+    #     '''Function which fill the histograms for each category and variation,
+    #     throught the HistManager.
+    #     '''
+    #     if not len(self.SR_events):
+    #         # Filling the autofill=True histogram automatically
+    #         # Calling hist manager with the subsample masks
+    #         self.hists_manager.fill_histograms(
+    #             self.SR_events,
+    #             self.SR_category,
+    #             subsamples=self._subsamples[self._sample],
+    #             shape_variation=variation,
+    #             custom_fields=self.custom_histogram_fields,
+    #         )
+    #         # Saving the output for each sample/subsample
+    #         for subs in self._subsamples[self._sample].keys():
+    #             # When we loop on all the subsample we need to format correctly the output if
+    #             # there are no subsamples
+    #             if self._hasSubsamples:
+    #                 name = f"{self._sample}__{subs}"
+    #             else:
+    #                 name = self._sample
+    #             for var, H in self.hists_manager.get_histograms(subs).items():
+    #                 self.output["variables"][var][name][self._dataset] = H
+
+
+    def fill_histograms_extra(self, variation):
+        '''
+        The function get called after the filling of the default histograms.
+        Redefine it to fill custom histograms
+        '''
+        if not self._isMC:
+            self.PLJsample_hists_manager.fill_histograms(
+                self.events,
+                self.PLJ_category,
+                subsamples=self.PLJ_subsample["PLJ"],
+                shape_variation=variation,
+                custom_fields=self.custom_histogram_fields,
+                smpl="PLJ"
+            )
+            # Saving the output for each sample/subsample
+            subsample_name = "JetFakePhoton"
+            dataset_name = self._dataset + "_PLJ"
+            for var, H in self.PLJsample_hists_manager.get_histograms("JetFakePhoton").items():
+                self.output["variables"][var][subsample_name][dataset_name] = H
         
     def process(self, events: ak.Array):
         '''
@@ -308,3 +410,70 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         self.stop_time = time.time()
         self.save_processing_metadata()
         return self.output
+
+    def postprocess(self, accumulator):
+        '''
+        The function is called by coffea at the end of the processing.
+        The default function calls the `rescale_sumgenweights` function to rescale the histograms
+        and `sumw` metadata using the sum of the genweights computed without preselections
+        for each dataset.
+
+        Moreover the function saves in the output a dictionary of metadata
+        with the full description of the datasets taken from the configuration.
+
+        To add additional customatizaion redefine the `postprocessing` function,
+        but remember to include a super().postprocess() call.
+        '''
+        
+        if not self.cfg.do_postprocessing:
+            return accumulator
+
+        
+        # Saving dataset metadata directly in the output file reading from the config
+        dmeta = accumulator["datasets_metadata"] = {
+            "by_datataking_period": {},
+            "by_dataset": defaultdict(dict)
+        }
+
+        for dataset in accumulator["cutflow"]["initial"].keys():
+            df = self.cfg.filesets[dataset]
+            #copying the full metadata of the used samples in the output per direct reference
+            dmeta["by_dataset"][dataset] = df["metadata"]
+            # now adding by datataking period
+            sample = df["metadata"]["sample"]
+            year = df["metadata"]["year"]
+            if year not in dmeta["by_datataking_period"]:
+                dmeta["by_datataking_period"][year] = defaultdict(set)
+
+            if self.cfg.has_subsamples[sample]:
+                for subsam in self._subsamples[sample].keys():
+                    dmeta["by_datataking_period"][year][f"{sample}__{subsam}"].add(dataset)
+            else:
+                dmeta["by_datataking_period"][year][sample].add(dataset)
+
+        # Rescale the histograms and sumw using the sum of the genweights
+        if not self.workflow_options.get("donotscale_sumgenweights", False):
+            self.rescale_sumgenweights(accumulator)
+
+        for dataset in accumulator["cutflow"]["initial"].keys():
+            df = self.cfg.filesets[dataset]
+            #copying the full metadata of the used samples in the output per direct reference
+            dmeta["by_dataset"][dataset] = df["metadata"]
+            year = df["metadata"]["year"]
+            
+            # These lines add information and description for JetFaksePhoton Sample
+            is_mc = df["metadata"]["isMC"]
+            if is_mc == "False":
+                subsample_name = "JetFakePhoton"
+                dataset_name = dataset + "_PLJ"
+                PLJ_metadata = {
+                    "sample": "JetFaksePhoton",
+                    "year": year,
+                    "isMC": "True"
+                }
+                dmeta["by_dataset"][dataset_name] = PLJ_metadata
+                if year not in dmeta["by_datataking_period"]:
+                    dmeta["by_datataking_period"][year] = defaultdict(set)
+                dmeta["by_datataking_period"][year]["JetFakePhoton"].add(dataset_name)
+
+        return accumulator

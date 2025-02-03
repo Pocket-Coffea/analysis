@@ -49,12 +49,6 @@ cfg = Configurator(
             "samples": ["DATA_EGamma", "TT"], # "DATA_SinglePhoton", "TGJets", "GJets", "ST", "TTG", "WGJets", "WG", "WWG", "ZG"
             "samples_exclude" : [],
             "year": ['2018']
-        },
-        "subsamples":{
-            "DATA_EGamma": {
-                "EGamma":  [passthrough],
-                "Jet_fake_photon" : [PLJ_cut]
-            }
         }
     },
 
@@ -65,14 +59,9 @@ cfg = Configurator(
             # Asking only SingleMuon triggers since we are only using SingleMuon PD data
             get_HLTsel(primaryDatasets=["EGamma"])], 
     
-    preselections = [vlt_had_presel],
+    preselections = [vlt_presel],
     categories = {
-        # "baseline": [passthrough],
-        "SR": [SR_cut],
-        "CRB": [CRB_cut],
-        "CRC": [CRC_cut],
-        "CRD": [CRD_cut],
-        "PLJ": [PLJ_cut]
+        "SR": [SR_cut]
     },
 
     weights_classes = common_weights,
@@ -106,13 +95,14 @@ cfg = Configurator(
 
     
    variables = {
-        # **muon_hists(coll="MuonGood", pos=0),
-        # **count_hist(name="nElectronGood", coll="ElectronGood",bins=3, start=0, stop=3),
-        # **count_hist(name="nMuonGood", coll="MuonGood",bins=3, start=0, stop=3),
-        **count_hist(name="nJets", coll="JetGood",bins=8, start=0, stop=8),
-        **count_hist(name="nBJets", coll="BJetGood",bins=8, start=0, stop=8),
+        "photon_hists" : HistConf( [Axis(coll="Photon", field="pt", bins=100, start=0, stop=800, label="Photon")] ),
+        # **count_hist(name="LeptonGood", coll="LeptonGood",bins=3, start=0, stop=3),
+        # **count_hist(name="nJets", coll="JetGood",bins=8, start=0, stop=8),
+        # **count_hist(name="nBJets", coll="BJetGood",bins=8, start=0, stop=8),
         **jet_hists(coll="JetGood", pos=0),
         **jet_hists(coll="JetGood", pos=1),
+        # "top": HistConf( [Axis(coll="top", field="pt", bins=100, start=0, stop=500, label="top")] ),
+        # "T": HistConf( [Axis(coll="T", field="pt", bins=100, start=0, stop=2000, label="T")] )
         # "mll" : HistConf( [Axis(coll="ll", field="mass", bins=100, start=0, stop=200, label=r"$M_{\ell\ell}$ [GeV]")] ),
     }
 )

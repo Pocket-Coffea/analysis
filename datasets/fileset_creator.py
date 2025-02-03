@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
     path_to_crab_output = sys.argv[1]
     dataset_file = sys.argv[2]
-    xsec_file = "updated_samples_xsec.json"
+    xsec_file = "nano_xsec.json"
     fileset_creator = FilesetCreator(path_to_crab_output, dataset_file, xsec_file)
     fileset_creator.create_fileset_json("local_fileset.json", False)
 
