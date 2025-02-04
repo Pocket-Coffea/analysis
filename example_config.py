@@ -46,8 +46,8 @@ cfg = Configurator(
             # f"{localdir}/datasets/TTToSemiLeptonic.json"
         ],
         "filter" : {
-            "samples": ["DATA_EGamma", "DYJets", "TT", "TGJets", "GJets", "ST", "TTG", "WJets", "WG", "WWG", "WZG", "ZG"], 
-            # "DATA_SinglePhoton"
+            "samples": ["DATA_EGamma", "DYJets", "TGJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG"], 
+            # "DATA_SinglePhoton", "TT", "ST"
             "samples_exclude" : [],
             "year": ['2018']
         }
@@ -100,9 +100,9 @@ cfg = Configurator(
        **jet_hists(),
        "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=50, start=0, stop=500, label="Photon_pt")] ),
        "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=10, start=-2.5, stop=2.5, label="Photon_eta")] ),
-       "BJet_pt": HistConf( [Axis(coll="PhotonGood", field="eta", bins=50, start=0, stop=200, label="BJet_pt")] ),
+       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="eta", bins=50, start=0, stop=200, label="BJet_pt")] ),
        "top_pt": HistConf( [Axis(coll="top", field="pt", bins=50, start=0, stop=500, label="top_pt")] ),
-       "top_mass": HistConf( [Axis(coll="top", field="pt", bins=50, start=0, stop=500, label="top_mass")] ),
+       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=50, start=0, stop=500, label="top_mass")] ),
        "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=50, start=0, stop=500, label="VLT_pt")] ),
        "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=100, start=0, stop=2000, label="VLT_mass")] )
    }
