@@ -253,11 +253,17 @@ class CustomHistManager(HistManager):
 
                     new_events = events[mask]
                     if smpl == "SR":
-                        new_events["VLT"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino + new_events.PhotonSR
+                        new_events["top"] = new_events.LeptonGood + new_events.BJetGoodSR + new_events.neutrino
+                        new_events["VLT"] = new_events.LeptonGood + new_events.BJetGoodSR + new_events.neutrino + new_events.PhotonSR
                         new_events["PhotonGood"] = new_events["PhotonSR"]
+                        new_events["BJetGood"] = new_events["BJetGoodSR"]
+                        new_events["JetGood"] = new_events["JetGoodSR"]
                     if smpl == "PLJ":
-                        new_events["VLT"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino + new_events.PhotonPLJ
+                        new_events["top"] = new_events.LeptonGood + new_events.BJetGoodPLJ + new_events.neutrino
+                        new_events["VLT"] = new_events.LeptonGood + new_events.BJetGoodPLJ + new_events.neutrino + new_events.PhotonPLJ
                         new_events["PhotonGood"] = new_events["PhotonPLJ"]
+                        new_events["BJetGood"] = new_events["BJetGoodPLJ"]
+                        new_events["JetGood"] = new_events["JetGoodPLJ"]
 
                     for ax in histo.axes:
                         # Checkout the collection type

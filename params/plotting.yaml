@@ -8,7 +8,16 @@ plotting_style:
    
 
     labels_mc:
-        GJets : top+photon
+        GJets : $\gamma$Jets
+        WG: W$\gamma$
+        TGJets: T$\gamma$Jets
+        TTG: $t\bar{t}\gamma$
+        ZG: Z$\gamma$
 
-    labels_data:
-        Data_EGamma: data
+    exclude_samples:
+        - WJets
+
+    samples_groups:
+        VV$\gamma$:
+           - WWG
+           - WZG

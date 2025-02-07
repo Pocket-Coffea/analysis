@@ -46,27 +46,76 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             self.events, "Photon", self.params, "SR", "LeptonGood"
         )
         self.events["PhotonCRB"] = photon_selection(
-            self.events, "Photon", self.params, "CRB"
+            self.events, "Photon", self.params, "CRB", "LeptonGood"
         )
         self.events["PhotonCRC"] = photon_selection(
-            self.events, "Photon", self.params, "CRC"
+            self.events, "Photon", self.params, "CRC", "LeptonGood"
         )
         self.events["PhotonCRD"] = photon_selection(
-            self.events, "Photon", self.params, "CRD"
+            self.events, "Photon", self.params, "CRD", "LeptonGood"
         )
         self.events["PhotonPLJ"] = photon_selection(
-            self.events, "Photon", self.params, "PLJ"
+            self.events, "Photon", self.params, "PLJ", "LeptonGood"
         )
-        LepPho = ak.with_name(
+        
+        LepPhoSR = ak.with_name(
             ak.concatenate((self.events.LeptonGood, self.events.PhotonSR), axis=1),
             name='PtEtaPhiMCandidate',
         )
-        self.events["LepPho"] = LepPho[ak.argsort(LepPho.pt, ascending=False)]
-        self.events["JetGood"], self.jetGoodMask = jet_selection(
-            self.events, "Jet", self.params, self._year, "LepPho"
+        self.events["LepPhoSR"] = LepPhoSR[ak.argsort(LepPhoSR.pt, ascending=False)]
+        self.events["JetGoodSR"], self.jetGoodMask = jet_selection(
+            self.events, "Jet", self.params, self._year, "LepPhoSR"
         )
-        self.events["BJetGood"] = btagging(
-            self.events["JetGood"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+        self.events["BJetGoodSR"] = btagging(
+            self.events["JetGoodSR"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+        )
+
+        LepPhoCRB = ak.with_name(
+            ak.concatenate((self.events.LeptonGood, self.events.PhotonCRB), axis=1),
+            name='PtEtaPhiMCandidate',
+        )
+        self.events["LepPhoCRB"] = LepPhoCRB[ak.argsort(LepPhoCRB.pt, ascending=False)]
+        self.events["JetGoodCRB"], self.jetGoodMask = jet_selection(
+            self.events, "Jet", self.params, self._year, "LepPhoCRB"
+        )
+        self.events["BJetGoodCRB"] = btagging(
+            self.events["JetGoodCRB"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+        )
+
+        LepPhoCRC = ak.with_name(
+            ak.concatenate((self.events.LeptonGood, self.events.PhotonCRC), axis=1),
+            name='PtEtaPhiMCandidate',
+        )
+        self.events["LepPhoCRC"] = LepPhoCRC[ak.argsort(LepPhoCRC.pt, ascending=False)]
+        self.events["JetGoodCRC"], self.jetGoodMask = jet_selection(
+            self.events, "Jet", self.params, self._year, "LepPhoCRC"
+        )
+        self.events["BJetGoodCRC"] = btagging(
+            self.events["JetGoodCRC"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+        )
+
+        LepPhoCRD = ak.with_name(
+            ak.concatenate((self.events.LeptonGood, self.events.PhotonCRD), axis=1),
+            name='PtEtaPhiMCandidate',
+        )
+        self.events["LepPhoCRD"] = LepPhoCRD[ak.argsort(LepPhoCRD.pt, ascending=False)]
+        self.events["JetGoodCRD"], self.jetGoodMask = jet_selection(
+            self.events, "Jet", self.params, self._year, "LepPhoCRD"
+        )
+        self.events["BJetGoodCRD"] = btagging(
+            self.events["JetGoodCRD"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+        )
+
+        LepPhoPLJ = ak.with_name(
+            ak.concatenate((self.events.LeptonGood, self.events.PhotonPLJ), axis=1),
+            name='PtEtaPhiMCandidate',
+        )
+        self.events["LepPhoPLJ"] = LepPhoPLJ[ak.argsort(LepPhoPLJ.pt, ascending=False)]
+        self.events["JetGoodPLJ"], self.jetGoodMask = jet_selection(
+            self.events, "Jet", self.params, self._year, "LepPhoPLJ"
+        )
+        self.events["BJetGoodPLJ"] = btagging(
+            self.events["JetGoodPLJ"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
         )
 
     def count_objects(self, variation):
@@ -78,8 +127,16 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         self.events["nLeptonGood"] = ak.num(self.events.LeptonGood)
         self.events["nMuonLoose"] = ak.num(self.events.MuonLoose)
         self.events["nElectronVeto"] = ak.num(self.events.ElectronVeto)
-        self.events["nJetGood"] = ak.num(self.events.JetGood)
-        self.events["nBJetGood"] = ak.num(self.events.BJetGood)
+        self.events["nJetGoodSR"] = ak.num(self.events.JetGoodSR)
+        self.events["nBJetGoodSR"] = ak.num(self.events.BJetGoodSR)
+        self.events["nJetGoodCRB"] = ak.num(self.events.JetGoodCRB)
+        self.events["nBJetGoodCRB"] = ak.num(self.events.BJetGoodCRB)
+        self.events["nJetGoodCRC"] = ak.num(self.events.JetGoodCRC)
+        self.events["nBJetGoodCRC"] = ak.num(self.events.BJetGoodCRC)
+        self.events["nJetGoodCRD"] = ak.num(self.events.JetGoodCRD)
+        self.events["nBJetGoodCRD"] = ak.num(self.events.BJetGoodCRD)
+        self.events["nJetGoodPLJ"] = ak.num(self.events.JetGoodPLJ)
+        self.events["nBJetGoodPLJ"] = ak.num(self.events.BJetGoodPLJ)
 
     # Function that defines common variables employed in analyses and save them as attributes of `events`
     def define_common_variables_before_presel(self, variation):
@@ -101,13 +158,13 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         # self.events["b_jet"] = self.events.BJetGood[min_deltaR]
         
         # top reconstruction: W(mu+nu)+b
-        self.events["top"] = self.events.LeptonGood + self.events.BJetGood + self.events.neutrino
+        self.events["top"] = self.events.LeptonGood
         # self.events["top_m"] = self.events.top.mass
         # self.events["top_pt"] = self.events.top.pt
         # self.events["top_eta"] = self.events.top.eta
         # self.events["top_phi"] = self.events.top.phi
 
-        self.events["VLT"] = self.events.LeptonGood + self.events.BJetGood + self.events.neutrino
+        self.events["VLT"] = self.events.LeptonGood
 
     def process_extra_after_presel(self, variation):
 

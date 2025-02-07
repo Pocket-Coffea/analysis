@@ -71,7 +71,7 @@ cfg = Configurator(
         "common": {
             "inclusive": ["genWeight","lumi","XS",
                           "pileup",
-                          #"sf_mu_id","sf_mu_iso",
+                          # "sf_ele_id", "sf_ele_reco",
                           ],
             "bycategory" : {
             }
@@ -84,7 +84,7 @@ cfg = Configurator(
         "weights": {
             "common": {
                 "inclusive": [  "pileup",
-                                #"sf_mu_id", "sf_mu_iso"
+                                # "sf_ele_id", "sf_ele_reco",
                               ],
                 "bycategory" : {
                 }
@@ -96,15 +96,15 @@ cfg = Configurator(
 
     
    variables = {
-       **lepton_hists(),
-       **jet_hists(),
-       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=50, start=0, stop=500, label="Photon_pt")] ),
-       "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=10, start=-2.5, stop=2.5, label="Photon_eta")] ),
-       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="eta", bins=50, start=0, stop=200, label="BJet_pt")] ),
-       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=50, start=0, stop=500, label="top_pt")] ),
-       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=50, start=0, stop=500, label="top_mass")] ),
-       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=50, start=0, stop=500, label="VLT_pt")] ),
-       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=100, start=0, stop=2000, label="VLT_mass")] )
+       # **lepton_hists(),
+       # **jet_hists(),
+       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=20, start=0, stop=1000, label="Photon $p_T$")] ),
+       "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=10, start=-2.5, stop=2.5, label="Photon $\eta$")] ),
+       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="pt", bins=20, start=0, stop=400, label="BJet $p_T$")] ),
+       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=20, start=0, stop=1000, label="top $p_T$")] ),
+       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=20, start=0, stop=1000, label="top mass")] ),
+       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=20, start=0, stop=500, label="VLT $p_T$")] ),
+       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=20, start=0, stop=2000, label="VLT mass")] )
    }
 )
 

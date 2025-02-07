@@ -19,10 +19,9 @@ def vlt_presel(events, params, **kwargs):
         passed_nElectronVeto = events["nElectronVeto"] == 0
     else:
         raise Excepion("No Leton")
-    passed_nBJetGood = events["nBJetGood"] == 1
-    passed_nJetGood = events["nJetGood"] == 1
+    passed_met_pt = events.MET.pt > 30
     
-    mask = passed_nPhoton & passed_nLeptonGood & passed_nMuonLoose & passed_nElectronVeto & passed_nBJetGood & passed_nJetGood
+    mask = passed_nPhoton & passed_nLeptonGood & passed_nMuonLoose & passed_nElectronVeto & passed_met_pt
 
     return mask
 
@@ -39,8 +38,10 @@ def SR_selection(events, params, **kwargs):
     # passed_nPhotonCRC = events["nPhotonCRC"] == 0
     # passed_nPhotonCRD = events["nPhotonCRD"] == 0
     # passed_nPhotonPLJ = events["nPhotonPLJ"] == 0
+    passed_nBJetGood = events["nBJetGoodSR"] == 1
+    passed_nJetGood = events["nJetGoodSR"] == 1
 
-    return passed_nPhotonSR
+    return passed_nPhotonSR & passed_nBJetGood & passed_nJetGood
 
 SR_cut = Cut(
     name="sr_cut",
@@ -52,8 +53,10 @@ SR_cut = Cut(
 def PLJ_selection(events, params, **kwargs):
     passed_nPhotonSR = events["nPhotonSR"] == 0
     passed_nPhotonPLJ = events["nPhotonPLJ"] == 1
+    passed_nBJetGood = events["nBJetGoodPLJ"] == 1
+    passed_nJetGood = events["nJetGoodPLJ"] == 1
 
-    return passed_nPhotonPLJ
+    return passed_nPhotonPLJ & passed_nPhotonSR & passed_nBJetGood & passed_nJetGood
 
 PLJ_cut = Cut(
     name="plj_cut",
@@ -67,8 +70,10 @@ def CRB_selection(events, params, **kwargs):
     passed_nPhotonCRB = events["nPhotonCRB"] == 1
     passed_nPhotonCRC = events["nPhotonCRC"] == 0
     passed_nPhotonCRD = events["nPhotonCRD"] == 0
+    passed_nBJetGood = events["nBJetGoodCRB"] == 1
+    passed_nJetGood = events["nJetGoodCRB"] == 1
     
-    return passed_nPhotonCRB
+    return passed_nPhotonSR & passed_nPhotonCRB & passed_nPhotonCRC & passed_nPhotonCRD & passed_nBJetGood & passed_nJetGood
 
 CRB_cut = Cut(
     name="crb_cut",
@@ -82,8 +87,10 @@ def CRC_selection(events, params, **kwargs):
     passed_nPhotonCRB = events["nPhotonCRB"] == 0
     passed_nPhotonCRC = events["nPhotonCRC"] == 1
     passed_nPhotonCRD = events["nPhotonCRD"] == 0
+    passed_nBJetGood = events["nBJetGoodCRC"] == 1
+    passed_nJetGood = events["nJetGoodCRC"] == 1
 
-    return passed_nPhotonCRC
+    return passed_nPhotonSR & passed_nPhotonCRB & passed_nPhotonCRC & passed_nPhotonCRD & passed_nBJetGood & passed_nJetGood
 
 CRC_cut = Cut(
     name="crc_cut",
@@ -97,8 +104,10 @@ def CRD_selection(events, params, **kwargs):
     passed_nPhotonCRB = events["nPhotonCRB"] == 0
     passed_nPhotonCRC = events["nPhotonCRC"] == 0
     passed_nPhotonCRD = events["nPhotonCRD"] == 1
+    passed_nBJetGood = events["nBJetGoodCRD"] == 1
+    passed_nJetGood = events["nJetGoodCRD"] == 1
 
-    return passed_nPhotonCRD
+    return passed_nPhotonSR & passed_nPhotonCRB & passed_nPhotonCRC & passed_nPhotonCRD & passed_nBJetGood & passed_nJetGood
 
 CRD_cut = Cut(
     name="crd_cut",

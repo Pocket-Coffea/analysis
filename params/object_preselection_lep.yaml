@@ -2,7 +2,7 @@ object_preselection:
 
     Photon:
         pt: 30
-        eta: 2.4
+        eta: 1.4
         dr_lepton: 0.5
 
     Muon:
