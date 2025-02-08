@@ -168,7 +168,7 @@ class CustomHistManager(HistManager):
                 hcfg_subs = deepcopy(hcfg)
                 # Build the histogram object with the additional axes
                 hcfg_subs.hist_obj = hist.Hist(
-                    *all_axes, storage=hcfg.storage, name="Counts"
+                    *all_axes, storage=hcfg.storage, name="Events"
                 )
                 # Save the hist in the configuration and store the full config object
                 self.histograms[subsample][name] = hcfg_subs

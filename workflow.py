@@ -7,12 +7,12 @@ from collections import defaultdict
 
 
 from pocket_coffea.workflows.base import BaseProcessorABC
-from pocket_coffea.utils.configurator import Configurator
 from pocket_coffea.lib.categorization import StandardSelection
 from pocket_coffea.parameters.cuts import passthrough
 from custom_hist_manager import CustomHistManager
 from object_selector import *
 from custom_cut_functions import *
+from custom_configurator import CustomConfigurator
 from pocket_coffea.lib.objects import (
     jet_correction,
     jet_selection,
@@ -21,9 +21,9 @@ from pocket_coffea.lib.objects import (
 
 
 class TopPartnerBaseProcessor(BaseProcessorABC):
-    def __init__(self, cfg: Configurator):
+    def __init__(self, cfg: CustomHistManager):
         super().__init__(cfg)
-        self.lepton = "Electron"
+        self.lepton = self.cfg.lepton
         self.cfg.subsamples_reversed_map["JetFakePhoton"] = "PLJ"
         self.cfg.samples_metadata["PLJ"] = {'isMC': False}
 
