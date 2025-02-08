@@ -8,14 +8,15 @@ plotting_style:
    
 
     labels_mc:
-        GJets : $\gamma$Jets
-        WG: W$\gamma$
-        TGJets: T$\gamma$Jets
+        GJets : $\gamma Jets$
+        WG: $W\gamma$
+        TGJets: $T\gamma Jets$
         TTG: $t\bar{t}\gamma$
-        ZG: Z$\gamma$
+        ZG: $Z\gamma$
+        JetFakePhoton: $ Jets \rightarrow \gamma$
 
-    exclude_samples:
-        - WJets
+    # exclude_samples:
+    #     - WJets
 
     samples_groups:
         VV$\gamma$:

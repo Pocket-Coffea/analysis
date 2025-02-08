@@ -5,6 +5,26 @@ from pocket_coffea.lib.weights import WeightData #,WeightWrapper, WeightLambda, 
 import numpy as np
 import awkward as ak
 
+from pocket_coffea.lib.weights.common.common import (
+    genWeight,
+    signOfGenWeight,
+    lumi,
+    XS,
+    pileup,
+    SF_ele_reco,
+    SF_ele_id,
+    SF_mu_id,
+    SF_mu_iso,
+    SF_mu_trigger,
+    SF_btag,
+    SF_btag_calib,
+    SF_ctag,
+    SF_ctag_calib,
+    SF_jet_puId,
+    # SF_PSWeight_isr,
+    # SF_PSWeight_fsr
+)
+
 
 class ExtrapolationFactor:
     def __init__(self, events):
@@ -17,13 +37,13 @@ class ExtrapolationFactor:
         self.EF = {
                  "Electron": {
                      "2018":{
-                         '[30, 40]': 1.283241599073001,
-                         '[40, 50]': 1.1858431644691187,
-                         '[50, 70]': 1.224145917776491,
-                         '[70, 100]': 1.0109577922077921,
-                         '[100, 140]': 0.7138375740676194,
-                         '[140, 200]': 0.44137931034482764,
-                         '[200, np.inf]': 0.11904761904761904
+                         '[30, 40]': 0.1721540584018723,
+                         '[40, 50]': 0.15993839045051983,
+                         '[50, 70]': 0.12443778110944527,
+                         '[70, 100]': 0.09195402298850576,
+                         '[100, 140]': 0.06654665094046806,
+                         '[140, 200]': 0.06585365853658537,
+                         '[200, np.inf]': 0.041025641025641026
                      }
                  }
         }
@@ -83,6 +103,31 @@ class ExtrapolationFactor:
         return self.EF_weight.weight()
 
 
+# SF_ele_trigger = WeightLambda.wrap_func(
+#     name="sf_ele_trigger",
+#     function=lambda params, metadata, events, size, shape_variations:
+#         sf_ele(params, events, metadata["year"], 'trigger'),
+#     has_variations=True
+#     )
 
 
+common_weights = [
+    genWeight,
+    signOfGenWeight,
+    lumi,
+    XS,
+    pileup,
+    SF_ele_reco,
+    SF_ele_id,
+    SF_mu_id,
+    SF_mu_iso,
+    SF_mu_trigger,
+    SF_btag,
+    SF_btag_calib,
+    SF_ctag,
+    SF_ctag_calib,
+    SF_jet_puId,
+    # SF_PSWeight_isr,
+    # SF_PSWeight_fsr
+]
 

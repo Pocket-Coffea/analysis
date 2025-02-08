@@ -16,7 +16,6 @@ from custom_cut_functions import *
 from pocket_coffea.lib.objects import (
     jet_correction,
     jet_selection,
-    btagging,
     get_dilepton
 )
 
@@ -67,7 +66,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             self.events, "Jet", self.params, self._year, "LepPhoSR"
         )
         self.events["BJetGoodSR"] = btagging(
-            self.events["JetGoodSR"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+            self.events["JetGoodSR"], self.params.btagging.working_point[self._year], self.params.object_preselection.Jet.btag
         )
 
         LepPhoCRB = ak.with_name(
@@ -79,7 +78,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             self.events, "Jet", self.params, self._year, "LepPhoCRB"
         )
         self.events["BJetGoodCRB"] = btagging(
-            self.events["JetGoodCRB"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+            self.events["JetGoodCRB"], self.params.btagging.working_point[self._year], self.params.object_preselection.Jet.btag
         )
 
         LepPhoCRC = ak.with_name(
@@ -91,7 +90,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             self.events, "Jet", self.params, self._year, "LepPhoCRC"
         )
         self.events["BJetGoodCRC"] = btagging(
-            self.events["JetGoodCRC"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+            self.events["JetGoodCRC"], self.params.btagging.working_point[self._year], self.params.object_preselection.Jet.btag
         )
 
         LepPhoCRD = ak.with_name(
@@ -103,7 +102,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             self.events, "Jet", self.params, self._year, "LepPhoCRD"
         )
         self.events["BJetGoodCRD"] = btagging(
-            self.events["JetGoodCRD"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+            self.events["JetGoodCRD"], self.params.btagging.working_point[self._year], self.params.object_preselection.Jet.btag
         )
 
         LepPhoPLJ = ak.with_name(
@@ -115,7 +114,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             self.events, "Jet", self.params, self._year, "LepPhoPLJ"
         )
         self.events["BJetGoodPLJ"] = btagging(
-            self.events["JetGoodPLJ"], self.params.btagging.working_point[self._year], wp=self.params.object_preselection.Jet.btag.wp
+            self.events["JetGoodPLJ"], self.params.btagging.working_point[self._year], self.params.object_preselection.Jet.btag
         )
 
     def count_objects(self, variation):

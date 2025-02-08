@@ -64,7 +64,8 @@ def photon_selection(events, photon, params, region, leptons_collection=""):
             ((~cutbased_ids_loose["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]) |
             (cutbased_ids_medium["passSIEIE"] & ~cutbased_ids_loose["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]) |
             (cutbased_ids_medium["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & ~cutbased_ids_loose["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]) |
-            (cutbased_ids_medium["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & ~cutbased_ids_loose["passed_phoIso"]))
+            (cutbased_ids_medium["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & ~cutbased_ids_loose["passed_phoIso"]) |
+            (~cutbased_ids_loose["passSIEIE"] & ~cutbased_ids_loose["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]))
         )
 
     return photons[good_photons]
@@ -111,11 +112,10 @@ def lepton_selection(events, lepton, params, id):
     return leptons[good_leptons]
 
 def btagging(Jet, btag, params, veto=False):
-    cuts = params.object_preselection["Jet"]["btag"]
     if veto:
-        return Jet[(Jet[btag["btagging_algorithm"]] < btag["btagging_WP"][cuts["wp"]])]
+        return Jet[(Jet[btag["btagging_algorithm"]] < btag["btagging_WP"][params["wp"]])]
     else:
-        return Jet[(Jet[btag["btagging_algorithm"]] > btag["btagging_WP"][cuts["wp"]]) & (abs(Jet.eta < cuts["eta"]))]
+        return Jet[(Jet[btag["btagging_algorithm"]] > btag["btagging_WP"][params["wp"]]) & (abs(Jet.eta < params["eta"]))]
 
 def calculateNu4vec(lepton, MET):
     # MET components

@@ -5,14 +5,18 @@ from pocket_coffea.parameters.cuts import passthrough
 from pocket_coffea.parameters.histograms import *
 import workflow
 from workflow import TopPartnerBaseProcessor
-from pocket_coffea.lib.weights.common import common_weights
 
 # Register custom modules in cloudpickle to propagate them to dask workers
 import cloudpickle
 import custom_cut_functions
+import custom_hist_manager
+import custom_weight_manager
+from custom_weight_manager import common_weights
 import object_selector
 cloudpickle.register_pickle_by_value(workflow)
 cloudpickle.register_pickle_by_value(custom_cut_functions)
+cloudpickle.register_pickle_by_value(custom_hist_manager)
+cloudpickle.register_pickle_by_value(custom_weight_manager)
 cloudpickle.register_pickle_by_value(object_selector)
 
 from custom_cut_functions import *
@@ -46,7 +50,7 @@ cfg = Configurator(
             # f"{localdir}/datasets/TTToSemiLeptonic.json"
         ],
         "filter" : {
-            "samples": ["DATA_EGamma", "DYJets", "TGJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG"], 
+            "samples": ["DATA_EGamma", "DYJets", "TGJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG", "ST"], 
             # "DATA_SinglePhoton", "TT", "ST"
             "samples_exclude" : [],
             "year": ['2018']
@@ -98,13 +102,16 @@ cfg = Configurator(
    variables = {
        # **lepton_hists(),
        # **jet_hists(),
-       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=20, start=0, stop=1000, label="Photon $p_T$")] ),
-       "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=10, start=-2.5, stop=2.5, label="Photon $\eta$")] ),
-       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="pt", bins=20, start=0, stop=400, label="BJet $p_T$")] ),
-       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=20, start=0, stop=1000, label="top $p_T$")] ),
-       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=20, start=0, stop=1000, label="top mass")] ),
-       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=20, start=0, stop=500, label="VLT $p_T$")] ),
-       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=20, start=0, stop=2000, label="VLT mass")] )
+       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=20, start=0, stop=1000, label="$p_T^\gamma$")] ),
+       "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=10, start=-2.5, stop=2.5, label="$\eta_\gamma$")] ),
+       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="pt", bins=20, start=0, stop=400, label="$p_T^b$")] ),
+       "BJet_eta": HistConf( [Axis(coll="BJetGood", field="eta", bins=16, start=-4, stop=4, label="$\eta_b$")] ),
+       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=20, start=0, stop=1000, label="$p_T^{top}$")] ),
+       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=20, start=0, stop=1000, label="$top_M$")] ),
+       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=20, start=0, stop=500, label="$p_T^{VLT}$")] ),
+       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=20, start=0, stop=2000, label="$VLT_M$")] ),
+       "Lepton_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=20, start=0, stop=1000, label="$e_{p_T}$")] ),
+       "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=20, start=0, stop=200, label="$W_T$")] )
    }
 )
 
