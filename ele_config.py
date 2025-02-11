@@ -32,6 +32,7 @@ parameters = defaults.merge_parameters_from_files(default_parameters,
                                                   f"{localdir}/params/object_preselection_lep.yaml",
                                                   f"{localdir}/params/triggers_lep.yaml",
                                                   f"{localdir}/params/plotting.yaml",
+                                                  f"{localdir}/params/photon_scale_factors.yaml",
                                                   update=True)
 
 
@@ -75,7 +76,9 @@ cfg = CustomConfigurator(
         "common": {
             "inclusive": ["genWeight","lumi","XS",
                           "pileup",
-                          # "sf_ele_id", "sf_ele_reco",
+                          "custom_sf_ele_id", "custom_sf_ele_reco",
+                          "sf_pho_id", "sf_pho_pxseed",
+                          "sf_btag"
                           ],
             "bycategory" : {
             }
@@ -87,9 +90,11 @@ cfg = CustomConfigurator(
     variations = {
         "weights": {
             "common": {
-                "inclusive": [  "pileup",
-                                # "sf_ele_id", "sf_ele_reco",
-                              ],
+                "inclusive": ["pileup",
+                              "custom_sf_ele_id", "custom_sf_ele_reco",
+                              "sf_pho_id", "sf_pho_pxseed",
+                              "sf_btag"
+                             ],
                 "bycategory" : {
                 }
             },

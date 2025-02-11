@@ -1,9 +1,11 @@
 from coffea.analysis_tools import Weights
 from custom_cut_functions import *
 from pocket_coffea.lib.categorization import StandardSelection
-from pocket_coffea.lib.weights import WeightData #,WeightWrapper, WeightLambda, WeightDataMultiVariation
+from pocket_coffea.lib.weights import WeightData ,WeightWrapper, WeightLambda, WeightDataMultiVariation
 import numpy as np
 import awkward as ak
+
+from custom_scale_factors import *
 
 from pocket_coffea.lib.weights.common.common import (
     genWeight,
@@ -11,10 +13,6 @@ from pocket_coffea.lib.weights.common.common import (
     lumi,
     XS,
     pileup,
-    SF_ele_reco,
-    SF_ele_id,
-    SF_mu_id,
-    SF_mu_iso,
     SF_mu_trigger,
     SF_btag,
     SF_btag_calib,
@@ -102,6 +100,48 @@ class ExtrapolationFactor:
 
         return self.EF_weight.weight()
 
+SF_ele_reco = WeightLambda.wrap_func(
+    name="custom_sf_ele_reco",
+    function=lambda params, metadata, events, size, shape_variations:
+        sf_ele_reco(params, events, metadata["year"]),
+    has_variations=True
+    )
+
+SF_ele_id = WeightLambda.wrap_func(
+    name="custom_sf_ele_id",
+    function=lambda params, metadata, events, size, shape_variations:
+        sf_ele_id(params, events, metadata["year"]),
+    has_variations=True
+    )
+
+SF_mu_id = WeightLambda.wrap_func(
+    name="custom_sf_mu_id",
+    function=lambda params, metadata, events, size, shape_variations:
+        sf_mu(params, events, metadata["year"], 'id'),
+    has_variations=True
+    )
+
+SF_mu_iso = WeightLambda.wrap_func(
+    name="custom_sf_mu_iso",
+    function=lambda params, metadata, events, size, shape_variations:
+        sf_mu(params, events, metadata["year"], 'iso'),
+    has_variations=True
+    )
+
+SF_pho_pxseed = WeightLambda.wrap_func(
+    name="sf_pho_pxseed",
+    function=lambda params, metadata, events, size, shape_variations:
+        sf_pho_pxseed(params, events, metadata["year"]),
+    has_variations=True
+    )
+
+SF_pho_id = WeightLambda.wrap_func(
+    name="sf_pho_id",
+    function=lambda params, metadata, events, size, shape_variations:
+        sf_pho_id(params, events, metadata["year"]),
+    has_variations=True
+    )
+
 
 # SF_ele_trigger = WeightLambda.wrap_func(
 #     name="sf_ele_trigger",
@@ -109,6 +149,8 @@ class ExtrapolationFactor:
 #         sf_ele(params, events, metadata["year"], 'trigger'),
 #     has_variations=True
 #     )
+
+
 
 
 common_weights = [
@@ -122,6 +164,8 @@ common_weights = [
     SF_mu_id,
     SF_mu_iso,
     SF_mu_trigger,
+    SF_pho_pxseed,
+    SF_pho_id,
     SF_btag,
     SF_btag_calib,
     SF_ctag,

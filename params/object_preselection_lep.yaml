@@ -2,8 +2,9 @@ object_preselection:
 
     Photon:
         pt: 30
-        eta: 1.4
+        eta: 1.4442
         dr_lepton: 0.5
+        id: Medium
 
     Muon:
         eta: 2.4
@@ -25,6 +26,7 @@ object_preselection:
         veto:
             pt: 20
             cutBased: 1
+        id: Tight
 
     Jet:
         dr_lepton: 0.4

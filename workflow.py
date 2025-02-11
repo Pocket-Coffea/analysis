@@ -41,7 +41,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         self.events["ElectronVeto"] = lepton_selection(
             self.events, "Electron", self.params, id="veto"
         )
-        self.events["PhotonSR"] = photon_selection(
+        self.events["PhotonGood"] = photon_selection(
             self.events, "Photon", self.params, "SR", "LeptonGood"
         )
         self.events["PhotonCRB"] = photon_selection(
@@ -57,16 +57,16 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             self.events, "Photon", self.params, "PLJ", "LeptonGood"
         )
         
-        LepPhoSR = ak.with_name(
-            ak.concatenate((self.events.LeptonGood, self.events.PhotonSR), axis=1),
+        LepPho = ak.with_name(
+            ak.concatenate((self.events.LeptonGood, self.events.PhotonGood), axis=1),
             name='PtEtaPhiMCandidate',
         )
-        self.events["LepPhoSR"] = LepPhoSR[ak.argsort(LepPhoSR.pt, ascending=False)]
-        self.events["JetGoodSR"], self.jetGoodMask = jet_selection(
-            self.events, "Jet", self.params, self._year, "LepPhoSR"
+        self.events["LepPho"] = LepPho[ak.argsort(LepPho.pt, ascending=False)]
+        self.events["JetGood"], self.jetGoodMask = jet_selection(
+            self.events, "Jet", self.params, self._year, "LepPho"
         )
-        self.events["BJetGoodSR"] = btagging(
-            self.events["JetGoodSR"], self.params.btagging.working_point[self._year], self.params.object_preselection.Jet.btag
+        self.events["BJetGood"] = btagging(
+            self.events["JetGood"], self.params.btagging.working_point[self._year], self.params.object_preselection.Jet.btag
         )
 
         LepPhoCRB = ak.with_name(
@@ -118,7 +118,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         )
 
     def count_objects(self, variation):
-        self.events["nPhotonSR"] = ak.num(self.events.PhotonSR)
+        self.events["nPhotonGood"] = ak.num(self.events.PhotonGood)
         self.events["nPhotonCRB"] = ak.num(self.events.PhotonCRB)
         self.events["nPhotonCRC"] = ak.num(self.events.PhotonCRC)
         self.events["nPhotonCRD"] = ak.num(self.events.PhotonCRD)
@@ -126,8 +126,8 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         self.events["nLeptonGood"] = ak.num(self.events.LeptonGood)
         self.events["nMuonLoose"] = ak.num(self.events.MuonLoose)
         self.events["nElectronVeto"] = ak.num(self.events.ElectronVeto)
-        self.events["nJetGoodSR"] = ak.num(self.events.JetGoodSR)
-        self.events["nBJetGoodSR"] = ak.num(self.events.BJetGoodSR)
+        self.events["nJetGood"] = ak.num(self.events.JetGood)
+        self.events["nBJetGood"] = ak.num(self.events.BJetGood)
         self.events["nJetGoodCRB"] = ak.num(self.events.JetGoodCRB)
         self.events["nBJetGoodCRB"] = ak.num(self.events.BJetGoodCRB)
         self.events["nJetGoodCRC"] = ak.num(self.events.JetGoodCRC)

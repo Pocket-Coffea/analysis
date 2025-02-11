@@ -147,7 +147,11 @@ class CustomHistManager(HistManager):
                 hcfg.only_variations, name="variation", label="Variation", growth=False
             )
             if sample == "PLJ":
-                plj_variations = list(sorted({"nominal", "pileupUp", "pileupDown"}))
+                plj_variations = list(sorted({'custom_sf_ele_idDown', 'custom_sf_ele_idUp', 'custom_sf_ele_recoDown', 'custom_sf_ele_recoUp',
+                                              'nominal',
+                                              'pileupDown', 'pileupUp',
+                                              'sf_pho_idDown', 'sf_pho_idUp', 'sf_pho_pxseedDown', 'sf_pho_pxseedUp'
+                                             }))
                 var_ax = hist.axis.StrCategory(
                     plj_variations, name="variation", label="Variation", growth=False
                 )
@@ -253,11 +257,8 @@ class CustomHistManager(HistManager):
 
                     new_events = events[mask]
                     if smpl == "SR":
-                        new_events["top"] = new_events.LeptonGood + new_events.BJetGoodSR + new_events.neutrino
-                        new_events["VLT"] = new_events.LeptonGood + new_events.BJetGoodSR + new_events.neutrino + new_events.PhotonSR
-                        new_events["PhotonGood"] = new_events["PhotonSR"]
-                        new_events["BJetGood"] = new_events["BJetGoodSR"]
-                        new_events["JetGood"] = new_events["JetGoodSR"]
+                        new_events["top"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino
+                        new_events["VLT"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino + new_events.PhotonGood
                     if smpl == "PLJ":
                         new_events["top"] = new_events.LeptonGood + new_events.BJetGoodPLJ + new_events.neutrino
                         new_events["VLT"] = new_events.LeptonGood + new_events.BJetGoodPLJ + new_events.neutrino + new_events.PhotonPLJ

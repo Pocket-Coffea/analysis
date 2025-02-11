@@ -29,11 +29,11 @@ class CustomConfigurator(Configurator):
             weights,
             variations,
             variables,
-            weights_classes=None,    
-            columns=None,
-            workflow_options=None,
-            save_skimmed_files=None,
-            do_postprocessing=True,
+            weights_classes,    
+            columns,
+            workflow_options,
+            save_skimmed_files,
+            do_postprocessing,
         )
         self.lepton = lepton
     

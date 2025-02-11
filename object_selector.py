@@ -91,13 +91,17 @@ def parse_photon_vid_cuts(bitMap, cutLevel):
 
 def lepton_selection(events, lepton, params, id):
 
+    electron_etaSC = events.Electron.eta + events.Electron.deltaEtaSC
+    events["Electron"] = ak.with_field(
+        events.Electron, electron_etaSC, "etaSC"
+    )
     leptons = events[lepton]
     cuts = params.object_preselection[lepton]
     passes_eta = abs(leptons.eta) < cuts["eta"]
     passes_pt = leptons.pt >= cuts[id]["pt"]
 
     if lepton == "Electron":
-        passes_transition = np.invert((abs(leptons.eta) >= 1.4442) & (abs(leptons.eta) <= 1.5660))
+        passes_transition = np.invert((abs(leptons.etaSC) >= 1.4442) & (abs(leptons.etaSC) <= 1.5660))
         passes_iso = leptons.pfRelIso03_all < cuts["iso"]
         passes_id = leptons.cutBased >= cuts[id]["cutBased"]
 

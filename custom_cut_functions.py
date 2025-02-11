@@ -3,12 +3,12 @@ from pocket_coffea.lib.cut_definition import Cut
 
 def vlt_presel(events, params, **kwargs):
     
-    passed_nPhotonSR = events["nPhotonSR"] > 0
+    passed_nPhotonGood = events["nPhotonGood"] > 0
     passed_nPhotonCRB = events["nPhotonCRB"] > 0
     passed_nPhotonCRC = events["nPhotonCRC"] > 0
     passed_nPhotonCRD = events["nPhotonCRD"] > 0
     passed_nPhotonPLJ = events["nPhotonPLJ"] > 0
-    passed_nPhoton = passed_nPhotonSR | passed_nPhotonCRB | passed_nPhotonCRC | passed_nPhotonCRD | passed_nPhotonPLJ
+    passed_nPhoton = passed_nPhotonGood | passed_nPhotonCRB | passed_nPhotonCRC | passed_nPhotonCRD | passed_nPhotonPLJ
     
     passed_nLeptonGood = events["nLeptonGood"] == 1
     if events.flavor[0] == "Electron":
@@ -33,15 +33,15 @@ vlt_presel = Cut(
 )
 
 def SR_selection(events, params, **kwargs):
-    passed_nPhotonSR = events["nPhotonSR"] == 1
+    passed_nPhotonGood = events["nPhotonGood"] == 1
     # passed_nPhotonCRB = events["nPhotonCRB"] == 0
     # passed_nPhotonCRC = events["nPhotonCRC"] == 0
     # passed_nPhotonCRD = events["nPhotonCRD"] == 0
     # passed_nPhotonPLJ = events["nPhotonPLJ"] == 0
-    passed_nBJetGood = events["nBJetGoodSR"] == 1
-    passed_nJetGood = events["nJetGoodSR"] == 1
+    passed_nBJetGood = events["nBJetGood"] == 1
+    passed_nJetGood = events["nJetGood"] == 1
 
-    return passed_nPhotonSR & passed_nBJetGood & passed_nJetGood
+    return passed_nPhotonGood & passed_nBJetGood & passed_nJetGood
 
 SR_cut = Cut(
     name="sr_cut",
@@ -51,12 +51,12 @@ SR_cut = Cut(
 )
 
 def PLJ_selection(events, params, **kwargs):
-    passed_nPhotonSR = events["nPhotonSR"] == 0
+    passed_nPhotonGood = events["nPhotonGood"] == 0
     passed_nPhotonPLJ = events["nPhotonPLJ"] == 1
     passed_nBJetGood = events["nBJetGoodPLJ"] == 1
     passed_nJetGood = events["nJetGoodPLJ"] == 1
 
-    return passed_nPhotonPLJ & passed_nPhotonSR & passed_nBJetGood & passed_nJetGood
+    return passed_nPhotonPLJ & passed_nPhotonGood & passed_nBJetGood & passed_nJetGood
 
 PLJ_cut = Cut(
     name="plj_cut",
@@ -66,14 +66,14 @@ PLJ_cut = Cut(
 )
 
 def CRB_selection(events, params, **kwargs):
-    passed_nPhotonSR = events["nPhotonSR"] == 0
+    passed_nPhotonGood = events["nPhotonGood"] == 0
     passed_nPhotonCRB = events["nPhotonCRB"] == 1
     passed_nPhotonCRC = events["nPhotonCRC"] == 0
     passed_nPhotonCRD = events["nPhotonCRD"] == 0
     passed_nBJetGood = events["nBJetGoodCRB"] == 1
     passed_nJetGood = events["nJetGoodCRB"] == 1
     
-    return passed_nPhotonSR & passed_nPhotonCRB & passed_nPhotonCRC & passed_nPhotonCRD & passed_nBJetGood & passed_nJetGood
+    return passed_nPhotonGood & passed_nPhotonCRB & passed_nPhotonCRC & passed_nPhotonCRD & passed_nBJetGood & passed_nJetGood
 
 CRB_cut = Cut(
     name="crb_cut",
@@ -83,14 +83,14 @@ CRB_cut = Cut(
 )
 
 def CRC_selection(events, params, **kwargs):
-    passed_nPhotonSR = events["nPhotonSR"] == 0
+    passed_nPhotonGood = events["nPhotonGood"] == 0
     passed_nPhotonCRB = events["nPhotonCRB"] == 0
     passed_nPhotonCRC = events["nPhotonCRC"] == 1
     passed_nPhotonCRD = events["nPhotonCRD"] == 0
     passed_nBJetGood = events["nBJetGoodCRC"] == 1
     passed_nJetGood = events["nJetGoodCRC"] == 1
 
-    return passed_nPhotonSR & passed_nPhotonCRB & passed_nPhotonCRC & passed_nPhotonCRD & passed_nBJetGood & passed_nJetGood
+    return passed_nPhotonGood & passed_nPhotonCRB & passed_nPhotonCRC & passed_nPhotonCRD & passed_nBJetGood & passed_nJetGood
 
 CRC_cut = Cut(
     name="crc_cut",
@@ -100,14 +100,14 @@ CRC_cut = Cut(
 )
 
 def CRD_selection(events, params, **kwargs):
-    passed_nPhotonSR = events["nPhotonSR"] == 0
+    passed_nPhotonGood = events["nPhotonGood"] == 0
     passed_nPhotonCRB = events["nPhotonCRB"] == 0
     passed_nPhotonCRC = events["nPhotonCRC"] == 0
     passed_nPhotonCRD = events["nPhotonCRD"] == 1
     passed_nBJetGood = events["nBJetGoodCRD"] == 1
     passed_nJetGood = events["nJetGoodCRD"] == 1
 
-    return passed_nPhotonSR & passed_nPhotonCRB & passed_nPhotonCRC & passed_nPhotonCRD & passed_nBJetGood & passed_nJetGood
+    return passed_nPhotonGood & passed_nPhotonCRB & passed_nPhotonCRC & passed_nPhotonCRD & passed_nBJetGood & passed_nJetGood
 
 CRD_cut = Cut(
     name="crd_cut",
