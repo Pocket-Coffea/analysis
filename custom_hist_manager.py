@@ -150,6 +150,9 @@ class CustomHistManager(HistManager):
                 plj_variations = list(sorted({'custom_sf_ele_idDown', 'custom_sf_ele_idUp', 'custom_sf_ele_recoDown', 'custom_sf_ele_recoUp',
                                               'nominal',
                                               'pileupDown', 'pileupUp',
+                                              'sf_btag_cferr1Down', 'sf_btag_cferr1Up', 'sf_btag_cferr2Down', 'sf_btag_cferr2Up', 'sf_btag_hfDown',
+                                              'sf_btag_hfUp', 'sf_btag_hfstats1Down', 'sf_btag_hfstats1Up', 'sf_btag_hfstats2Down', 'sf_btag_hfstats2Up',
+                                              'sf_btag_lfDown', 'sf_btag_lfUp', 'sf_btag_lfstats1Down', 'sf_btag_lfstats1Up', 'sf_btag_lfstats2Down', 'sf_btag_lfstats2Up',
                                               'sf_pho_idDown', 'sf_pho_idUp', 'sf_pho_pxseedDown', 'sf_pho_pxseedUp'
                                              }))
                 var_ax = hist.axis.StrCategory(

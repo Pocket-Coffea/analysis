@@ -1,0 +1,72 @@
+photon_scale_factors:
+    ####################################################################################################
+    collection: PhotonGood
+    
+    JSONfiles: 
+        '2016_PreVFP':
+            file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2016preVFP_UL/photon.json.gz
+            id: UL-Photon-ID-SF
+            pxseed: UL-Photon-PixVeto-SF
+        
+        '2016_PostVFP':
+            file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2016postVFP_UL/photon.json.gz
+            id: UL-Photon-ID-SF
+            pxseed: UL-Photon-PixVeto-SF
+        
+        '2017':
+            file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2017_UL/photon.json.gz
+            id: UL-Photon-ID-SF
+            pxseed: UL-Photon-PixVeto-SF
+        
+        '2018':
+            file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2018_UL/photon.json.gz
+            id: UL-Photon-ID-SF
+            pxseed: UL-Photon-PixVeto-SF
+    
+        # '2022_preEE':
+        #   file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2022_Summer22/photon.json.gz
+        #   fileSS: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2022_Summer22/photonSS.json.gz
+        #   name: Electron-ID-SF
+        #   reco:
+        #     pt_lt_20: RecoBelow20
+        #     pt_gt_20_lt_75: Reco20to75
+        #     pt_gt_75: RecoAbove75
+        
+        # '2022_postEE':
+        #   file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2022_Summer22EE/photon.json.gz
+        #   fileSS: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2022_Summer22EE/photonSS.json.gz
+        #   name: Electron-ID-SF
+        #   reco:
+        #     pt_lt_20: RecoBelow20
+        #     pt_gt_20_lt_75: Reco20to75
+        #     pt_gt_75: RecoAbove75
+        
+        # '2023_preBPix':
+        #   file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2023_Summer23/photon.json.gz
+        #   fileSS: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2023_Summer23/photonSS.json.gz
+        #   name: Electron-ID-SF
+        #   reco:
+        #     pt_lt_20: RecoBelow20
+        #     pt_gt_20_lt_75: Reco20to75
+        #     pt_gt_75: RecoAbove75
+        
+        # '2023_postBPix':
+        #   file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2023_Summer23BPix/electron.json.gz
+        #   fileSS: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2023_Summer23BPix/electronSS.json.gz
+        #   name: Electron-ID-SF
+        #   reco:
+        #     pt_lt_20: RecoBelow20
+        #     pt_gt_20_lt_75: Reco20to75
+        #     pt_gt_75: RecoAbove75
+    
+    era_mapping:
+        # this is needed because the correction set provided by EGM
+        # have a fixed set of era labels, different from ours
+        "2016_PreVFP": "2016preVFP"
+        "2016_PostVFP": "2016postVFP"
+        "2017": "2017"
+        "2018": "2018"
+        "2022_preEE": "2022Re-recoBCD"
+        "2022_postEE": "2022Re-recoE+PromptFG"
+        "2023_preBPix": "2023PromptC"
+        "2023_postBPix": "2023PromptD"

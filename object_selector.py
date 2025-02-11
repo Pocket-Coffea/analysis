@@ -119,7 +119,7 @@ def btagging(Jet, btag, params, veto=False):
     if veto:
         return Jet[(Jet[btag["btagging_algorithm"]] < btag["btagging_WP"][params["wp"]])]
     else:
-        return Jet[(Jet[btag["btagging_algorithm"]] > btag["btagging_WP"][params["wp"]]) & (abs(Jet.eta < params["eta"]))]
+        return Jet[(Jet[btag["btagging_algorithm"]] > btag["btagging_WP"][params["wp"]]) & (abs(Jet.eta) < params["eta"])]
 
 def calculateNu4vec(lepton, MET):
     # MET components

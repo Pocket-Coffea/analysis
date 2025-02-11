@@ -31,7 +31,7 @@ object_preselection:
     Jet:
         dr_lepton: 0.4
         pt: 30
-        eta: 4.7
+        eta: 2.5
         jetId: 5
         puId:
             wp: L
@@ -39,5 +39,5 @@ object_preselection:
             maxpt: 50.0
         btag:
             wp: M
-            eta: 2.4
+            eta: 2.5
             
