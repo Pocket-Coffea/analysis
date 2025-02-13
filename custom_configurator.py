@@ -17,7 +17,7 @@ class CustomConfigurator(Configurator):
         workflow_options=None,
         save_skimmed_files=None,
         do_postprocessing=True,
-        lepton="Electron"
+        lepton="Muon"
     ):
         super().__init__(
             workflow,
