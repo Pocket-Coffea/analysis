@@ -151,6 +151,42 @@ def sf_ele_id(params, events, year):
     return ak.prod(sf_id, axis=1), ak.prod(sfup_id, axis=1), ak.prod(sfdown_id, axis=1)
 
 
+
+def get_mu_sf(params, year, pt, eta, counts, key=''):
+    '''
+    This function computes the per-muon id or iso SF.
+    '''
+    muonSF = params["muon_scale_factors"]["muon_sf"]
+
+    muon_correctionset = correctionlib.CorrectionSet.from_file(
+        muonSF.JSONfiles[year]['file']
+    )
+
+    if key not in ["id","iso","trigger"]:
+        raise Exception(f"Muon SF key {key} not recognized")
+    
+    sfName = muonSF.sf_name[year][key]
+    
+    sf = muon_correctionset[sfName].evaluate(
+        np.abs(eta.to_numpy()), pt.to_numpy(), "nominal"
+    )
+    sfup = muon_correctionset[sfName].evaluate(
+        np.abs(eta.to_numpy()), pt.to_numpy(), "systup"
+    )
+    sfdown = muon_correctionset[sfName].evaluate(
+        np.abs(eta.to_numpy()), pt.to_numpy(), "systdown"
+    )
+    
+    # The unflattened arrays are returned in order to have one row per event.
+    return (
+        ak.unflatten(sf, counts),
+        ak.unflatten(sfup, counts),
+        ak.unflatten(sfdown, counts),
+    )
+
+
+
+
 def sf_mu(params, events, year, key=''):
     '''
     This function computes the per-muon id SF and returns the corresponding per-event SF, obtained by multiplying the per-muon SF in each event.
@@ -171,6 +207,9 @@ def sf_mu(params, events, year, key=''):
     # The SF arrays corresponding to all the muons are multiplied along the
     # muon axis in order to obtain a per-event scale factor.
     return ak.prod(sf, axis=1), ak.prod(sfup, axis=1), ak.prod(sfdown, axis=1)
+
+
+
 
 def get_pho_sf(params, year, pt= None, eta=None, r9=None, counts=None, key='', pxbin= None):
 

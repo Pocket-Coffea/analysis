@@ -31,13 +31,15 @@ defaults.register_configuration_dir("config_dir", localdir+"/params")
 parameters = defaults.merge_parameters_from_files(default_parameters,
                                                   f"{localdir}/params/object_preselection_lep.yaml",
                                                   f"{localdir}/params/triggers_lep.yaml",
-                                                  f"{localdir}/params/plotting.yaml",
+                                                  f"{localdir}/params/plotting.yaml", 
+                                                  f"{localdir}/params/photon_scale_factors.yaml",
+                                                  f"{localdir}/params/muon_scale_factors.yaml",
                                                   update=True)
 
 
 
 cfg = CustomConfigurator(
-    lepton = "Muon"
+    lepton = "Muon",
     parameters = parameters,
     datasets = {
         "jsons": [
@@ -51,9 +53,9 @@ cfg = CustomConfigurator(
             # f"{localdir}/datasets/TTToSemiLeptonic.json"
         ],
         "filter" : {
-            "samples": ["DATA_SingleMuon", "DYJets", "TGJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG", "ST"], 
-            # "DATA_SinglePhoton", "TT", "ST"
-            "samples_exclude" : [],
+            "samples": ["DATA_SingleMuon", "DYJets", "TGJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG", "ST", "TT"], 
+            # "TT", "ST"
+            "samples_exclude" : ["JetFakePhoton"],
             "year": ['2018']
         }
     },
@@ -75,8 +77,9 @@ cfg = CustomConfigurator(
     weights = {
         "common": {
             "inclusive": ["genWeight","lumi","XS",
-                          "pileup",
-                          # "sf_ele_id", "sf_ele_reco",
+                          "pileup", 
+                          "custom_sf_mu_id", "custom_sf_mu_iso",
+                          "sf_pho_id", "sf_pho_pxseed", "sf_btag"
                           ],
             "bycategory" : {
             }
@@ -89,7 +92,8 @@ cfg = CustomConfigurator(
         "weights": {
             "common": {
                 "inclusive": [  "pileup",
-                                # "sf_ele_id", "sf_ele_reco",
+                                "custom_sf_mu_id", "custom_sf_mu_iso",
+                                "sf_pho_id", "sf_pho_pxseed", "sf_btag"
                               ],
                 "bycategory" : {
                 }
@@ -103,16 +107,16 @@ cfg = CustomConfigurator(
    variables = {
        # **lepton_hists(),
        # **jet_hists(),
-       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=[0, 40, 80, 120, 160, 200, 300, 500, 1000], label="$p_T^\gamma$")] ),
+       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=[(30+i*20) for i in range(11)], label="$p_T^\gamma$")] ),
        "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=8, start=-2, stop=2, label="$\eta_\gamma$")] ),
-       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="pt", bins=[0, 40, 80, 120, 160, 200, 300, 500, 1000], label="$p_T^b$")] ),
+       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="pt", bins=[(i*10) for i in range(21)], label="$p_T^b$")] ),
        "BJet_eta": HistConf( [Axis(coll="BJetGood", field="eta", bins=12, start=-3, stop=3, label="$\eta_b$")] ),
-       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=[0, 40, 80, 120, 160, 200, 300, 500, 1000], label="$p_T^{top}$")] ),
-       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=[0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1250, 1500, 1750], label="$top_M$")] ),
-       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=[0, 40, 80, 120, 160, 200, 300, 500, 1000], label="$p_T^{VLT}$")] ),
-       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=[0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1250, 1500, 1750, 2000], label="$VLT_M$")] ),
-       "Muon_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[0, 40, 80, 120, 160, 200, 300, 500, 1000], label="$\mu_{p_T}$")] ),
-       "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=20, start=0, stop=200, label="$W_T$")] )
+       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=[i*10 for i in range(21)], label="$p_T^{top}$")] ),
+       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=[(i*10) for i in range(41)], overflow = False, label="$top_M$")] ),
+       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=[i*10 for i in range(21)], overflow=True, label="$p_T^{VLT}$")] ),
+       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=[(100+i*50) for i in range(21)]+[1500,1700,2200], label="$VLT_M$")] ),
+       "Muon_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[(30+i*10) for i in range(11)]+[140,200], label="${p_T}^{\mu}$")] ),
+       "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=30, start=0, stop=150, overflow = False, label="$mW_T$")] )
    }
 )
 
