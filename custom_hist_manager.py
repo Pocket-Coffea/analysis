@@ -22,9 +22,11 @@ class CustomHistManager(HistManager):
         processor_params,
         custom_axes=None,
         isMC=True,
+        lepton="Muon"
     ):
         self.processor_params = processor_params
         self.isMC = isMC
+        self.lepton = lepton
         self.year = year
         self.subsamples = subsamples
         self.weights_manager = weights_manager
@@ -147,14 +149,30 @@ class CustomHistManager(HistManager):
                 hcfg.only_variations, name="variation", label="Variation", growth=False
             )
             if sample == "PLJ":
-                plj_variations = list(sorted({'custom_sf_ele_idDown', 'custom_sf_ele_idUp', 'custom_sf_ele_recoDown', 'custom_sf_ele_recoUp',
+                if self.lepton == "Electron":
+                     plj_variations = list(sorted({'custom_sf_ele_idDown', 'custom_sf_ele_idUp', 'custom_sf_ele_recoDown', 'custom_sf_ele_recoUp',
+                                               'nominal',
+                                               'pileupDown', 'pileupUp',
+                                               'sf_btag_cferr1Down', 'sf_btag_cferr1Up', 'sf_btag_cferr2Down', 'sf_btag_cferr2Up', 'sf_btag_hfDown',
+                                               'sf_btag_hfUp', 'sf_btag_hfstats1Down', 'sf_btag_hfstats1Up', 'sf_btag_hfstats2Down', 'sf_btag_hfstats2Up',
+                                               'sf_btag_lfDown', 'sf_btag_lfUp', 'sf_btag_lfstats1Down', 'sf_btag_lfstats1Up', 
+                                               'sf_btag_lfstats2Down', 'sf_btag_lfstats2Up',
+                                               'sf_pho_idDown', 'sf_pho_idUp', 'sf_pho_pxseedDown', 'sf_pho_pxseedUp'
+                                              }))
+                elif self.lepton == "Muon": 
+                    plj_variations = list(sorted({'custom_sf_mu_idDown', 'custom_sf_mu_idUp', 'custom_sf_mu_isoDown', 'custom_sf_mu_isoUp',
                                               'nominal',
                                               'pileupDown', 'pileupUp',
                                               'sf_btag_cferr1Down', 'sf_btag_cferr1Up', 'sf_btag_cferr2Down', 'sf_btag_cferr2Up', 'sf_btag_hfDown',
                                               'sf_btag_hfUp', 'sf_btag_hfstats1Down', 'sf_btag_hfstats1Up', 'sf_btag_hfstats2Down', 'sf_btag_hfstats2Up',
-                                              'sf_btag_lfDown', 'sf_btag_lfUp', 'sf_btag_lfstats1Down', 'sf_btag_lfstats1Up', 'sf_btag_lfstats2Down', 'sf_btag_lfstats2Up',
+                                              'sf_btag_lfDown', 'sf_btag_lfUp', 'sf_btag_lfstats1Down', 'sf_btag_lfstats1Up', 
+                                              'sf_btag_lfstats2Down', 'sf_btag_lfstats2Up',
                                               'sf_pho_idDown', 'sf_pho_idUp', 'sf_pho_pxseedDown', 'sf_pho_pxseedUp'
                                              }))
+                else:
+                    raise ValueError(f"Invalid lepton type: {lepton}.")
+
+
                 var_ax = hist.axis.StrCategory(
                     plj_variations, name="variation", label="Variation", growth=False
                 )

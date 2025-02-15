@@ -1,0 +1,66 @@
+##################################################################################################  
+muon_scale_factors:
+
+    muon_sf:
+         # in PocketCoffea by convention the cleaned collection are called *Good
+        collection: MuonGood
+    
+        sf_name:
+          '2016_PreVFP':
+              id: NUM_TightID_DEN_TrackerMuons
+              iso: NUM_TightRelIso_DEN_TightIDandIPCut
+              trigger: NUM_IsoMu24_or_IsoTkMu24_DEN_CutBasedIdTight_and_PFIsoTight
+
+          '2016_PostVFP':
+              id: NUM_TightID_DEN_TrackerMuons
+              iso: NUM_TightRelIso_DEN_TightIDandIPCut
+              trigger: NUM_IsoMu24_or_IsoTkMu24_DEN_CutBasedIdTight_and_PFIsoTight
+
+          '2017':
+              id: NUM_TightID_DEN_TrackerMuons
+              iso: NUM_TightRelIso_DEN_TightIDandIPCut
+              trigger: NUM_IsoMu27_DEN_CutBasedIdTight_and_PFIsoTight
+
+          '2018':
+              id: NUM_TightID_DEN_TrackerMuons
+              iso: NUM_TightRelIso_DEN_TightIDandIPCut
+              trigger: NUM_IsoMu24_DEN_CutBasedIdTight_and_PFIsoTight
+
+          # '2022_preEE':
+          #     id: NUM_TightID_DEN_TrackerMuons
+          #     iso: NUM_LoosePFIso_DEN_TightID
+          # trigger: NUM_IsoMu24_DEN_CutBasedIdTight_and_PFIsoTight
+
+          # '2022_postEE':
+          #     id: NUM_TightID_DEN_TrackerMuons
+          #     iso: NUM_LoosePFIso_DEN_TightID
+          #     # trigger: NUM_IsoMu24_DEN_CutBasedIdTight_and_PFIsoTight
+
+          # '2023_preBPix':
+          #     id: NUM_TightID_DEN_TrackerMuons
+          #     iso: NUM_LoosePFIso_DEN_TightID
+          
+          # '2023_postBPix':
+          #     id: NUM_TightID_DEN_TrackerMuons
+          #     iso: NUM_LoosePFIso_DEN_TightID
+
+        JSONfiles:
+          '2016_PreVFP':
+              file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2016preVFP_UL/muon_Z.json.gz
+          '2016_PostVFP':
+              file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2016postVFP_UL/muon_Z.json.gz
+          '2017':
+              file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2017_UL/muon_Z.json.gz
+          '2018':
+              file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2018_UL/muon_Z.json.gz
+          # '2022_preEE':
+          #     file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2022_Summer22/muon_Z.json.gz
+          # '2022_postEE':
+          #     file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2022_Summer22EE/muon_Z.json.gz
+          # '2023_preBPix':
+          #     file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2023_Summer23/muon_Z.json.gz
+          # '2023_postBPix':
+          #     file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2023_Summer23BPix/muon_Z.json.gz
+
+    
+    
