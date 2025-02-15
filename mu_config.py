@@ -116,7 +116,7 @@ cfg = CustomConfigurator(
        "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=[i*10 for i in range(21)], overflow=True, label="$p_T^{VLT}$")] ),
        "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=[(100+i*50) for i in range(21)]+[1500,1700,2200], label="$VLT_M$")] ),
        "Muon_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[(30+i*10) for i in range(11)]+[140,200], label="${p_T}^{\mu}$")] ),
-       "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=30, start=0, stop=150, overflow = False, label="$mW_T$")] )
+       "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=20, start=0, stop=200, label="$mW_T$")] )
    }
 )
 

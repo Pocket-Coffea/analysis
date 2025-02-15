@@ -262,7 +262,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             weights_manager=self.weights_manager if self._isMC else None,
             custom_axes=self.custom_axes,
             isMC=self._isMC,
-            lepton="Muon"
+            lepton=self.cfg.lepton
         )            
             
     def define_histograms_extra(self):
@@ -293,7 +293,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                 weights_manager=self.weights_manager,
                 custom_axes=self.custom_axes,
                 isMC=self._isMC,
-                lepton="Muon"
+                lepton=self.cfg.lepton
             )
         
 
