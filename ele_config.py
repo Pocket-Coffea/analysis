@@ -41,6 +41,7 @@ cfg = CustomConfigurator(
     parameters = parameters,
     datasets = {
         "jsons": [
+            # f"{localdir}/datasets/signal.json",
             f"{localdir}/datasets/local_fileset.json",
             # f"{localdir}/datasets/DATA_SingleMuon.json",    
             # f"{localdir}/datasets/DYJetsToLL_M-50.json",
@@ -51,8 +52,9 @@ cfg = CustomConfigurator(
             # f"{localdir}/datasets/TTToSemiLeptonic.json"
         ],
         "filter" : {
-            "samples": ["DATA_EGamma", "DYJets", "TGJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG", "ST", "TT", "Signal"], 
-            # "DATA_SinglePhoton", "TT", "ST"
+            # "samples": ["Signal"],
+            "samples": ["DATA_EGamma", "DYJets",  "TGJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG", "ST", "TT"],
+            # "DATA_SinglePhoton",
             "samples_exclude" : [],
             "year": ['2018']
         }
@@ -112,10 +114,10 @@ cfg = CustomConfigurator(
        "BJet_pt": HistConf( [Axis(coll="BJetGood", field="pt", bins=[(i*10) for i in range(21)], label="$p_{T,b}(GeV)$")] ),
        "BJet_eta": HistConf( [Axis(coll="BJetGood", field="eta", bins=12, start=-3, stop=3, label="$\eta_b$")] ),
        "top_pt": HistConf( [Axis(coll="top", field="pt", bins=[i*10 for i in range(21)], label="$p_{T,top}(GeV)$")] ),
-       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=[(i*10) for i in range(41)], label="$top_M(GeV)$")] ),
+       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=[(i*20) for i in range(31)], label="$top_M(GeV)$")] ),
        "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=[i*10 for i in range(21)], overflow=True, label="$p_{T,VLT}(GeV)$")] ),
        "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=[(i*50) for i in range(17)]+[(1000+j*200) for j in range(7)], label="$VLT_M(GeV)$")] ),
-       "Electron_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[(i*10) for i in range(11)]+[140,160, 180, 200], label="${p_{T,e}(GeV)$")] ),
+       "Electron_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[(i*10) for i in range(13)]+[140,160, 180, 200], label="$p_{T,e}(GeV)$")] ),
        "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=20, start=0, stop=200, label="$mW_T(GeV)$")] )
    }
 )

@@ -184,19 +184,32 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                 "[140, 200]": [140, 200],
                 "[200, np.inf]": [200, np.inf]
             }
+            eta_intervals = {
+                "[-1.5, -1]": [-1.5, -1],
+                "[-1, -0.5]": [-1, -0.5],
+                "[-0.5, 0]": [-0.5, 0],
+                "[0, 0.5]": [0, 0.5],
+                "[0.5, 1]": [0.5, 1],
+                "[1, 1.5]": [1, 1.5],
+            }
     
             self.output["nevents"] = {}
-            self.output["nevents_dataset"] = {}
-            
-            for region, mask in self.regions.get_masks():
-                masked_events = self.events[mask]
-                photon = ak.flatten(getattr(masked_events, "Photon{}".format(region)))
-                self.output["nevents"][region] = {}
-                self.output["nevents_dataset"][region] = {pt: {} for pt in pt_intervals.keys()}
-                for pt, pt_interval in pt_intervals.items():
+            self.output["nevents_eta"] = {}
+
+            for pt, pt_interval in pt_intervals.items():
+                self.output["nevents"][pt] = {}
+                for region, mask in self.regions.get_masks():
+                    masked_events = self.events[mask]
+                    photon = ak.flatten(getattr(masked_events, "Photon{}".format(region)))
                     selected_events = masked_events[(photon.pt >= pt_interval[0]) & (photon.pt < pt_interval[1])]
-                    self.output["nevents"][region][pt] = len(selected_events)
-                    self.output["nevents_dataset"][region][pt][self._dataset] = len(selected_events)
+                    self.output["nevents"][pt][region] = len(selected_events)
+            for eta, eta_interval in eta_intervals.items():
+                self.output["nevents_eta"][eta] = {}
+                for region, mask in self.regions.get_masks():
+                    masked_events = self.events[mask]
+                    photon = ak.flatten(getattr(masked_events, "Photon{}".format(region)))
+                    selected_events = masked_events[(photon.eta >= eta_interval[0]) & (photon.eta < eta_interval[1])]
+                    self.output["nevents_eta"][eta][region] = len(selected_events)
             
 
     def define_categories(self, variation):
@@ -535,18 +548,20 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                 dmeta["by_datataking_period"][year]["JetFakePhoton"].add(dataset_name)
 
         if "nevents" in accumulator.keys():
-            diction = {pt:{} for _, pt_int in accumulator["nevents"].items() for pt in pt_int}
-            for region, dic in accumulator["nevents"].items():
-                for pt_interval, _ in dic.items():
-                    diction[pt_interval][region] = dic[pt_interval]
             
             EF = accumulator["EF"] = {}
             EF_err = accumulator["EF_err"] = {}
+            EF_eta = accumulator["EF_eta"] = {}
+            EF_eta_err = accumulator["EF_eta_err"] = {}
             NB_err = {} 
             NC_err = {}
             ND_err = {}
             NP_err = {}
-            for pt_interval, dicti in diction.items():
+            NB_eta_err = {} 
+            NC_eta_err = {}
+            ND_eta_err = {}
+            NP_eta_err = {}
+            for pt_interval, dicti in accumulator["nevents"].items():
                 EF[pt_interval] = ((dicti["CRB"]*dicti["CRC"])/dicti["CRD"])/dicti["PLJ"]
                 NB_err[pt_interval] = np.sqrt(dicti["CRB"])/dicti["CRB"]
                 NC_err[pt_interval] = np.sqrt(dicti["CRC"])/dicti["CRC"]
@@ -557,6 +572,18 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                                                                 np.power(NC_err[pt_interval],2)+
                                                                 np.power(ND_err[pt_interval],2)+ 
                                                                 np.power(NP_err[pt_interval],2))
+                
+            for eta_interval, dicti in accumulator["nevents_eta"].items():
+                EF_eta[eta_interval] = ((dicti["CRB"]*dicti["CRC"])/dicti["CRD"])/dicti["PLJ"]
+                NB_eta_err[eta_interval] = np.sqrt(dicti["CRB"])/dicti["CRB"]
+                NC_eta_err[eta_interval] = np.sqrt(dicti["CRC"])/dicti["CRC"]
+                ND_eta_err[eta_interval] = np.sqrt(dicti["CRD"])/dicti["CRD"]
+                NP_eta_err[eta_interval] = np.sqrt(dicti["PLJ"])/dicti["PLJ"]
+                
+                EF_eta_err[eta_interval] = EF_eta[eta_interval] * np.sqrt(np.power(NB_eta_err[eta_interval],2)+
+                                                                          np.power(NC_eta_err[eta_interval],2)+
+                                                                          np.power(ND_eta_err[eta_interval],2)+ 
+                                                                          np.power(NP_eta_err[eta_interval],2))
 
 
         return accumulator

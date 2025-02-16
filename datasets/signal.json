@@ -1,0 +1,842 @@
+{
+    "Signal_1000_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_130945/0000/Signal_1000_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 718339.375,
+            "xsec": "16.25",
+            "part": "1000"
+        }
+    },
+    "Signal_1000_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_131024/0000/Signal_1000_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 719148.5625,
+            "xsec": "16.25",
+            "part": "1000"
+        }
+    },
+    "Signal_1000_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101258/0000/Signal_1000_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1437317.125,
+            "xsec": "16.25",
+            "part": "1000"
+        }
+    },
+    "Signal_1000_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_104659/0000/Signal_1000_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1438086.5,
+            "xsec": "16.25",
+            "part": "1000"
+        }
+    },
+    "Signal_1100_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_131101/0000/Signal_1100_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 770633.875,
+            "xsec": "16.25",
+            "part": "1100"
+        }
+    },
+    "Signal_1100_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v3/241226_131142/0000/Signal_1100_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 771183.875,
+            "xsec": "16.25",
+            "part": "1100"
+        }
+    },
+    "Signal_1100_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v3/241227_101341/0000/Signal_1100_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1540686.375,
+            "xsec": "16.25",
+            "part": "1100"
+        }
+    },
+    "Signal_1100_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_104740/0000/Signal_1100_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1541255.25,
+            "xsec": "16.25",
+            "part": "1100"
+        }
+    },
+    "Signal_1200_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_131219/0000/Signal_1200_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 810185.0,
+            "xsec": "16.25",
+            "part": "1200"
+        }
+    },
+    "Signal_1200_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_131256/0000/Signal_1200_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 811343.25,
+            "xsec": "16.25",
+            "part": "1200"
+        }
+    },
+    "Signal_1200_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101421/0000/Signal_1200_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1508908.125,
+            "xsec": "16.25",
+            "part": "1200"
+        }
+    },
+    "Signal_1200_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_104820/0000/Signal_1200_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1620869.875,
+            "xsec": "16.25",
+            "part": "1200"
+        }
+    },
+    "Signal_1300_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_131334/0000/Signal_1300_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 840397.0,
+            "xsec": "16.25",
+            "part": "1300"
+        }
+    },
+    "Signal_1300_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_131411/0000/Signal_1300_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 839091.75,
+            "xsec": "16.25",
+            "part": "1300"
+        }
+    },
+    "Signal_1300_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101502/0000/Signal_1300_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1679582.75,
+            "xsec": "16.25",
+            "part": "1300"
+        }
+    },
+    "Signal_1300_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_104902/0000/Signal_1300_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1679247.25,
+            "xsec": "16.25",
+            "part": "1300"
+        }
+    },
+    "Signal_1400_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_131449/0000/Signal_1400_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 858230.125,
+            "xsec": "16.25",
+            "part": "1400"
+        }
+    },
+    "Signal_1400_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_131528/0000/Signal_1400_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 857524.0625,
+            "xsec": "16.25",
+            "part": "1400"
+        }
+    },
+    "Signal_1400_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101543/0000/Signal_1400_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1715337.375,
+            "xsec": "16.25",
+            "part": "1400"
+        }
+    },
+    "Signal_1400_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_104945/0000/Signal_1400_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1717147.875,
+            "xsec": "16.25",
+            "part": "1400"
+        }
+    },
+    "Signal_1500_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v3/241226_131606/0000/Signal_1500_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 866409.9375,
+            "xsec": "16.25",
+            "part": "1500"
+        }
+    },
+    "Signal_1500_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_131643/0000/Signal_1500_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 851637.75,
+            "xsec": "16.25",
+            "part": "1500"
+        }
+    },
+    "Signal_1500_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101623/0000/Signal_1500_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1731869.25,
+            "xsec": "16.25",
+            "part": "1500"
+        }
+    },
+    "Signal_1500_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_105025/0000/Signal_1500_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1733835.125,
+            "xsec": "16.25",
+            "part": "1500"
+        }
+    },
+    "Signal_1600_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_131721/0000/Signal_1600_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 867397.3125,
+            "xsec": "16.25",
+            "part": "1600"
+        }
+    },
+    "Signal_1600_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_131759/0000/Signal_1600_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 867735.5,
+            "xsec": "16.25",
+            "part": "1600"
+        }
+    },
+    "Signal_1600_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v3/241227_101704/0000/Signal_1600_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1734529.5,
+            "xsec": "16.25",
+            "part": "1600"
+        }
+    },
+    "Signal_1600_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_105106/0000/Signal_1600_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1735251.125,
+            "xsec": "16.25",
+            "part": "1600"
+        }
+    },
+    "Signal_1700_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_131837/0000/Signal_1700_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 841490.6875,
+            "xsec": "16.25",
+            "part": "1700"
+        }
+    },
+    "Signal_1700_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_131915/0000/Signal_1700_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 857927.6875,
+            "xsec": "16.25",
+            "part": "1700"
+        }
+    },
+    "Signal_1700_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v3/241227_101744/0000/Signal_1700_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1716085.875,
+            "xsec": "16.25",
+            "part": "1700"
+        }
+    },
+    "Signal_1700_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_105148/0000/Signal_1700_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1715953.5,
+            "xsec": "16.25",
+            "part": "1700"
+        }
+    },
+    "Signal_1800_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_131953/0000/Signal_1800_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 837794.625,
+            "xsec": "16.25",
+            "part": "1800"
+        }
+    },
+    "Signal_1800_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_132031/0000/Signal_1800_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 838496.4375,
+            "xsec": "16.25",
+            "part": "1800"
+        }
+    },
+    "Signal_1800_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101826/0000/Signal_1800_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1677308.625,
+            "xsec": "16.25",
+            "part": "1800"
+        }
+    },
+    "Signal_1800_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v3/241227_105228/0000/Signal_1800_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1662436.75,
+            "xsec": "16.25",
+            "part": "1800"
+        }
+    },
+    "Signal_1900_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_132108/0000/Signal_1900_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 812466.5,
+            "xsec": "16.25",
+            "part": "1900"
+        }
+    },
+    "Signal_1900_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_132147/0000/Signal_1900_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 812444.125,
+            "xsec": "16.25",
+            "part": "1900"
+        }
+    },
+    "Signal_1900_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101909/0000/Signal_1900_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1622476.625,
+            "xsec": "16.25",
+            "part": "1900"
+        }
+    },
+    "Signal_1900_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_105308/0000/Signal_1900_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1607822.0,
+            "xsec": "16.25",
+            "part": "1900"
+        }
+    },
+    "Signal_2000_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v3/241226_132225/0000/Signal_2000_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 780869.8125,
+            "xsec": "16.25",
+            "part": "2000"
+        }
+    },
+    "Signal_2000_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_132303/0000/Signal_2000_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 779466.125,
+            "xsec": "16.25",
+            "part": "2000"
+        }
+    },
+    "Signal_2000_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101950/0000/Signal_2000_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1560846.25,
+            "xsec": "16.25",
+            "part": "2000"
+        }
+    },
+    "Signal_2000_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_105348/0000/Signal_2000_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-2000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1560673.75,
+            "xsec": "16.25",
+            "part": "2000"
+        }
+    },
+    "Signal_600_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_130439/0000/Signal_600_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 384420.5,
+            "xsec": "16.25",
+            "part": "600"
+        }
+    },
+    "Signal_600_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_130518/0000/Signal_600_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 384600.3125,
+            "xsec": "16.25",
+            "part": "600"
+        }
+    },
+    "Signal_600_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101018/0000/Signal_600_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 769498.75,
+            "xsec": "16.25",
+            "part": "600"
+        }
+    },
+    "Signal_600_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_104412/0000/Signal_600_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 769766.5625,
+            "xsec": "16.25",
+            "part": "600"
+        }
+    },
+    "Signal_700_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_130556/0000/Signal_700_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 485991.40625,
+            "xsec": "16.25",
+            "part": "700"
+        }
+    },
+    "Signal_700_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_130633/0000/Signal_700_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 485636.75,
+            "xsec": "16.25",
+            "part": "700"
+        }
+    },
+    "Signal_700_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v3/241227_101058/0000/Signal_700_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 972109.6875,
+            "xsec": "16.25",
+            "part": "700"
+        }
+    },
+    "Signal_700_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_104454/0000/Signal_700_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 972331.625,
+            "xsec": "16.25",
+            "part": "700"
+        }
+    },
+    "Signal_800_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v4/241226_130712/0000/Signal_800_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 576444.875,
+            "xsec": "16.25",
+            "part": "800"
+        }
+    },
+    "Signal_800_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_130749/0000/Signal_800_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 576270.0,
+            "xsec": "16.25",
+            "part": "800"
+        }
+    },
+    "Signal_800_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v3/241227_101139/0000/Signal_800_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1152910.25,
+            "xsec": "16.25",
+            "part": "800"
+        }
+    },
+    "Signal_800_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v4/241227_104535/0000/Signal_800_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1152633.25,
+            "xsec": "16.25",
+            "part": "800"
+        }
+    },
+    "Signal_900_2016_PreVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_preVFP_v3/241226_130827/0000/Signal_900_2016_PreVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PreVFP",
+            "isMC": "True",
+            "nevents": 654510.8125,
+            "xsec": "16.25",
+            "part": "900"
+        }
+    },
+    "Signal_900_2016_PostVFP": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2016_v4/241226_130907/0000/Signal_900_2016_PostVFP.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2016_PostVFP",
+            "isMC": "True",
+            "nevents": 641882.6875,
+            "xsec": "16.25",
+            "part": "900"
+        }
+    },
+    "Signal_900_2017": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2017_v4/241227_101218/0000/Signal_900_2017.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v4/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2017",
+            "isMC": "True",
+            "nevents": 1308604.875,
+            "xsec": "16.25",
+            "part": "900"
+        }
+    },
+    "Signal_900_2018": {
+        "files": [
+            "/eos/user/m/msahraei/ele_coffea_input/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/crab_VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8_2018_v3/241227_104617/0000/Signal_900_2018.root"
+        ],
+        "metadata": {
+            "das_name": "/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v3/NANOAODSIM",
+            "sample": "Signal",
+            "year": "2018",
+            "isMC": "True",
+            "nevents": 1308220.25,
+            "xsec": "16.25",
+            "part": "900"
+        }
+    }
+}
