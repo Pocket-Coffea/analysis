@@ -62,5 +62,4 @@ muon_scale_factors:
           # '2023_postBPix':
           #     file: /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2023_Summer23BPix/muon_Z.json.gz
 
-    
-    
+

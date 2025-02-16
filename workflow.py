@@ -158,9 +158,9 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         # self.events["b_jet"] = self.events.BJetGood[min_deltaR]
         
         # top reconstruction: W(mu+nu)+b
-        self.events["top"] = self.events.LeptonGood 
-        #self.events["top_m"] = self.events.top.mass
-        #self.events["top_pt"] = self.events.top.pt
+        self.events["top"] = self.events.LeptonGood
+        # self.events["top_m"] = self.events.top.mass
+        # self.events["top_pt"] = self.events.top.pt
         # self.events["top_eta"] = self.events.top.eta
         # self.events["top_phi"] = self.events.top.phi
 
@@ -534,27 +534,29 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                     dmeta["by_datataking_period"][year] = defaultdict(set)
                 dmeta["by_datataking_period"][year]["JetFakePhoton"].add(dataset_name)
 
-        diction = {pt:{} for _, pt_int in accumulator["nevents"].items() for pt in pt_int}
-        for region, dic in accumulator["nevents"].items():
-            for pt_interval, _ in dic.items():
-                diction[pt_interval][region] = dic[pt_interval]
-        
-        EF = accumulator["EF"] = {}
-        EF_err = accumulator["EF_err"] = {}
-        NB_err = {} 
-        NC_err = {}
-        ND_err = {}
-        NP_err = {}
-        for pt_interval, dicti in diction.items():
-            EF[pt_interval] = ((dicti["CRB"]*dicti["CRC"])/dicti["CRD"])/dicti["PLJ"]
-            NB_err[pt_interval] = np.sqrt(dicti["CRB"])/dicti["CRB"]
-            NC_err[pt_interval] = np.sqrt(dicti["CRC"])/dicti["CRC"]
-            ND_err[pt_interval] = np.sqrt(dicti["CRD"])/dicti["CRD"]
-            NP_err[pt_interval] = np.sqrt(dicti["PLJ"])/dicti["PLJ"]
+        if "nevents" in accumulator.keys():
+            diction = {pt:{} for _, pt_int in accumulator["nevents"].items() for pt in pt_int}
+            for region, dic in accumulator["nevents"].items():
+                for pt_interval, _ in dic.items():
+                    diction[pt_interval][region] = dic[pt_interval]
             
-            EF_err[pt_interval] = EF[pt_interval] * np.sqrt(np.power(NB_err[pt_interval],2)+
-                                                            np.power(NC_err[pt_interval],2)+
-                                                            np.power(ND_err[pt_interval],2)+ 
-                                                            np.power(NP_err[pt_interval],2))
+            EF = accumulator["EF"] = {}
+            EF_err = accumulator["EF_err"] = {}
+            NB_err = {} 
+            NC_err = {}
+            ND_err = {}
+            NP_err = {}
+            for pt_interval, dicti in diction.items():
+                EF[pt_interval] = ((dicti["CRB"]*dicti["CRC"])/dicti["CRD"])/dicti["PLJ"]
+                NB_err[pt_interval] = np.sqrt(dicti["CRB"])/dicti["CRB"]
+                NC_err[pt_interval] = np.sqrt(dicti["CRC"])/dicti["CRC"]
+                ND_err[pt_interval] = np.sqrt(dicti["CRD"])/dicti["CRD"]
+                NP_err[pt_interval] = np.sqrt(dicti["PLJ"])/dicti["PLJ"]
+                
+                EF_err[pt_interval] = EF[pt_interval] * np.sqrt(np.power(NB_err[pt_interval],2)+
+                                                                np.power(NC_err[pt_interval],2)+
+                                                                np.power(ND_err[pt_interval],2)+ 
+                                                                np.power(NP_err[pt_interval],2))
+
 
         return accumulator

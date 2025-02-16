@@ -22,11 +22,10 @@ class CustomHistManager(HistManager):
         processor_params,
         custom_axes=None,
         isMC=True,
-        lepton="Muon"
+        lepton="Electron"
     ):
         self.processor_params = processor_params
         self.isMC = isMC
-        self.lepton = lepton
         self.year = year
         self.subsamples = subsamples
         self.weights_manager = weights_manager
@@ -171,7 +170,6 @@ class CustomHistManager(HistManager):
                                              }))
                 else:
                     raise ValueError(f"Invalid lepton type: {lepton}.")
-
 
                 var_ax = hist.axis.StrCategory(
                     plj_variations, name="variation", label="Variation", growth=False
