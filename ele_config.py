@@ -12,12 +12,18 @@ import custom_cut_functions
 import custom_hist_manager
 import custom_weight_manager
 from custom_weight_manager import common_weights
+import custom_configurator
+import custom_scale_factors
+import helper_functions
 import object_selector
 cloudpickle.register_pickle_by_value(workflow)
 cloudpickle.register_pickle_by_value(custom_cut_functions)
 cloudpickle.register_pickle_by_value(custom_hist_manager)
 cloudpickle.register_pickle_by_value(custom_weight_manager)
+cloudpickle.register_pickle_by_value(custom_configurator)
+cloudpickle.register_pickle_by_value(custom_scale_factors)
 cloudpickle.register_pickle_by_value(object_selector)
+cloudpickle.register_pickle_by_value(helper_functions)
 
 from custom_cut_functions import *
 import os
@@ -52,9 +58,11 @@ cfg = CustomConfigurator(
             # f"{localdir}/datasets/TTToSemiLeptonic.json"
         ],
         "filter" : {
-            # "samples": ["Signal"],
-            "samples": ["DATA_EGamma", "DYJets",  "TGJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG", "ST", "TT"],
-            # "DATA_SinglePhoton",
+            # "samples": ["Signal", "WJets"],
+            "samples": ["TGJets", "TT",
+                        "DYJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG", "ST"
+                       ],
+            # "DATA_SinglePhoton", "DATA_EGamma"
             "samples_exclude" : [],
             "year": ['2018']
         }
@@ -62,14 +70,18 @@ cfg = CustomConfigurator(
 
     workflow = TopPartnerBaseProcessor,
 
-    skim = [#get_nPVgood(1), eventFlags, goldenJson, # basic skims
+    skim = [get_nPVgood(1), eventFlags, goldenJson, # basic skims
             #get_nObj_min(1, 18., "Muon"),
             # Asking only SingleMuon triggers since we are only using SingleMuon PD data
             get_HLTsel()], 
     
     preselections = [vlt_presel],
     categories = {
-        "SR": [SR_cut]
+        "SR": [SR_cut],
+        "PLJ": [PLJ_cut],
+        "CRB": [CRB_cut],
+        "CRC": [CRC_cut],
+        "CRD": [CRD_cut]
     },
 
     weights_classes = common_weights,
@@ -109,16 +121,20 @@ cfg = CustomConfigurator(
    variables = {
        # **lepton_hists(),
        # **jet_hists(),
-       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=[0] + [(30+i*20) for i in range(11)], label="$p_{T,\gamma}(GeV)$")] ),
-       "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=8, start=-2, stop=2, label="$\eta_\gamma$")] ),
-       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="pt", bins=[(i*10) for i in range(21)], label="$p_{T,b}(GeV)$")] ),
-       "BJet_eta": HistConf( [Axis(coll="BJetGood", field="eta", bins=12, start=-3, stop=3, label="$\eta_b$")] ),
-       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=[i*10 for i in range(21)], label="$p_{T,top}(GeV)$")] ),
-       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=[(i*20) for i in range(31)], label="$top_M(GeV)$")] ),
-       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=[i*10 for i in range(21)], overflow=True, label="$p_{T,VLT}(GeV)$")] ),
-       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=[(i*50) for i in range(17)]+[(1000+j*200) for j in range(7)], label="$VLT_M(GeV)$")] ),
-       "Electron_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[(i*10) for i in range(13)]+[140,160, 180, 200], label="$p_{T,e}(GeV)$")] ),
-       "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=20, start=0, stop=200, label="$mW_T(GeV)$")] )
+       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=[0] + [(30+i*20) for i in range(11)], label="$p_{T,\gamma}(GeV)$")], only_categories=["SR"] ),
+       "photon_sieie" : HistConf( [Axis(coll="PhotonGood", field="sieie", bins=20, start=0, stop=0.03, label="$\sigma_{i\eta i\eta}$")]),
+       "photon_chiso" : HistConf( [Axis(coll="PhotonGood", field="chIso", bins=50, start=0, stop=5, label="$chIso$")] ),
+       # "photon_sieie_CR" : HistConf( [Axis(coll="PhotonGood", field="sieie", bins=20, start=0.06, stop=0.016, label="$\sigma_{i\eta i\eta}$")], exclude_categories=["SR"]),
+       # "photon_chiso_CR" : HistConf( [Axis(coll="PhotonGood", field="pfRelIso03_chg", bins=20, start=0, stop=1.5, label="$chIso$")], exclude_categories=["SR"]),
+       "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=8, start=-2, stop=2, label="$\eta_\gamma$")], only_categories=["SR"] ),
+       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="pt", bins=[(i*10) for i in range(21)], label="$p_{T,b}(GeV)$")], only_categories=["SR"] ),
+       "BJet_eta": HistConf( [Axis(coll="BJetGood", field="eta", bins=12, start=-3, stop=3, label="$\eta_b$")], only_categories=["SR"] ),
+       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=[i*10 for i in range(21)], label="$p_{T,top}(GeV)$")], only_categories=["SR"] ),
+       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=[(i*20) for i in range(31)], label="$top_M(GeV)$")], only_categories=["SR"] ),
+       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=[i*10 for i in range(21)], overflow=True, label="$p_{T,VLT}(GeV)$")], only_categories=["SR"] ),
+       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=[(i*50) for i in range(17)]+[(1000+j*200) for j in range(7)], label="$VLT_M(GeV)$")], only_categories=["SR"] ),
+       "Electron_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[(i*10) for i in range(13)]+[140,160, 180, 200], label="$p_{T,e}(GeV)$")], only_categories=["SR"] ),
+       "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=20, start=0, stop=200, label="$mW_T(GeV)$")], only_categories=["SR"] )
    }
 )
 

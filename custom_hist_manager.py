@@ -275,15 +275,24 @@ class CustomHistManager(HistManager):
                     # The user must be aware of the behavior.
 
                     new_events = events[mask]
-                    if smpl == "SR":
-                        new_events["top"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino
-                        new_events["VLT"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino + new_events.PhotonGood
-                    if smpl == "PLJ":
-                        new_events["top"] = new_events.LeptonGood + new_events.BJetGoodPLJ + new_events.neutrino
-                        new_events["VLT"] = new_events.LeptonGood + new_events.BJetGoodPLJ + new_events.neutrino + new_events.PhotonPLJ
+                    if smpl == "PLJ" or category == "PLJ":
                         new_events["PhotonGood"] = new_events["PhotonPLJ"]
                         new_events["BJetGood"] = new_events["BJetGoodPLJ"]
                         new_events["JetGood"] = new_events["JetGoodPLJ"]
+                    if category == "CRB":
+                        new_events["PhotonGood"] = new_events["PhotonCRB"]
+                        new_events["BJetGood"] = new_events["BJetGoodCRB"]
+                        new_events["JetGood"] = new_events["JetGoodCRB"]
+                    if category == "CRC":
+                        new_events["PhotonGood"] = new_events["PhotonCRC"]
+                        new_events["BJetGood"] = new_events["BJetGoodCRC"]
+                        new_events["JetGood"] = new_events["JetGoodCRC"]
+                    if category == "CRD":
+                        new_events["PhotonGood"] = new_events["PhotonCRD"]
+                        new_events["BJetGood"] = new_events["BJetGoodCRD"]
+                        new_events["JetGood"] = new_events["JetGoodCRD"]                        
+                    new_events["top"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino
+                    new_events["VLT"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino + new_events.PhotonGood
 
                     for ax in histo.axes:
                         # Checkout the collection type

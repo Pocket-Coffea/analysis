@@ -13,6 +13,7 @@ from pocket_coffea.parameters.cuts import passthrough
 from custom_hist_manager import CustomHistManager
 from object_selector import *
 from custom_cut_functions import *
+from helper_functions import *
 from custom_configurator import CustomConfigurator
 from pocket_coffea.lib.objects import (
     jet_correction,
@@ -33,6 +34,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
 
     def apply_object_preselection(self, variation):
         self.events = ak.with_field(self.events, self.lepton, 'flavor')
+        self.events["Photon"] = ak.with_field(self.events.Photon, self.events.Photon.pt * self.events.Photon.pfRelIso03_chg, "chIso")
         self.events["LeptonGood"] = lepton_selection(
             self.events, self.lepton, self.params, id="tight"
         )
@@ -142,6 +144,16 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
     def define_common_variables_before_presel(self, variation):
         pass
 
+    def process_extra_before_presel(self, variation):
+       if self._sample == "WJets" or self._sample == "Signal":
+           corr_hist = get_correlation_hist(self.events, self._sample)
+           self.output["correlation_hist"] = {}
+           if self._sample == "WJets":
+               self.output["correlation_hist"][self._sample] = corr_hist
+           else:
+               self.output["correlation_hist"][self._sample] = {}
+               self.output["correlation_hist"][self._sample][self._dataset] = corr_hist
+
     def define_common_variables_after_presel(self, variation):        
         # self.events["MET_"] = ak.zip({
         #                         "pt": self.events.MET.pt,
@@ -176,10 +188,10 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             )
 
             pt_intervals = {
-                "[30, 40]": [30, 40],
-                "[40, 50]": [40, 50],
-                "[50, 70]": [50, 70],
-                "[70, 100]": [70, 100],
+                '[30, 40]': [30, 40],
+                '[40, 50]': [40, 50],
+                '[50, 70]': [50, 70],
+                '[70, 100]': [70, 100],
                 "[100, 140]": [100, 140],
                 "[140, 200]": [140, 200],
                 "[200, np.inf]": [200, np.inf]
@@ -210,7 +222,6 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                     photon = ak.flatten(getattr(masked_events, "Photon{}".format(region)))
                     selected_events = masked_events[(photon.eta >= eta_interval[0]) & (photon.eta < eta_interval[1])]
                     self.output["nevents_eta"][eta][region] = len(selected_events)
-            
 
     def define_categories(self, variation):
         '''

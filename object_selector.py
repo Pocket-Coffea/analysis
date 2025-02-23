@@ -61,11 +61,13 @@ def photon_selection(events, photon, params, region, leptons_collection=""):
         good_photons = (
             (passes_eta & passes_pt & passes_pixelseed & passes_transition & mask_lepton_cleaning & 
             cutbased_ids_medium["passed_hoe"]) &
-            ((~cutbased_ids_loose["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]) |
-            (cutbased_ids_medium["passSIEIE"] & ~cutbased_ids_loose["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]) |
-            (cutbased_ids_medium["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & ~cutbased_ids_loose["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]) |
-            (cutbased_ids_medium["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & ~cutbased_ids_loose["passed_phoIso"]) |
-            (~cutbased_ids_loose["passSIEIE"] & ~cutbased_ids_loose["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]))
+            (
+                (~cutbased_ids_loose["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]) |
+                (cutbased_ids_medium["passSIEIE"] & ~cutbased_ids_loose["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]) |
+                (cutbased_ids_medium["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & ~cutbased_ids_loose["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"]) |
+                (cutbased_ids_medium["passSIEIE"] & cutbased_ids_medium["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & ~cutbased_ids_loose["passed_phoIso"]) 
+                #| (~cutbased_ids_loose["passSIEIE"] & ~cutbased_ids_loose["passed_chIso"] & cutbased_ids_medium["passed_neuIso"] & cutbased_ids_medium["passed_phoIso"])
+            )
         )
 
     return photons[good_photons]
