@@ -12,6 +12,7 @@ plotting_style:
         WG: $W\gamma$
         TGJets: $T\gamma Jets$
         TTG: $t\bar{t}\gamma$
+        TT: $t\bar{t}$
         ZG: $Z\gamma$
         JetFakePhoton: $ Jets \rightarrow \gamma$
 
@@ -20,5 +21,22 @@ plotting_style:
 
     samples_groups:
         VV$\gamma$:
-           - WWG
-           - WZG
+            - WWG
+            - WZG
+        t$\gamma$:
+            - TGJets
+            - ST
+
+    colors_mc:
+        VV$\gamma$: CMS_blue
+        GJets: CMS_beige
+        TTG: CMS_dark_orange
+        ZG: CMS_red
+        t$\gamma$: CMS_orange
+        DYJets: CMS_dark_gray
+        WJets: CMS_purple
+        JetFakePhoton: CMS_light_blue
+        WG: CMS_gray
+        TT: CMS_brown
+        
+        
