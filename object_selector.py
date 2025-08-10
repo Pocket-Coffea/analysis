@@ -91,6 +91,33 @@ def parse_photon_vid_cuts(bitMap, cutLevel):
 
     return cutbased_ids
 
+# def lepton_selection(events, lepton, params, id):
+
+#     electron_etaSC = events.Electron.eta + events.Electron.deltaEtaSC
+#     events["Electron"] = ak.with_field(
+#         events.Electron, electron_etaSC, "etaSC"
+#     )
+#     leptons = events[lepton]
+#     cuts = params.object_preselection[lepton]
+#     passes_pt = leptons.pt >= cuts[id]["pt"]
+
+#     if lepton == "Electron":
+#         passes_eta = abs(leptons.etaSC) < cuts["eta"]
+#         passes_transition = np.invert((abs(leptons.etaSC) >= 1.4442) & (abs(leptons.etaSC) <= 1.5660))
+#         passes_iso = leptons.pfRelIso03_all < cuts["iso"]
+#         passes_id = leptons.cutBased >= cuts[id]["cutBased"]
+
+#         good_leptons = passes_eta & passes_pt & passes_transition & passes_iso & passes_id
+
+#     elif lepton == "Muon":
+#         passes_eta = abs(leptons.eta) < cuts["eta"]
+#         passes_iso = leptons.pfRelIso04_all < cuts[id]["iso"]
+#         passes_id = leptons[cuts[id]["id"]]
+
+#         good_leptons = passes_eta & passes_pt & passes_iso & passes_id
+
+#     return leptons[good_leptons]
+
 def lepton_selection(events, lepton, params, id):
 
     electron_etaSC = events.Electron.eta + events.Electron.deltaEtaSC
@@ -99,21 +126,38 @@ def lepton_selection(events, lepton, params, id):
     )
     leptons = events[lepton]
     cuts = params.object_preselection[lepton]
-    passes_eta = abs(leptons.eta) < cuts["eta"]
     passes_pt = leptons.pt >= cuts[id]["pt"]
-
+    
     if lepton == "Electron":
+        passes_eta = abs(leptons.etaSC) < cuts["eta"]
         passes_transition = np.invert((abs(leptons.etaSC) >= 1.4442) & (abs(leptons.etaSC) <= 1.5660))
-        passes_iso = leptons.pfRelIso03_all < cuts["iso"]
-        passes_id = leptons.cutBased >= cuts[id]["cutBased"]
-
-        good_leptons = passes_eta & passes_pt & passes_transition & passes_iso & passes_id
+        passes_id = getattr(leptons, cuts[id]["mva"])
+                            
+        good_leptons = passes_eta & passes_pt & passes_transition & passes_id
 
     elif lepton == "Muon":
-        passes_iso = leptons.pfRelIso04_all < cuts[id]["iso"]
-        passes_id = leptons[cuts[id]["id"]]
+        passes_eta = abs(leptons.eta) < cuts["eta"]
+        if id == "tight":
+            passes_lowpt = leptons.pt < cuts[id]["highpt"]
+            passes_lowptid = leptons[cuts[id]["lowptid"]]
+            passes_lowptiso = leptons.pfRelIso04_all < cuts[id]["lowptiso"]
 
-        good_leptons = passes_eta & passes_pt & passes_iso & passes_id
+            passes_highpt = leptons.pt >= cuts[id]["highpt"]
+            passes_highptid = leptons.highPtId == cuts[id]["highptid"]
+            passes_highptiso = leptons.tkIsoId == cuts[id]["highptiso"]
+
+            good_leptons = passes_eta & passes_pt & (
+                (
+                    passes_lowpt & passes_lowptid & passes_lowptiso
+                ) | (
+                    passes_highpt & passes_highptid & passes_highptiso
+                )
+            )
+        else:
+            passes_id = leptons[cuts[id]["id"]]
+            passes_iso = leptons.pfRelIso04_all < cuts[id]["iso"]
+            
+            good_leptons = passes_eta & passes_pt & passes_iso & passes_id
 
     return leptons[good_leptons]
 

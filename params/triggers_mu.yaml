@@ -1,0 +1,28 @@
+HLT_triggers:
+    2016_PreVFP:
+        SingleMuon: 
+            - IsoMu24
+            - IsoTkMu24
+            - Mu50
+            - TkMu50
+
+    2016_PostVFP:
+        SingleMuon: 
+            - IsoMu24
+            - IsoTkMu24
+            - Mu50
+            - TkMu50
+            
+    "2017":
+        SingleMuon: 
+            - IsoMu27
+            - Mu50
+            - TkMu100
+            - OldMu100
+  
+    "2018":
+        SingleMuon: 
+            - IsoMu24
+            - Mu50
+            - TkMu100
+            - OldMu100

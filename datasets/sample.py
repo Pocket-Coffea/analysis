@@ -30,8 +30,8 @@ class SampleNameParser:
         self.regexps.append( re.compile( r'/TTTo(?P<TT>(2L2Nu|SemiLeptonic|Hadronic)).*' )  )
         self.regexps.append( re.compile( r'/GJets_HT-(?P<GJets>40To100|100To200|200To400|400To600|600ToInf).*' )  )
         self.regexps.append( re.compile( r'/WGJets_MonoPhoton_PtG-(?P<WGJets>40to130|130)_TuneCP5.*' )  )
-        self.regexps.append( re.compile( r'/DYJetsToLL_M-(?P<DYJets>50|10to50)_.*amcatnloFXFX.*' ) )
-        self.regexps.append( re.compile( r'/W(?P<WJets>[1-4])JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8.*' ) )
+        self.regexps.append( re.compile( r'/DYJetsToLL_M-(?P<DYJets>50|10to50)_.*TuneCP5.*' ) )
+        # self.regexps.append( re.compile( r'/W(?P<WJets>[1-4])JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8.*' ) )
         self.regexps.append( re.compile( r'/VLTquarkToPhotonTop_M-(?P<Signal>600|700|800|900|1000|1100|1200|1300|1400|1500|1600|1700|1800|1900|2000)_PtG-10_TuneCP5_13TeV-madgraph-pythia8/.*' ) )
 
     def parse(self , sample):
@@ -49,34 +49,37 @@ class Sample:
         self.parser = parser if parser else SampleNameParser()
         self.regexp_results , self.info = self.parser.parse( ds )
         self.sample_dict ={
-            "TTGamma": "TTG",
-            "GJets": "GJets",
-            "TGJets": "TGJets",
-            "WGammaToJJGamma": "WG",
-            "WGJets": "WGJets",
-            "ZGammaToJJGamma": "ZG",
-            "WWG": "WWG",
             "ST": "ST",
             "TTTo2L2Nu": "TT",
             "TTToHadronic": "TT",
             "TTToSemiLeptonic": "TT",
+            "TTGamma": "TTG",
+            "GJets": "GJets",
+            "TGJets": "TGJets",
+            "WJetsToLNu" : "WJets",
             "DYJetsToLL" : "DYJets",
-            "DiBoson" : "diboson",
             "WGToLNuG" : "WG",
-            "W1JetsToLNu" : "WJets",
-            "W2JetsToLNu" : "WJets",
-            "W3JetsToLNu" : "WJets",
-            "W4JetsToLNu" : "WJets",
-            "WZG" : "WZG",
-            "WZTo3LNu" : "WZ",
             "ZGToLLG": "ZG",
-            "VLTquarkToPhotonTop": "Signal"
+            "WWG": "WWG",
+            "WZG" : "WZG",
+            "ZZGTo4L": "ZZG",
+            "WW": "WW",
+            "ZZ": "ZZ",
+            "WZ": "WZ",
+            # "WGammaToJJGamma": "WG",
+            # "WGJets": "WGJets",
+            # "ZGammaToJJGamma": "ZG",
+            # "DiBoson" : "diboson",
+            # "WZTo3LNu" : "WZ"
         }
 
     def sample_name(self):
         sample = self.info.get("sample", "data")
         if sample == "data":
             smpl_name = self.ds.split("/")[1]
+        elif sample == "VLTquarkToPhotonTop":
+            smpl_name = "Signal_" + self.info.get("Signal")
+            print("smpl_name", smpl_name)
         else:
             smpl_name = self.sample_dict.get(sample)
             print("smpl_name", smpl_name)

@@ -28,7 +28,7 @@ class FilesetCreator:
                 else:
                     sample_name = "{}_{}".format(dataset_info["sample"], dataset_info["year"])
                 combined_file_path = self.hadd_files(root, target_file="{}.root".format(sample_name))
-                nevents = self.n_events(combined_file_path)
+                nevents, non_weighted, triggered = self.n_events(combined_file_path)
                 if sample_name not in self.fileset:
                     self.fileset[sample_name]={}
                     self.fileset[sample_name]["files"] = []
@@ -38,6 +38,9 @@ class FilesetCreator:
                     self.fileset[sample_name]["metadata"]["year"] = dataset_info["year"]
                     self.fileset[sample_name]["metadata"]["isMC"] = "False" if dataset_info["isData"] else "True"
                     self.fileset[sample_name]["metadata"]["nevents"] = nevents
+                    self.fileset[sample_name]["metadata"]["non_weighted"] = non_weighted
+                    self.fileset[sample_name]["metadata"]["triggered"] = triggered
+                    self.fileset[sample_name]["metadata"]["isSignal"] = "True" if "Signal_" in dataset_info["sample"] else "False"                   
                     if dataset_info["isData"]:
                         self.fileset[sample_name]["metadata"]["primaryDataset"] = dataset_info["sample"] if not dataset_info["sample"]=="EGamma" else "SingleElectron"
                         self.fileset[sample_name]["metadata"]["era"] = dataset_info["era"]
@@ -79,7 +82,9 @@ class FilesetCreator:
         with uproot.open(file) as f:
             cutflow_hist = f["cutflow"]
             nevents = cutflow_hist.values()[0]
-        return nevents.item()
+            non_weighted = cutflow_hist.values()[1]
+            triggered = cutflow_hist.values()[2]
+        return nevents.item(), non_weighted.item(), triggered.item()
 
     def xsection(self, ds):
         with open(self.xsections_file) as file:
@@ -99,7 +104,7 @@ if __name__ == "__main__":
 
     path_to_crab_output = sys.argv[1]
     dataset_file = sys.argv[2]
-    xsec_file = "nano_xsec.json"
+    xsec_file = "xsec.json"
     fileset_creator = FilesetCreator(path_to_crab_output, dataset_file, xsec_file)
     fileset_creator.create_fileset_json("local_fileset.json", False)
 

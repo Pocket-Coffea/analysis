@@ -30,7 +30,7 @@ defaults.register_configuration_dir("config_dir", localdir+"/params")
 
 parameters = defaults.merge_parameters_from_files(default_parameters,
                                                   f"{localdir}/params/object_preselection_lep.yaml",
-                                                  f"{localdir}/params/triggers_lep.yaml",
+                                                  f"{localdir}/params/triggers_mu.yaml",
                                                   f"{localdir}/params/plotting.yaml",
                                                   f"{localdir}/params/photon_scale_factors.yaml",
                                                   f"{localdir}/params/muon_scale_factors.yaml",
@@ -39,11 +39,11 @@ parameters = defaults.merge_parameters_from_files(default_parameters,
 
 
 cfg = CustomConfigurator(
-    lepton = "Muon"
+    lepton = "Muon",
     parameters = parameters,
     datasets = {
         "jsons": [
-            f"{localdir}/datasets/local_mu_fileset.json",
+            f"{localdir}/datasets/local_fileset.json",
             # f"{localdir}/datasets/DATA_SingleMuon.json",    
             # f"{localdir}/datasets/DYJetsToLL_M-50.json",
             # f"{localdir}/datasets/DYJetsToLL_M10To50.json",
@@ -53,7 +53,9 @@ cfg = CustomConfigurator(
             # f"{localdir}/datasets/TTToSemiLeptonic.json"
         ],
         "filter" : {
-            "samples": ["DATA_SingleMuon", "DYJets", "TGJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG", "ST"], 
+            "samples": ["DATA_SingleMuon","TGJets"
+                        # "DYJets", "GJets", "ST", "TTG", "WJets", "WG", "WW", "WWG", "WZG", "WZ", "ZZG", "ZZ", "ZG"
+                       ], 
             # "DATA_SinglePhoton", "TT", "ST"
             "samples_exclude" : [],
             "year": ['2018']
@@ -79,7 +81,8 @@ cfg = CustomConfigurator(
             "inclusive": ["genWeight","lumi","XS",
                           "pileup", 
                           "custom_sf_mu_id", "custom_sf_mu_iso",
-                          "sf_pho_id", "sf_pho_pxseed", "sf_btag"
+                          "custom_sf_pho_id", "custom_sf_pho_pxseed",
+                          "sf_btag"
                           ],
             "bycategory" : {
             }
@@ -91,9 +94,10 @@ cfg = CustomConfigurator(
     variations = {
         "weights": {
             "common": {
-                "inclusive": [  "pileup",
-                                "custom_sf_mu_id", "custom_sf_mu_iso",
-                                "sf_pho_id", "sf_pho_pxseed", "sf_btag"
+                "inclusive": ["pileup",
+                              "custom_sf_mu_id", "custom_sf_mu_iso",
+                              "custom_sf_pho_id", "custom_sf_pho_pxseed",
+                              "sf_btag"
                               ],
                 "bycategory" : {
                 }

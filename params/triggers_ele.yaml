@@ -1,0 +1,24 @@
+HLT_triggers:
+    2016_PreVFP:
+        SingleElectron:
+            - Ele27_WPTight_Gsf
+            - Ele115_CaloIdVT_GsfTrkIdT
+            - Photon175
+
+    2016_PostVFP:
+        SingleElectron:
+            - Ele27_WPTight_Gsf
+            - Ele115_CaloIdVT_GsfTrkIdT
+            - Photon175
+            
+    "2017":
+        SingleElectron:
+            - Ele35_WPTight_Gsf
+            - Ele115_CaloIdVT_GsfTrkIdT
+            - Photon200
+  
+    "2018":
+        SingleElectron:
+            - Ele32_WPTight_Gsf
+            - Ele115_CaloIdVT_GsfTrkIdT
+            - Photon200

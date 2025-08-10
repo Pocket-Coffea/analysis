@@ -23,7 +23,7 @@ from pocket_coffea.lib.objects import (
 
 
 class TopPartnerBaseProcessor(BaseProcessorABC):
-    def __init__(self, cfg: CustomHistManager):
+    def __init__(self, cfg: CustomConfigurator):
         super().__init__(cfg)
         self.lepton = self.cfg.lepton
         self.cfg.subsamples_reversed_map["JetFakePhoton"] = "PLJ"

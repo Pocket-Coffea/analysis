@@ -54,9 +54,17 @@ class ExtrapolationFactor:
                  "2018":{
                      '[30, 40]': 0.13074266214115549,
                      '[40, 50]': 0.11580594679186229,
-                     '[50, 70]': 0.09128600266114875,
-                     '[70, 100]': 0.06784048242120833,
-                     '[100, 140]': 0.04153560194452388,
+                     '[50, 60]': 0.09128600266114875,
+                     '[60, 80]': 0.06784048242120833,
+                     '[80, 100]': 0.04153560194452388,
+                     '[100, np.inf]': 0.05357142857142857
+                 }
+             },
+            "Lepton":{
+                 "2018":{
+                     '[70, 90]': 0.09128600266114875,
+                     '[90, 110]': 0.06784048242120833,
+                     '[110, 140]': 0.04153560194452388,
                      '[140, 200]': 0.1086380498145204,
                      '[200, np.inf]': 0.05357142857142857
                  }
@@ -78,7 +86,7 @@ class ExtrapolationFactor:
         mask = self.regions.get_mask("PLJ")
         masked_events = self.events[mask]
         photon = ak.flatten(masked_events["PhotonPLJ"])
-        
+
         extrapolation_factor = ak.where(
             (photon.pt >= 30) & (photon.pt < 40),
             self.EF[self.events.flavor[0]][year]['[30, 40]'],
@@ -104,6 +112,28 @@ class ExtrapolationFactor:
                 )
             )
         )
+
+        # extrapolation_factor = ak.where(
+        #     (photon.pt >= 70) & (photon.pt < 90),
+        #     self.EF[self.events.flavor[0]][year]['[70, 90]'],
+        #     ak.where(
+        #         (photon.pt >= 90) & (photon.pt < 110),
+        #         self.EF[self.events.flavor[0]][year]['[90, 110]'],
+        #         ak.where(
+        #             (photon.pt >= 110) & (photon.pt < 140),
+        #             self.EF[self.events.flavor[0]][year]['[110, 140]'],
+        #             ak.where(
+        #                 (photon.pt >= 140) & (photon.pt < 200),
+        #                 self.EF[self.events.flavor[0]][year]['[140, 200]'],
+        #                 ak.where(
+        #                     (photon.pt >= 200) & (photon.pt < np.inf),
+        #                     self.EF[self.events.flavor[0]][year]['[200, np.inf]'],
+        #                     1
+        #                 )
+        #             )
+        #         )
+        #     )
+        # )
         weight = WeightData(
             name = "EF",
             nominal = extrapolation_factor
@@ -142,14 +172,14 @@ SF_mu_iso = WeightLambda.wrap_func(
     )
 
 SF_pho_pxseed = WeightLambda.wrap_func(
-    name="sf_pho_pxseed",
+    name="custom_sf_pho_pxseed",
     function=lambda params, metadata, events, size, shape_variations:
         sf_pho_pxseed(params, events, metadata["year"]),
     has_variations=True
     )
 
 SF_pho_id = WeightLambda.wrap_func(
-    name="sf_pho_id",
+    name="custom_sf_pho_id",
     function=lambda params, metadata, events, size, shape_variations:
         sf_pho_id(params, events, metadata["year"]),
     has_variations=True

@@ -36,7 +36,7 @@ defaults.register_configuration_dir("config_dir", localdir+"/params")
 
 parameters = defaults.merge_parameters_from_files(default_parameters,
                                                   f"{localdir}/params/object_preselection_lep.yaml",
-                                                  f"{localdir}/params/triggers_lep.yaml",
+                                                  f"{localdir}/params/triggers_ele.yaml",
                                                   f"{localdir}/params/plotting.yaml",
                                                   f"{localdir}/params/photon_scale_factors.yaml",
                                                   update=True)
@@ -60,7 +60,7 @@ cfg = CustomConfigurator(
         "filter" : {
             # "samples": ["Signal", "WJets"],
             "samples": ["DATA_EGamma", "TGJets",
-                        "DYJets", "GJets", "TTG", "WJets", "WG", "WWG", "WZG", "ZG", "ST"
+                        # "DYJets", "GJets", "ST", "TTG", "WJets", "WG", "WW", "WWG", "WZG", "WZ", "ZZG", "ZZ", "ZG"
                        ],
             # "DATA_SinglePhoton",  "TT",
             "samples_exclude" : [],
@@ -91,7 +91,7 @@ cfg = CustomConfigurator(
             "inclusive": ["genWeight","lumi","XS",
                           "pileup",
                           "custom_sf_ele_id", "custom_sf_ele_reco",
-                          "sf_pho_id", "sf_pho_pxseed",
+                          "custom_sf_pho_id", "custom_sf_pho_pxseed",
                           "sf_btag"
                           ],
             "bycategory" : {
@@ -106,7 +106,7 @@ cfg = CustomConfigurator(
             "common": {
                 "inclusive": ["pileup",
                               "custom_sf_ele_id", "custom_sf_ele_reco",
-                              "sf_pho_id", "sf_pho_pxseed",
+                              "custom_sf_pho_id", "custom_sf_pho_pxseed",
                               "sf_btag"
                              ],
                 "bycategory" : {
@@ -133,7 +133,7 @@ cfg = CustomConfigurator(
        "top_mass": HistConf( [Axis(coll="top", field="mass", bins=[(i*30) for i in range(21)], label="$top_M(GeV)$")], only_categories=["SR"] ),
        "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=[i*10 for i in range(21)], overflow=True, label="$p_{T,VLT}(GeV)$")], only_categories=["SR"] ),
        "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=[(i*50) for i in range(17)]+[(1000+j*200) for j in range(7)], label="$VLT_M(GeV)$")], only_categories=["SR"] ),
-       "Electron_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[(i*10) for i in range(13)]+[140,160, 180, 200], label="$p_{T,e}(GeV)$")], only_categories=["SR"] ),
+       "Electron_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[0] + [5+(i*10) for i in range(13)]+[145,165, 185, 205], label="$p_{T,e}(GeV)$")], only_categories=["SR"] ),
        "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=20, start=5, stop=205, label="$mW_T(GeV)$")], only_categories=["SR"] )
    }
 )
