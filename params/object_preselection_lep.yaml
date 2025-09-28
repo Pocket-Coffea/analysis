@@ -1,7 +1,7 @@
 object_preselection:
 
     Photon:
-        pt: 30
+        pt: 60
         eta: 1.4442
         dr_lepton: 0.5
         id: Medium
@@ -9,7 +9,7 @@ object_preselection:
     Muon:
         eta: 2.4
         tight:
-            pt: 25
+            pt: 20
             highpt: 55
             lowptiso: 0.15
             highptiso: 2
