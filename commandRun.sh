@@ -4,3 +4,5 @@ pocket-coffea run --cfg ele_config.py --executor futures -o output --ignore-grid
 pocket-coffea run --cfg ele_config.py -o output_config -e condor@lxplus --scaleout 100 --chunksize 200000 --job-dir jobs --job-name skim --queue workday --local-virtualenv
 
 pocket-coffea run --cfg example_config.py --test  -o output_test
+
+pocket-coffea check-jobs -j jobs-dir/skim
