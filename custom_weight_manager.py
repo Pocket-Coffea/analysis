@@ -62,11 +62,9 @@ class ExtrapolationFactor:
              },
             "Lepton":{
                  "2018":{
-                     '[70, 90]': 0.09128600266114875,
-                     '[90, 110]': 0.06784048242120833,
-                     '[110, 140]': 0.04153560194452388,
-                     '[140, 200]': 0.1086380498145204,
-                     '[200, np.inf]': 0.05357142857142857
+                     '[60, 80]': 0.13848936353457927,
+                     '[80, 100]': 0.12694583905982665,
+                     '[100, np.inf]': 0.10267270901459948
                  }
              }
         }
@@ -87,28 +85,17 @@ class ExtrapolationFactor:
         masked_events = self.events[mask]
         photon = ak.flatten(masked_events["PhotonPLJ"])
 
+        flavor = "Lepton" # self.events.flavor[0] for seprate channels
         extrapolation_factor = ak.where(
-            (photon.pt >= 30) & (photon.pt < 40),
-            self.EF[self.events.flavor[0]][year]['[30, 40]'],
+            (photon.pt >= 60) & (photon.pt < 80),
+            self.EF[flavor][year]['[60, 80]'],
             ak.where(
-                (photon.pt >= 40) & (photon.pt < 50),
-                self.EF[self.events.flavor[0]][year]['[40, 50]'],
+                (photon.pt >= 80) & (photon.pt < 100),
+                self.EF[flavor][year]['[80, 100]'],
                 ak.where(
-                    (photon.pt >= 50) & (photon.pt < 60),
-                    self.EF[self.events.flavor[0]][year]['[50, 60]'],
-                    ak.where(
-                        (photon.pt >= 60) & (photon.pt < 80),
-                        self.EF[self.events.flavor[0]][year]['[60, 80]'],
-                        ak.where(
-                            (photon.pt >= 80) & (photon.pt < 100),
-                            self.EF[self.events.flavor[0]][year]['[80, 100]'],
-                            ak.where(
-                                (photon.pt >= 100),
-                                self.EF[self.events.flavor[0]][year]['[100, np.inf]'],
-                                1
-                            )
-                        )
-                    )
+                    (photon.pt >= 100),
+                    self.EF[self.events.flavor[0]][year]['[100, np.inf]'],
+                    1
                 )
             )
         )

@@ -15,18 +15,18 @@ def get_ele_sf(
     '''
     electronSF = params["lepton_scale_factors"]["electron_sf"]
     # translate the `year` key into the corresponding key in the correction file provided by the EGM-POG
-    year_pog = electronSF["era_mapping"][year]
+    year_pog = electronSF["era_mapping"][year][key]
 
     if key in ['reco', 'id']:
         electron_correctionset = correctionlib.CorrectionSet.from_file(
-            electronSF.JSONfiles[year]["file"]
+            electronSF.JSONfiles[year]["files"][key]
         )
         map_name = electronSF.JSONfiles[year]["name"]
 
         if key == 'reco':
             sfname = electronSF.JSONfiles[year]["reco"][pt_region]
         elif key == 'id':
-            sfname = params.object_preselection["Electron"]["id"]
+            sfname = electronSF.id[params.object_preselection["Electron"]["id"]]
         
         if year in ["2023_preBPix", "2023_postBPix"]:
             # Starting from 2023 SFs require the phi:

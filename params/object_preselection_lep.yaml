@@ -29,7 +29,7 @@ object_preselection:
         veto:
             pt: 20
             mva: mvaFall17V2Iso_WPL
-        id: Tight
+        id: mvaFall17V2Iso_WP90
 
     Jet:
         dr_lepton: 0.4

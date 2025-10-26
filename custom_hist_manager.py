@@ -9,192 +9,8 @@ from dataclasses import dataclass, field
 from copy import deepcopy
 import logging
 
+
 class CustomHistManager(HistManager):
-    def __init__(
-        self,
-        hist_config,
-        year,
-        sample,
-        subsamples,
-        categories_config,
-        variations_config,
-        weights_manager,
-        processor_params,
-        custom_axes=None,
-        isMC=True,
-        lepton="Electron"
-    ):
-        self.processor_params = processor_params
-        self.isMC = isMC
-        self.year = year
-        self.subsamples = subsamples
-        self.weights_manager = weights_manager
-        self.histograms = defaultdict(dict)
-        self.variations_config = variations_config
-        self.categories_config = categories_config
-        self.available_categories = set(self.categories_config.keys())
-        self.available_weights_variations = ["nominal"]
-        self.available_shape_variations = []
-        # This dictionary is used to store the weights in some cases for performance reaso
-        self._weights_cache = {}
-
-        # We take the variations config and we build the available variations
-        # for each category and for the whole sample (if MC)
-        # asking to the WeightsManager the available variations for the current specific chunk and metadata.
-        self.available_weights_variations_bycat = defaultdict(list)
-        self.available_shape_variations_bycat = defaultdict(list)
-            
-        if self.isMC:
-            # Weights variations
-            for cat, weights in self.variations_config["weights"].items():
-                self.available_weights_variations_bycat[cat].append("nominal")
-                for weight in weights:
-                    # Ask the WeightsManager the available variations
-                    vars = self.weights_manager.get_available_modifiers_byweight(weight)
-                    self.available_weights_variations += vars
-                    self.available_weights_variations_bycat[cat] += vars
-            
-            # Shape variations
-            for cat, vars in self.variations_config["shape"].items():
-                for var in vars:
-                    # Check if the variation is a wildcard and the systematic requested has subvariations
-                    # defined in the parameters
-                    if (
-                        var
-                        in self.processor_params.systematic_variations.shape_variations
-                    ):
-                        for (
-                            subvariation
-                        ) in self.processor_params.systematic_variations.shape_variations[
-                            var
-                        ][
-                            self.year
-                        ]:
-                            self.wildcard_variations[var] = f"{var}_{subvariation}"
-                            self.available_weights_variations += [
-                                f"{var}_{subvariation}Up",
-                                f"{var}_{subvariation}Down",
-                            ]
-                            self.available_weights_variations_bycat[cat] += [
-                                f"{var}_{subvariation}Up",
-                                f"{var}_{subvariation}Down",
-                            ]
-                    else:
-                        vv = [f"{var}Up", f"{var}Down"]
-                        self.available_shape_variations += vv
-                        self.available_shape_variations_bycat[cat] += vv
-        # Reduce to set over all the categories
-        self.available_weights_variations = set(self.available_weights_variations)
-        self.available_shape_variations = set(self.available_shape_variations)
-        # Prepare the variations Axes summing all the required variations
-        # The variation config is organized as the weights one, by sample and by category
-        for name, hcfg in deepcopy(hist_config).items():
-            # Check if the histogram is active for the current sample
-            # We only check for the parent sample, not for subsamples
-            if hcfg.only_samples != None:
-                if sample not in cfg.only_samples:
-                    continue
-            elif hcfg.exclude_samples != None:
-                if sample in hcfg.exclude_samples:
-                    continue
-            # Now we handle the selection of the categories
-            cats = []
-            for c in self.available_categories:
-                if hcfg.only_categories != None:
-                    if c in hcfg.only_categories:
-                        cats.append(c)
-                elif hcfg.exclude_categories != None:
-                    if c not in hcfg.exclude_categories:
-                        cats.append(c)
-                else:
-                    cats.append(c)
-            # Update the histConf to save the only category
-            hcfg.only_categories = list(sorted(cats))
-            # Create categories axis
-            cat_ax = hist.axis.StrCategory(
-                hcfg.only_categories, name="cat", label="Category", growth=False
-            )
-
-            # Variation axes
-            if hcfg.variations:
-                # Get all the variation
-                allvariat = self.available_weights_variations.union(self.available_shape_variations)
-                
-                if hcfg.only_variations != None:
-                    # expand wild card and Up/Down
-                    only_variations = []
-                    for var in hcfg.only_variations:
-                        if var in self.wildcard_variations:
-                            only_variations += [
-                                f"{self.wildcard_variations[var]}Up",
-                                f"{self.wildcard_variations[var]}Down",
-                            ]
-                        else:
-                            only_variations += [
-                                f"{var}Up",
-                                f"{var}Down",
-                            ]
-                    # filtering the variation list with the available ones
-                    allvariat = set(
-                        filter(lambda v: v in only_variations or v == "nominal", allvariat)
-                    )
-                # allvariat.update({"EFUp", "EFDown"})
-                # sorted is needed to assure to have always the same order for all chunks
-                hcfg.only_variations = list(sorted(set(allvariat)))
-            else:
-                hcfg.only_variations = ["nominal"]
-            # Defining the variation axis
-            var_ax = hist.axis.StrCategory(
-                hcfg.only_variations, name="variation", label="Variation", growth=False
-            )
-            if sample == "PLJ":
-                if lepton == "Electron":
-                     plj_variations = list(sorted({'custom_sf_ele_idDown', 'custom_sf_ele_idUp', 'custom_sf_ele_recoDown', 'custom_sf_ele_recoUp',
-                                               'nominal',
-                                               'pileupDown', 'pileupUp',
-                                               'sf_btag_cferr1Down', 'sf_btag_cferr1Up', 'sf_btag_cferr2Down', 'sf_btag_cferr2Up', 'sf_btag_hfDown',
-                                               'sf_btag_hfUp', 'sf_btag_hfstats1Down', 'sf_btag_hfstats1Up', 'sf_btag_hfstats2Down', 'sf_btag_hfstats2Up',
-                                               'sf_btag_lfDown', 'sf_btag_lfUp', 'sf_btag_lfstats1Down', 'sf_btag_lfstats1Up', 
-                                               'sf_btag_lfstats2Down', 'sf_btag_lfstats2Up',
-                                               'sf_pho_idDown', 'sf_pho_idUp', 'sf_pho_pxseedDown', 'sf_pho_pxseedUp'
-                                              }))
-                elif lepton == "Muon": 
-                    plj_variations = list(sorted({'custom_sf_mu_idDown', 'custom_sf_mu_idUp', 'custom_sf_mu_isoDown', 'custom_sf_mu_isoUp',
-                                              'nominal',
-                                              'pileupDown', 'pileupUp',
-                                              'sf_btag_cferr1Down', 'sf_btag_cferr1Up', 'sf_btag_cferr2Down', 'sf_btag_cferr2Up', 'sf_btag_hfDown',
-                                              'sf_btag_hfUp', 'sf_btag_hfstats1Down', 'sf_btag_hfstats1Up', 'sf_btag_hfstats2Down', 'sf_btag_hfstats2Up',
-                                              'sf_btag_lfDown', 'sf_btag_lfUp', 'sf_btag_lfstats1Down', 'sf_btag_lfstats1Up', 
-                                              'sf_btag_lfstats2Down', 'sf_btag_lfstats2Up',
-                                              'sf_pho_idDown', 'sf_pho_idUp', 'sf_pho_pxseedDown', 'sf_pho_pxseedUp'
-                                             }))
-                else:
-                    raise ValueError(f"Invalid lepton type: {lepton}.")
-
-                var_ax = hist.axis.StrCategory(
-                    plj_variations, name="variation", label="Variation", growth=False
-                )
-
-            # Axis in the configuration + custom axes
-            if self.isMC or sample == "PLJ":
-                all_axes = [cat_ax, var_ax]
-            else:
-                # no variation axis for data
-                all_axes = [cat_ax]
-            # the custom axis get included in the hcfg for future use
-            hcfg.axes = custom_axes + hcfg.axes
-            # Then we add those axes to the full list
-            for ax in hcfg.axes:
-                all_axes.append(get_hist_axis_from_config(ax))
-            # Creating an histogram object for each subsample
-            for subsample in self.subsamples:
-                hcfg_subs = deepcopy(hcfg)
-                # Build the histogram object with the additional axes
-                hcfg_subs.hist_obj = hist.Hist(
-                    *all_axes, storage=hcfg.storage, name="Events"
-                )
-                # Save the hist in the configuration and store the full config object
-                self.histograms[subsample][name] = hcfg_subs
 
     def __prefetch_weights(self, category, shape_variation):
         return self._HistManager__prefetch_weights(category, shape_variation)
@@ -207,7 +23,6 @@ class CustomHistManager(HistManager):
         subsamples=None,  # This is a dictionary with name:ak.Array(bool)
         custom_fields=None,
         custom_weight=None,  # it should be a dictionary {variable:weight}
-        smpl="SR"
     ):
         '''
         We loop on the configured histograms only
@@ -217,14 +32,11 @@ class CustomHistManager(HistManager):
         events. The categories mask will be applied.
         '''
 
-        # Preloading weights
-        if self.isMC:
-            weights = {}
-            for category in self.available_categories:
-                weights[category] = self.__prefetch_weights(category, shape_variation)
-        if smpl == "PLJ":
-            EF = ExtrapolationFactor(events)
-            EF_weight = EF.compute_EF(self.year)
+        # Preloading weights BOTH FOR data and MC
+        weights = {}
+        for category in self.available_categories:
+            weights[category] = self.__prefetch_weights(category, shape_variation)
+            
         # Cleaning the weights cache decorator between calls.
         self._weights_cache.clear()
         # Looping on the histograms to read the values only once
@@ -255,7 +67,10 @@ class CustomHistManager(HistManager):
             fill_numeric = {}
             data_ndim = None
 
-            # Now the variables have been read for all the events
+            
+            # Custom part
+            ###########################################################
+            ###########################################################
             # We need now to iterate on categories and subsamples
             # Mask the events, the weights and then flatten and remove the None correctly
             for category, cat_mask in categories.get_masks():
@@ -267,15 +82,8 @@ class CustomHistManager(HistManager):
                     if ak.sum(mask) == 0:
                         continue
 
-                    # Check if the required data is dim=1, per event,
-                    # and the mask is by collection.
-                    # In this case the mask is reduced to per-event mask
-                    # doing a logical OR only if explicitely allowed by the user
-                    # WARNING!! POTENTIAL PROBLEMATIC BEHAVIOUR
-                    # The user must be aware of the behavior.
-
                     new_events = events[mask]
-                    if smpl == "PLJ" or category == "PLJ":
+                    if category == "PLJ":
                         new_events["PhotonGood"] = new_events["PhotonPLJ"]
                         new_events["BJetGood"] = new_events["BJetGoodPLJ"]
                         new_events["JetGood"] = new_events["JetGoodPLJ"]
@@ -348,6 +156,16 @@ class CustomHistManager(HistManager):
                                 fill_categorical[ax.name] = data
                             else:
                                 raise NotImplementedError()
+            
+            ############################################################
+            ############################################################
+                    
+                    # Check if the required data is dim=1, per event,
+                    # and the mask is by collection.
+                    # In this case the mask is reduced to per-event mask
+                    # doing a logical OR only if explicitely allowed by the user
+                    # WARNING!! POTENTIAL PROBLEMATIC BEHAVIOUR
+                    # The user must be aware of the behavior.
 
                     if data_ndim == 1 and mask.ndim > 1:
                         if histo.collapse_2D_masks:
@@ -387,8 +205,13 @@ class CustomHistManager(HistManager):
                     fill_numeric_masked = {}
                     # loop on the cached numerical filling
                     for field, data in fill_numeric.items():
+                        # Custom part
+                        ###########################################################
+                        ###########################################################
+                        # Now mask and data dimension doesn't match. data is mask by default in new fill() structure.
                         masked_data = data
-                        
+                        ###########################################################
+                        ###########################################################
                         # For each field we need to mask and flatten
                         if data_ndim > 1:
                             # We need to flatten and
@@ -520,7 +343,56 @@ class CustomHistManager(HistManager):
                                 raise Exception(
                                     f"Cannot fill histogram: {name}, {histo} {e}"
                                 )
+                    ##################################################################################
+                    elif not histo.no_weights and not self.isMC:   #DATA
+                        # Broadcast and mask the weight (using the cached value if possible)
+                        weight_data = weights[category]["nominal"]
+                        weight_data = self.mask_and_broadcast_weight(
+                            category,
+                            subsample,
+                            "nominal",
+                            weight_data,
+                            mask,
+                            data_structure,
+                        )
+                        if custom_weight != None and name in custom_weight:
+                            weight_data = weight_data * self.mask_and_broadcast_weight(
+                                category + "customW",
+                                subsample,
+                                "nominal",
+                                custom_weight[
+                                    name
+                                ],  # passing the custom weight to be masked and broadcasted
+                                mask,
+                                data_structure,
+                            )
 
+                        # Custom part
+                        ###########################################################
+                        ###########################################################
+                        if category == "PLJ":
+                            EF = ExtrapolationFactor(events)
+                            EF_weight = EF.compute_EF(self.year)
+                            weight_data = EF_weight * weight_data
+                        ###########################################################
+                        ###########################################################
+
+                        # Then we apply the notnone mask
+                        weight_data = weight_data[ak.to_numpy(all_axes_isnotnone)]
+                        # Fill the histogram
+                        try:
+                            # Data histograms don't have variations but now can be weighted
+                            self.histograms[subsample][name].hist_obj.fill(
+                                cat=category,
+                                weight=weight_data,
+                                **{**fill_categorical, **fill_numeric_masked},
+                            )
+                        except Exception as e:
+                            raise Exception(
+                                f"Cannot fill histogram for Data: {name}, {histo} {e}"
+                            )
+
+                    ######################################################
                     elif (
                         histo.no_weights and self.isMC
                     ):  # NO Weights modifier for the histogram
@@ -535,23 +407,13 @@ class CustomHistManager(HistManager):
                                 f"Cannot fill histogram: {name}, {histo} {e}"
                             )
 
-                    elif not self.isMC:
+                    elif histo.no_weights and not self.isMC:
                         # Fill histograms for Data
                         try:
-                            if subsample=="JetFakePhoton":
-                                ef_weight = ak.to_numpy(ak.flatten(data_structure * EF_weight) if not (data_structure is None) else EF_weight, allow_missing=False)
-                                for variation in histo.hist_obj.axes["variation"]:
-                                    self.histograms[subsample][name].hist_obj.fill(
-                                        cat=category,
-                                        variation=variation,
-                                        weight=ef_weight,
-                                        **{**fill_categorical, **fill_numeric_masked},
-                                    )
-                            else:
-                                self.histograms[subsample][name].hist_obj.fill(
-                                    cat=category,
-                                    **{**fill_categorical, **fill_numeric_masked},
-                                )
+                            self.histograms[subsample][name].hist_obj.fill(
+                                cat=category,
+                                **{**fill_categorical, **fill_numeric_masked},
+                            )
                         except Exception as e:
                             raise Exception(
                                 f"Cannot fill histogram: {name}, {histo} {e}"
