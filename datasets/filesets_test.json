@@ -3,7 +3,7 @@
         "metadata": {
             "das_names": "['/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM']",
             "dbs_instance": "prod/global",
-            "sample": "DYJetsToLL",
+            "sample": "DYJets",
             "year": "2018",
             "isMC": "True",
             "xsec": "6077.22",

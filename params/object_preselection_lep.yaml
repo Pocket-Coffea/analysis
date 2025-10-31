@@ -9,14 +9,14 @@ object_preselection:
     Muon:
         eta: 2.4
         tight:
-            pt: 20
+            pt: 30
             highpt: 55
             lowptiso: 0.15
             highptiso: 2
             lowptid: tightId
             highptid: 2
         loose:
-            pt: 15
+            pt: 20
             iso: 0.25
             id: looseId
          
@@ -24,7 +24,7 @@ object_preselection:
         eta: 2.4
         iso: 0.1
         tight:
-            pt: 25
+            pt: 35
             mva: mvaFall17V2Iso_WP90
         veto:
             pt: 20

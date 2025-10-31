@@ -45,20 +45,15 @@ cfg = Configurator(
     parameters = parameters,
     datasets = {
         "jsons": [
-            # f"{localdir}/datasets/signal.json",
-            f"{localdir}/datasets/fileset_data.json",
-            # f"{localdir}/datasets/DATA_SingleMuon.json",    
-            # f"{localdir}/datasets/DYJetsToLL_M-50.json",
-            # f"{localdir}/datasets/DYJetsToLL_M10To50.json",
-            # f"{localdir}/datasets/TTTo2L2Nu.json",
-            # f"{localdir}/datasets/TGJets.json",
-            # f"{localdir}/datasets/TTToHadronic.json",
-            # f"{localdir}/datasets/TTToSemiLeptonic.json"
+            f"{localdir}/datasets/filesets_test.json",
+            # f"{localdir}/datasets/fileset_data.json",
+            # f"{localdir}/datasets/fileset_MC.json",    
+            # f"{localdir}/datasets/fileset_Signal.json"            
         ],
         "filter" : {
-            # "samples": ["Signal", "WJets"],
-            "samples": ["DATA_EGamma",
-                        # "DYJetsToLL", #"TGJets", "GJets", "ST", "TTG", "TT", "WJets", "WG", "WW", "WWG", "WZG", "WZ", "ZZG", "ZZ", "ZG",
+            "samples": ["DATA_EGamma", "DYJets",
+            # "samples": ["DATA_EGamma",
+            #             "DYJets", "TGJets", "GJets", "ST", "TTG", "TT", "WJets", "WG", "WW", "WWG", "WZG", "WZ", "ZZG", "ZZ", "ZG",
                         # "Signal_600", "Signal_1000", "Signal_1500", "Signal_2000",
                         # "Signal_700", "Signal_800", "Signal_900", "Signal_1100", "Signal_1200", "Signal_1300", "Signal_1400", "Signal_1600", "Signal_1700", "Signal_1800","Signal_1900",
                        ],

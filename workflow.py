@@ -27,6 +27,13 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         super().__init__(cfg)
         self.lepton = "Electron"
 
+    def process_extra_before_skim(self):
+
+        # corr_hist = get_correlation_hist(self.events, self._sample)
+        self.output["custom_info"] = {}
+        # self.output["custom_info"]["corr_hists"] = {}
+        # self.output["custom_info"]["corr_hists"][self._sample] = corr_hist
+
     def apply_object_preselection(self, variation):
         self.events = ak.with_field(self.events, self.lepton, 'flavor')
         self.events["Photon"] = ak.with_field(self.events.Photon, self.events.Photon.pt * self.events.Photon.pfRelIso03_chg, "chIso")
@@ -165,3 +172,78 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             custom_axes=self.custom_axes,
             isMC=self._isMC,
         )
+
+    def count_events(self, variation):
+        '''
+        Count the number of events in each category and
+        also sum their nominal weights (for each sample, by chunk).
+        Store the results in the `cutflow` and `sumw` outputs
+        '''
+
+        pt_intervals = {
+            '[60, 80]': [60, 80],
+            '[80, 100]': [80, 100],
+            # "[110, 140]": [110, 140],
+            # "[140, 200]": [140, 200],
+            "[100, np.inf]": [100, np.inf]
+        }
+        eta_intervals = {
+            "[-1.5, -1]": [-1.5, -1],
+            "[-1, -0.5]": [-1, -0.5],
+            "[-0.5, 0]": [-0.5, 0],
+            "[0, 0.5]": [0, 0.5],
+            "[0.5, 1]": [0.5, 1],
+            "[1, 1.5]": [1, 1.5],
+        }
+        self.output["custom_info"]["nevents"] = {}
+        self.output["custom_info"]["nevents_eta"] = {}
+        
+        for category, mask in self._categories.get_masks():
+            if self._categories.is_multidim and mask.ndim > 1:
+                # The Selection object can be multidim but returning some mask 1-d
+                # For example the CartesianSelection may have a non multidim StandardSelection
+                mask_on_events = ak.any(mask, axis=1)
+            else:
+                mask_on_events = mask
+
+            self.output["cutflow"][category][self._dataset] = {self._sample: ak.sum(mask_on_events)}
+            if self._isMC:
+                w = self.weights_manager.get_weight(category)
+                self.output["sumw"][category][self._dataset] = {self._sample: ak.sum(w * mask_on_events)}
+                self.output["sumw2"][category][self._dataset] = {self._sample: ak.sum((w**2) * mask_on_events)}
+
+            if category != "SR":
+                self.output["custom_info"]["nevents"][category] = {}
+                self.output["custom_info"]["nevents_eta"][category] = {}
+                masked_events = self.events[mask_on_events]
+                photon = ak.flatten(getattr(masked_events, "Photon{}".format(category)))
+                if self._isMC:
+                    w = self.weights_manager.get_weight(category)
+                    w_mask = w[mask_on_events]
+                for pt, pt_interval in pt_intervals.items():
+                    self.output["custom_info"]["nevents"][category][pt] = {}
+                    pt_mask = (photon.pt >= pt_interval[0]) & (photon.pt < pt_interval[1])
+                    if self._isMC:
+                        self.output["custom_info"]["nevents"][category][pt][self._sample] = ak.sum(w_mask[pt_mask] * pt_mask)
+                    else:
+                        self.output["custom_info"]["nevents"][category][pt][self._sample] = ak.sum(pt_mask)
+                for eta, eta_interval in eta_intervals.items():
+                    self.output["custom_info"]["nevents_eta"][category][eta] = {}
+                    eta_mask = (photon.eta >= eta_interval[0]) & (photon.eta < eta_interval[1])
+                    if self._isMC:
+                        self.output["custom_info"]["nevents_eta"][category][eta][self._sample] = ak.sum(w_mask[eta_mask] * eta_mask)
+                    else:
+                        self.output["custom_info"]["nevents_eta"][category][eta][self._sample] = ak.sum(eta_mask)
+
+            # If subsamples are defined we also save their metadata
+            if self._hasSubsamples:
+                for subs, subsam_mask in self._subsamples[self._sample].get_masks():
+                    # get the subsample specific weight
+                    mask_withsub = mask_on_events & subsam_mask
+                    self.output["cutflow"][category][self._dataset][f"{self._sample}__{subs}"] = ak.sum(mask_withsub)
+                    if self._isMC:
+                        w_tot = w * self.weights_manager.get_weight_only_subsample(subsample=f"{self._sample}__{subs}",
+                                                                                   category=category)
+                        self.output["sumw"][category][self._dataset][f"{self._sample}__{subs}"] = ak.sum(w_tot * mask_withsub)
+                        self.output["sumw2"][category][self._dataset][f"{self._sample}__{subs}"] = ak.sum(((w_tot)**2) * mask_withsub)
+
