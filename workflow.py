@@ -224,14 +224,14 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                     self.output["custom_info"]["nevents"][category][pt] = {}
                     pt_mask = (photon.pt >= pt_interval[0]) & (photon.pt < pt_interval[1])
                     if self._isMC:
-                        self.output["custom_info"]["nevents"][category][pt][self._sample] = ak.sum(w_mask[pt_mask] * pt_mask)
+                        self.output["custom_info"]["nevents"][category][pt][self._sample] = ak.sum(w_mask * pt_mask)
                     else:
                         self.output["custom_info"]["nevents"][category][pt][self._sample] = ak.sum(pt_mask)
                 for eta, eta_interval in eta_intervals.items():
                     self.output["custom_info"]["nevents_eta"][category][eta] = {}
                     eta_mask = (photon.eta >= eta_interval[0]) & (photon.eta < eta_interval[1])
                     if self._isMC:
-                        self.output["custom_info"]["nevents_eta"][category][eta][self._sample] = ak.sum(w_mask[eta_mask] * eta_mask)
+                        self.output["custom_info"]["nevents_eta"][category][eta][self._sample] = ak.sum(w_mask * eta_mask)
                     else:
                         self.output["custom_info"]["nevents_eta"][category][eta][self._sample] = ak.sum(eta_mask)
 
