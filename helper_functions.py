@@ -4,11 +4,12 @@ import awkward as ak
 
 def get_correlation_hist(events, sample):
     
-    mask = ak.fill_none(events.Photon.matched_gen.pdgId == 22, False)
+    
     if sample == "WJets":
-        photons = events.Photon[~mask]
+        photons = events.Photon[ak.fill_none(events.Photon.matched_gen.pdgId == None, True)]
     else:
-        photons = events.Photon[mask]
+        photon_prompt = events.LHEPart[events.LHEPart.pdgId == 22]
+        photons = events.Photon[ak.any(events.Photon.metric_table(photon_prompt) < 0.3, axis=2)]
 
     hist_2d = Hist.new.Reg(
         100, .006, 0.016, name="sieie", label="Sigma Ieta Ieta"  # Adjust binning and range for sieie

@@ -29,10 +29,12 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
 
     def process_extra_before_skim(self):
 
-        # corr_hist = get_correlation_hist(self.events, self._sample)
+        self.events["Photon"] = ak.with_field(self.events.Photon, self.events.Photon.pt * self.events.Photon.pfRelIso03_chg, "chIso")
         self.output["custom_info"] = {}
-        # self.output["custom_info"]["corr_hists"] = {}
-        # self.output["custom_info"]["corr_hists"][self._sample] = corr_hist
+        if self._sample == "WJets" or self._sample == "Signal_1000":
+            corr_hist = get_correlation_hist(self.events, self._sample)
+            self.output["custom_info"]["corr_hists"] = {}
+            self.output["custom_info"]["corr_hists"][self._sample] = corr_hist
 
     def apply_object_preselection(self, variation):
         self.events = ak.with_field(self.events, self.lepton, 'flavor')
@@ -146,10 +148,10 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
 
         self.events["neutrino"] = calculateNu4vec(self.events.LeptonGood, self.events.MET)
         self.events["W_transMass"] = np.sqrt(2*self.events.LeptonGood.pt*self.events.MET.pt*(1-np.cos(self.events.LeptonGood.delta_phi(self.events.MET))))
-        
-        # top reconstruction: W(mu+nu)+b
-        # self.events["top"] = self.events.LeptonGood
-        # self.events["VLT"] = self.events.LeptonGood
+                
+        # These lines stops fill_histograms from outputing error
+        self.events["top"] = self.events.LeptonGood
+        self.events["VLT"] = self.events.LeptonGood
 
     def define_histograms(self):
         '''
@@ -212,11 +214,11 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                 self.output["sumw"][category][self._dataset] = {self._sample: ak.sum(w * mask_on_events)}
                 self.output["sumw2"][category][self._dataset] = {self._sample: ak.sum((w**2) * mask_on_events)}
 
-            if category != "SR":
+            if category not in ["SR", "b0_SR"]:
                 self.output["custom_info"]["nevents"][category] = {}
                 self.output["custom_info"]["nevents_eta"][category] = {}
                 masked_events = self.events[mask_on_events]
-                photon = ak.flatten(getattr(masked_events, "Photon{}".format(category)))
+                photon = ak.flatten(getattr(masked_events, "Photon{}".format(category[-3:])))
                 if self._isMC:
                     w = self.weights_manager.get_weight(category)
                     w_mask = w[mask_on_events]

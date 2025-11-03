@@ -83,24 +83,29 @@ class CustomHistManager(HistManager):
                         continue
 
                     new_events = events[mask]
-                    if category == "PLJ":
+                    if "PLJ" in category:
                         new_events["PhotonGood"] = new_events["PhotonPLJ"]
-                        new_events["BJetGood"] = new_events["BJetGoodPLJ"]
                         new_events["JetGood"] = new_events["JetGoodPLJ"]
-                    if category == "CRB":
+                        if "b0_" not in category:
+                            new_events["BJetGood"] = new_events["BJetGoodPLJ"]
+                    if "CRB" in category:
                         new_events["PhotonGood"] = new_events["PhotonCRB"]
-                        new_events["BJetGood"] = new_events["BJetGoodCRB"]
                         new_events["JetGood"] = new_events["JetGoodCRB"]
-                    if category == "CRC":
+                        if "b0_" not in category:
+                            new_events["BJetGood"] = new_events["BJetGoodCRB"]
+                    if "CRC" in category:
                         new_events["PhotonGood"] = new_events["PhotonCRC"]
-                        new_events["BJetGood"] = new_events["BJetGoodCRC"]
                         new_events["JetGood"] = new_events["JetGoodCRC"]
-                    if category == "CRD":
+                        if "b0_" not in category:
+                            new_events["BJetGood"] = new_events["BJetGoodCRC"]
+                    if "CRD" in category:
                         new_events["PhotonGood"] = new_events["PhotonCRD"]
-                        new_events["BJetGood"] = new_events["BJetGoodCRD"]
-                        new_events["JetGood"] = new_events["JetGoodCRD"]                        
-                    new_events["top"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino
-                    new_events["VLT"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino + new_events.PhotonGood
+                        new_events["JetGood"] = new_events["JetGoodCRD"]
+                        if "b0_" not in category:
+                            new_events["BJetGood"] = new_events["BJetGoodCRD"]
+                    if "b0_" not in category:
+                        new_events["top"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino
+                        new_events["VLT"] = new_events.LeptonGood + new_events.BJetGood + new_events.neutrino + new_events.PhotonGood
 
                     for ax in histo.axes:
                         # Checkout the collection type
@@ -366,13 +371,21 @@ class CustomHistManager(HistManager):
                                 mask,
                                 data_structure,
                             )
-
+                        
                         # Custom part
                         ###########################################################
                         ###########################################################
-                        if category == "PLJ":
+                        if "PLJ" in category:
                             EF = ExtrapolationFactor(events)
-                            EF_weight = EF.compute_EF(self.year)
+                            EF_weight = EF.compute_EF(self.year, category)
+                            EF_weight = self.mask_and_broadcast_weight(
+                                category,
+                                subsample,
+                                "nominal",
+                                EF_weight,
+                                mask[mask],
+                                data_structure,
+                            )
                             weight_data = EF_weight * weight_data
                         ###########################################################
                         ###########################################################

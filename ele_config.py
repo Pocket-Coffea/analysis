@@ -45,14 +45,14 @@ cfg = Configurator(
     parameters = parameters,
     datasets = {
         "jsons": [
-            f"{localdir}/datasets/filesets_test.json",
-            # f"{localdir}/datasets/fileset_data.json",
-            # f"{localdir}/datasets/fileset_MC.json",    
-            # f"{localdir}/datasets/fileset_Signal.json"            
+            # f"{localdir}/datasets/filesets_test.json",
+            f"{localdir}/datasets/fileset_data.json",
+            f"{localdir}/datasets/fileset_MC.json",    
+            f"{localdir}/datasets/fileset_Signal.json"            
         ],
         "filter" : {
-            "samples": ["DATA_EGamma", "DYJets",
-            # "samples": ["DATA_EGamma",
+            # "samples": ["DATA_EGamma", "WJets", "Signal_1000", 
+            "samples": ["DATA_EGamma",
             #             "DYJets", "TGJets", "GJets", "ST", "TTG", "TT", "WJets", "WG", "WW", "WWG", "WZG", "WZ", "ZZG", "ZZ", "ZG",
                         # "Signal_600", "Signal_1000", "Signal_1500", "Signal_2000",
                         # "Signal_700", "Signal_800", "Signal_900", "Signal_1100", "Signal_1200", "Signal_1300", "Signal_1400", "Signal_1600", "Signal_1700", "Signal_1800","Signal_1900",
@@ -76,7 +76,12 @@ cfg = Configurator(
         "PLJ": [PLJ_cut],
         "CRB": [CRB_cut],
         "CRC": [CRC_cut],
-        "CRD": [CRD_cut]
+        "CRD": [CRD_cut],
+        "b0_SR": [b0_SR_cut],
+        "b0_PLJ": [b0_PLJ_cut],
+        "b0_CRB": [b0_CRB_cut],
+        "b0_CRC": [b0_CRC_cut],
+        "b0_CRD": [b0_CRD_cut]
     },
 
     weights_classes = common_weights,
@@ -116,20 +121,31 @@ cfg = Configurator(
    variables = {
        # **lepton_hists(),
        # **jet_hists(),
-       "photon_pt" : HistConf( [Axis(coll="PhotonGood", field="pt", bins=[0] + [(30+i*20) for i in range(11)], label="$p_{T,\gamma}(GeV)$")]),
-       # "photon_sieie" : HistConf( [Axis(coll="PhotonGood", field="sieie", bins=20, start=0, stop=0.03, label="$\sigma_{i\eta i\eta}$")]),
-       # "photon_chiso" : HistConf( [Axis(coll="PhotonGood", field="chIso", bins=50, start=0, stop=5, label="$chIso$")] ),
-       # "photon_sieie_CR" : HistConf( [Axis(coll="PhotonGood", field="sieie", bins=20, start=0.06, stop=0.016, label="$\sigma_{i\eta i\eta}$")], exclude_categories=["SR"]),
-       # "photon_chiso_CR" : HistConf( [Axis(coll="PhotonGood", field="pfRelIso03_chg", bins=20, start=0, stop=1.5, label="$chIso$")], exclude_categories=["SR"]),
+       "photon_pt" : HistConf([Axis(coll="PhotonGood", field="pt", bins=[(40+i*20) for i in range(13)], label="$p_{T,\gamma}(GeV)$")]),
+       "photon_sieie" : HistConf([Axis(coll="PhotonGood", field="sieie", bins=20, start=0, stop=0.02, label="$\sigma_{i\eta i\eta}$")]),
+       "photon_chiso" : HistConf([Axis(coll="PhotonGood", field="chIso", bins=15, start=0, stop=10, label="$Charge Isolation$")] ),
        "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=8, start=-2, stop=2, label="$\eta_\gamma$")]),
-       "BJet_pt": HistConf( [Axis(coll="BJetGood", field="pt", bins=[(i*10) for i in range(21)], label="$p_{T,b}(GeV)$")]),
-       "BJet_eta": HistConf( [Axis(coll="BJetGood", field="eta", bins=12, start=-3, stop=3, label="$\eta_b$")]),
-       "top_pt": HistConf( [Axis(coll="top", field="pt", bins=[i*10 for i in range(21)], label="$p_{T,top}(GeV)$")]),
-       "top_mass": HistConf( [Axis(coll="top", field="mass", bins=[(i*30) for i in range(21)], label="$top_M(GeV)$")]),
-       "VLT_pt": HistConf( [Axis(coll="VLT", field="pt", bins=[i*10 for i in range(21)], overflow=True, label="$p_{T,VLT}(GeV)$")]),
-       "VLT_mass": HistConf( [Axis(coll="VLT", field="mass", bins=[(i*50) for i in range(17)]+[(1000+j*200) for j in range(7)], label="$VLT_M(GeV)$")]),
-       "Electron_pt" : HistConf( [Axis(coll="LeptonGood", field="pt", bins=[0] + [5+(i*10) for i in range(13)]+[145,165, 185, 205], label="$p_{T,e}(GeV)$")]),
-       "WTransverse" : HistConf( [Axis(coll="events", field="W_transMass", bins=20, start=5, stop=205, label="$mW_T(GeV)$")])
+       "Electron_pt" : HistConf([Axis(coll="LeptonGood", field="pt", bins=[20+(i*15) for i in range(9)]+[160,180, 200, 220, 250], label="$p_{T,e}(GeV)$")]),
+       "WTransverse" : HistConf([Axis(coll="events", field="W_transMass", bins=15, start=0, stop=240, label="$mW_T(GeV)$")]),
+       **count_hist(name="nJets", coll="JetGood",bins=20, start=0, stop=20),
+       "BJet_pt": HistConf([Axis(coll="BJetGood", field="pt", bins=[(30+i*15) for i in range(25)], label="$p_{T,b}(GeV)$")],
+                           exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
+                          ),
+       "BJet_eta": HistConf([Axis(coll="BJetGood", field="eta", bins=12, start=-3, stop=3, label="$\eta_b$")],
+                           exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
+                          ),
+       "top_pt": HistConf([Axis(coll="top", field="pt", bins=[i*20 for i in range(14)], label="$p_{T,top}(GeV)$")],
+                           exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
+                          ),
+       "top_mass": HistConf([Axis(coll="top", field="mass", bins=[(60+i*30) for i in range(21)], label="$top_M(GeV)$")],
+                           exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
+                          ),
+       "VLT_pt": HistConf([Axis(coll="VLT", field="pt", bins=[i*15 for i in range(15)], overflow=True, label="$p_{T,VLT}(GeV)$")],
+                           exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
+                          ),
+       "VLT_mass": HistConf([Axis(coll="VLT", field="mass", bins=[(i*100) for i in range(9)]+[(1000+j*200) for j in range(7)], label="$VLT_M(GeV)$")],
+                           exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
+                          )
    }
 )
 

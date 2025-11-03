@@ -27,74 +27,116 @@ from pocket_coffea.lib.weights.common.common import (
 class ExtrapolationFactor:
     def __init__(self, events):
         self.events = events
-        self.regions = StandardSelection({"PLJ": [PLJ_cut], "CRB": [CRB_cut], "CRC": [CRC_cut], "CRD": [CRD_cut]})
+        self.regions = StandardSelection({"PLJ": [PLJ_cut], "b0_PLJ": [b0_PLJ_cut]})
         self.regions.prepare(
             events=self.events,
             processor_params={},
         )
         self.EF = {
-            "Electron": {
-                "2018":{
-                    # '[30, 40]': 0.18289994261725712,
-                    # '[40, 50]': 0.16652311225954639,
-                    # '[50, 70]': 0.1076617292130046,
-                    # '[70, 100]': 0.0909145862298253,
-                    # '[100, 140]': 0.07718776550552252,
-                    # '[140, 200]': 0.054642857142857146,
-                    # '[200, np.inf]': 0.050505050505050504
-                    '[30, 40]': 0.2792079273132033,
-                    '[40, 50]': 0.2597070300006397,
-                    '[50, 60]': 0.17540994578676128,
-                    '[60, 80]': 0.18533123028391169,
-                    '[80, 100]': 0.15953716690042075,
-                    '[100, np.inf]': 0.138282153411281
+            "b1": {
+                "Electron": {
+                    "2018":{
+                        # '[30, 40]': 0.18289994261725712,
+                        # '[40, 50]': 0.16652311225954639,
+                        # '[50, 70]': 0.1076617292130046,
+                        # '[70, 100]': 0.0909145862298253,
+                        # '[100, 140]': 0.07718776550552252,
+                        # '[140, 200]': 0.054642857142857146,
+                        # '[200, np.inf]': 0.050505050505050504
+                        '[30, 40]': 0.2792079273132033,
+                        '[40, 50]': 0.2597070300006397,
+                        '[50, 60]': 0.17540994578676128,
+                        '[60, 80]': 0.18533123028391169,
+                        '[80, 100]': 0.15953716690042075,
+                        '[100, np.inf]': 0.138282153411281
+                    }
+                },
+                "Muon":{
+                     "2018":{
+                         '[30, 40]': 0.13074266214115549,
+                         '[40, 50]': 0.11580594679186229,
+                         '[50, 60]': 0.09128600266114875,
+                         '[60, 80]': 0.06784048242120833,
+                         '[80, 100]': 0.04153560194452388,
+                         '[100, np.inf]': 0.05357142857142857
+                     }
+                 },
+                "Lepton":{
+                     "2018":{
+                         '[60, 80]': 0.087890625,
+                         '[80, 100]': 0.08457963,
+                         '[100, np.inf]': 0.07183673469
+                     },
                 }
             },
-            "Muon":{
-                 "2018":{
-                     '[30, 40]': 0.13074266214115549,
-                     '[40, 50]': 0.11580594679186229,
-                     '[50, 60]': 0.09128600266114875,
-                     '[60, 80]': 0.06784048242120833,
-                     '[80, 100]': 0.04153560194452388,
-                     '[100, np.inf]': 0.05357142857142857
-                 }
-             },
-            "Lepton":{
-                 "2018":{
-                     '[60, 80]': 0.13848936353457927,
-                     '[80, 100]': 0.12694583905982665,
-                     '[100, np.inf]': 0.10267270901459948
-                 }
-             }
+            "b0": {
+                "Electron": {
+                    "2018":{
+                        # '[30, 40]': 0.18289994261725712,
+                        # '[40, 50]': 0.16652311225954639,
+                        # '[50, 70]': 0.1076617292130046,
+                        # '[70, 100]': 0.0909145862298253,
+                        # '[100, 140]': 0.07718776550552252,
+                        # '[140, 200]': 0.054642857142857146,
+                        # '[200, np.inf]': 0.050505050505050504
+                        '[30, 40]': 0.2792079273132033,
+                        '[40, 50]': 0.2597070300006397,
+                        '[50, 60]': 0.17540994578676128,
+                        '[60, 80]': 0.18533123028391169,
+                        '[80, 100]': 0.15953716690042075,
+                        '[100, np.inf]': 0.138282153411281
+                    }
+                },
+                "Muon":{
+                     "2018":{
+                         '[30, 40]': 0.13074266214115549,
+                         '[40, 50]': 0.11580594679186229,
+                         '[50, 60]': 0.09128600266114875,
+                         '[60, 80]': 0.06784048242120833,
+                         '[80, 100]': 0.04153560194452388,
+                         '[100, np.inf]': 0.05357142857142857
+                     }
+                 },
+                "Lepton":{
+                     "2018":{
+                         '[60, 80]': 0.087890625,
+                         '[80, 100]': 0.08457963,
+                         '[100, np.inf]': 0.07183673469
+                     },
+                },
+            },
         }
-        self.EF_weight = Weights(len(self.events[self.regions.get_mask("PLJ")]))
 
-    def get_EF_for_pt(self, pt_down, pt_up):
+    # def get_EF_for_pt(self, pt_down, pt_up):
         
-        nevents = {}
-        for region, mask in self.regions.get_masks():
-            masked_events = self.events[mask]
-            photon = ak.flatten(getattr(masked_events, "Photon{}".format(region)))
-            selected_events = masked_events[(photon.pt >= pt_down) & (photon.pt < pt_up)]
-            nevents[region] = len(selected_events)
-        return ((nevents["CRB"] * nevents["CRC"])/nevents["CRD"])/nevents["PLJ"]
+    #     nevents = {}
+    #     for region, mask in self.regions.get_masks():
+    #         masked_events = self.events[mask]
+    #         photon = ak.flatten(getattr(masked_events, "Photon{}".format(region)))
+    #         selected_events = masked_events[(photon.pt >= pt_down) & (photon.pt < pt_up)]
+    #         nevents[region] = len(selected_events)
+    #     return ((nevents["CRB"] * nevents["CRC"])/nevents["CRD"])/nevents["PLJ"]
 
-    def compute_EF(self, year):
-        mask = self.regions.get_mask("PLJ")
+    def compute_EF(self, year, cat):
+        mask = self.regions.get_mask(cat)
         masked_events = self.events[mask]
-        photon = ak.flatten(masked_events["PhotonPLJ"])
+        photon = ak.flatten(masked_events[f"Photon{cat[-3:]}"])
+
+        if "b0" in cat:
+            ef = self.EF["b0"]
+        else:
+            ef = self.EF["b1"]
 
         flavor = "Lepton" # self.events.flavor[0] for seprate channels
         extrapolation_factor = ak.where(
             (photon.pt >= 60) & (photon.pt < 80),
-            self.EF[flavor][year]['[60, 80]'],
+            ef[flavor][year]['[60, 80]'],
             ak.where(
                 (photon.pt >= 80) & (photon.pt < 100),
-                self.EF[flavor][year]['[80, 100]'],
+                ef[flavor][year]['[80, 100]'],
                 ak.where(
                     (photon.pt >= 100),
-                    self.EF[self.events.flavor[0]][year]['[100, np.inf]'],
+                    ef[flavor][year]['[100, np.inf]'],
                     1
                 )
             )
@@ -126,6 +168,7 @@ class ExtrapolationFactor:
             nominal = extrapolation_factor
         )
 
+        self.EF_weight = Weights(len(self.events[self.regions.get_mask(cat)]))
         self.EF_weight.add(weight.name, weight.nominal)
 
         return self.EF_weight.weight()
