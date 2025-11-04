@@ -187,7 +187,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             '[80, 100]': [80, 100],
             "[100, 150]": [100, 150],
             # "[140, 200]": [140, 200],
-            "[150, np.inf]": [100, np.inf]
+            "[150, np.inf]": [150, np.inf]
         }
         eta_intervals = {
             "[-1.5, -1]": [-1.5, -1],

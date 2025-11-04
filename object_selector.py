@@ -199,11 +199,11 @@ def calculateNu4vec(lepton, MET):
     root1 = np.divide(- B - root, 2*A)
     root2 = np.divide(- B + root, 2*A)
     pz_nu = ak.where(np.abs(root1) < np.abs(root2), root1, root2)
-    E_nu = np.sqrt(MET_pt + pz_nu**2)  
+    E_nu = np.sqrt(MET_pt**2 + pz_nu**2)  
 
     real_root = ak.where(condition, ak.zeros_like(dis), -B/(2*A)) 
     pz_nu = ak.where(condition, pz_nu, real_root)
-    E_nu = np.sqrt(MET_pt + pz_nu**2)  
+    E_nu = np.sqrt(MET_pt**2 + pz_nu**2)  
 
     
     pt = MET_pt
