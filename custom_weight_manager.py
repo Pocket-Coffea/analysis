@@ -36,13 +36,6 @@ class ExtrapolationFactor:
             "b1": {
                 "Electron": {
                     "2018":{
-                        # '[30, 40]': 0.18289994261725712,
-                        # '[40, 50]': 0.16652311225954639,
-                        # '[50, 70]': 0.1076617292130046,
-                        # '[70, 100]': 0.0909145862298253,
-                        # '[100, 140]': 0.07718776550552252,
-                        # '[140, 200]': 0.054642857142857146,
-                        # '[200, np.inf]': 0.050505050505050504
                         '[30, 40]': 0.2792079273132033,
                         '[40, 50]': 0.2597070300006397,
                         '[50, 60]': 0.17540994578676128,
@@ -63,22 +56,16 @@ class ExtrapolationFactor:
                  },
                 "Lepton":{
                      "2018":{
-                         '[60, 80]': 0.087890625,
-                         '[80, 100]': 0.08457963,
-                         '[100, np.inf]': 0.07183673469
+                         '[60, 80]': 0.079798,
+                         '[80, 100]': 0.0706147,
+                         "[100, 150]": 0.065654,
+                         '[150, np.inf]': 0.061589
                      },
                 }
             },
             "b0": {
                 "Electron": {
                     "2018":{
-                        # '[30, 40]': 0.18289994261725712,
-                        # '[40, 50]': 0.16652311225954639,
-                        # '[50, 70]': 0.1076617292130046,
-                        # '[70, 100]': 0.0909145862298253,
-                        # '[100, 140]': 0.07718776550552252,
-                        # '[140, 200]': 0.054642857142857146,
-                        # '[200, np.inf]': 0.050505050505050504
                         '[30, 40]': 0.2792079273132033,
                         '[40, 50]': 0.2597070300006397,
                         '[50, 60]': 0.17540994578676128,
@@ -99,23 +86,14 @@ class ExtrapolationFactor:
                  },
                 "Lepton":{
                      "2018":{
-                         '[60, 80]': 0.087890625,
-                         '[80, 100]': 0.08457963,
-                         '[100, np.inf]': 0.07183673469
+                         '[60, 80]': 0.1041118,
+                         '[80, 100]': 0.0872647,
+                         "[100, 150]": 0.75254,
+                         '[150, np.inf]': 0.0689961
                      },
                 },
             },
         }
-
-    # def get_EF_for_pt(self, pt_down, pt_up):
-        
-    #     nevents = {}
-    #     for region, mask in self.regions.get_masks():
-    #         masked_events = self.events[mask]
-    #         photon = ak.flatten(getattr(masked_events, "Photon{}".format(region)))
-    #         selected_events = masked_events[(photon.pt >= pt_down) & (photon.pt < pt_up)]
-    #         nevents[region] = len(selected_events)
-    #     return ((nevents["CRB"] * nevents["CRC"])/nevents["CRD"])/nevents["PLJ"]
 
     def compute_EF(self, year, cat):
         mask = self.regions.get_mask(cat)
@@ -135,34 +113,16 @@ class ExtrapolationFactor:
                 (photon.pt >= 80) & (photon.pt < 100),
                 ef[flavor][year]['[80, 100]'],
                 ak.where(
-                    (photon.pt >= 100),
-                    ef[flavor][year]['[100, np.inf]'],
-                    1
+                    (photon.pt >= 100) & (photon.pt < 150),
+                    ef[flavor][year]['[100, 150]'],
+                    ak.where(
+                        (photon.pt >= 150),
+                        ef[flavor][year]['[150, np.inf]'],
+                        1
+                    )
                 )
             )
         )
-
-        # extrapolation_factor = ak.where(
-        #     (photon.pt >= 70) & (photon.pt < 90),
-        #     self.EF[self.events.flavor[0]][year]['[70, 90]'],
-        #     ak.where(
-        #         (photon.pt >= 90) & (photon.pt < 110),
-        #         self.EF[self.events.flavor[0]][year]['[90, 110]'],
-        #         ak.where(
-        #             (photon.pt >= 110) & (photon.pt < 140),
-        #             self.EF[self.events.flavor[0]][year]['[110, 140]'],
-        #             ak.where(
-        #                 (photon.pt >= 140) & (photon.pt < 200),
-        #                 self.EF[self.events.flavor[0]][year]['[140, 200]'],
-        #                 ak.where(
-        #                     (photon.pt >= 200) & (photon.pt < np.inf),
-        #                     self.EF[self.events.flavor[0]][year]['[200, np.inf]'],
-        #                     1
-        #                 )
-        #             )
-        #         )
-        #     )
-        # )
         weight = WeightData(
             name = "EF",
             nominal = extrapolation_factor

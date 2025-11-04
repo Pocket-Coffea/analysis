@@ -185,9 +185,9 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         pt_intervals = {
             '[60, 80]': [60, 80],
             '[80, 100]': [80, 100],
-            # "[110, 140]": [110, 140],
+            "[100, 150]": [100, 150],
             # "[140, 200]": [140, 200],
-            "[100, np.inf]": [100, np.inf]
+            "[150, np.inf]": [100, np.inf]
         }
         eta_intervals = {
             "[-1.5, -1]": [-1.5, -1],
@@ -199,6 +199,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
         }
         self.output["custom_info"]["nevents"] = {}
         self.output["custom_info"]["nevents_eta"] = {}
+        self.output["custom_info"]["nevents_2dim"] = {}
         
         for category, mask in self._categories.get_masks():
             if self._categories.is_multidim and mask.ndim > 1:
@@ -217,6 +218,7 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
             if category not in ["SR", "b0_SR"]:
                 self.output["custom_info"]["nevents"][category] = {}
                 self.output["custom_info"]["nevents_eta"][category] = {}
+                self.output["custom_info"]["nevents_2dim"][category] = {}
                 masked_events = self.events[mask_on_events]
                 photon = ak.flatten(getattr(masked_events, "Photon{}".format(category[-3:])))
                 if self._isMC:
@@ -226,16 +228,27 @@ class TopPartnerBaseProcessor(BaseProcessorABC):
                     self.output["custom_info"]["nevents"][category][pt] = {}
                     pt_mask = (photon.pt >= pt_interval[0]) & (photon.pt < pt_interval[1])
                     if self._isMC:
-                        self.output["custom_info"]["nevents"][category][pt][self._sample] = ak.sum(w_mask * pt_mask)
+                        self.output["custom_info"]["nevents"][category][pt][self._dataset] = ak.sum(w_mask * pt_mask)
                     else:
-                        self.output["custom_info"]["nevents"][category][pt][self._sample] = ak.sum(pt_mask)
+                        self.output["custom_info"]["nevents"][category][pt][self._dataset] = ak.sum(pt_mask)
                 for eta, eta_interval in eta_intervals.items():
                     self.output["custom_info"]["nevents_eta"][category][eta] = {}
                     eta_mask = (photon.eta >= eta_interval[0]) & (photon.eta < eta_interval[1])
                     if self._isMC:
-                        self.output["custom_info"]["nevents_eta"][category][eta][self._sample] = ak.sum(w_mask * eta_mask)
+                        self.output["custom_info"]["nevents_eta"][category][eta][self._dataset] = ak.sum(w_mask * eta_mask)
                     else:
-                        self.output["custom_info"]["nevents_eta"][category][eta][self._sample] = ak.sum(eta_mask)
+                        self.output["custom_info"]["nevents_eta"][category][eta][self._dataset] = ak.sum(eta_mask)
+                for pt, pt_interval in pt_intervals.items():
+                    self.output["custom_info"]["nevents_2dim"][category][pt] = {}
+                    pt_mask = (photon.pt >= pt_interval[0]) & (photon.pt < pt_interval[1])
+                    for eta, eta_interval in eta_intervals.items():
+                        self.output["custom_info"]["nevents_2dim"][category][pt][eta] = {}
+                        eta_mask = (photon.eta >= eta_interval[0]) & (photon.eta < eta_interval[1])
+                        pt_eta_mask = pt_mask & eta_mask
+                        if self._isMC:
+                            self.output["custom_info"]["nevents_2dim"][category][pt][eta][self._dataset] = ak.sum(w_mask * pt_eta_mask)
+                        else:
+                            self.output["custom_info"]["nevents_2dim"][category][pt][eta][self._dataset] = ak.sum(pt_eta_mask)
 
             # If subsamples are defined we also save their metadata
             if self._hasSubsamples:
