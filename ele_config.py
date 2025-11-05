@@ -53,7 +53,7 @@ cfg = Configurator(
         "filter" : {
             # "samples": ["WJets", "Signal_1000", # "DATA_EGamma", 
             "samples": ["DATA_EGamma",
-            #             "DYJets", "TGJets", "GJets", "ST", "TTG", "TT", "WJets", "WG", "WW", "WWG", "WZG", "WZ", "ZZG", "ZZ", "ZG",
+                        "DYJets", "TGJets", "GJets", "ST", "TTG", "TT", "WJets", "WG", "WW", "WWG", "WZG", "WZ", "ZZG", "ZZ", "ZG",
                         # "Signal_600", "Signal_1000", "Signal_1500", "Signal_2000",
                         # "Signal_700", "Signal_800", "Signal_900", "Signal_1100", "Signal_1200", "Signal_1300", "Signal_1400", "Signal_1600", "Signal_1700", "Signal_1800","Signal_1900",
                        ],
