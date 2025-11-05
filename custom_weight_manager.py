@@ -58,8 +58,8 @@ class ExtrapolationFactor:
                      "2018":{
                          '[60, 80]': 0.079798,
                          '[80, 100]': 0.0706147,
-                         "[100, 150]": 0.06082,
-                         '[150, np.inf]': 0.06299762
+                         "[100, 140]": 0.06082,
+                         '[140, np.inf]': 0.06299762
                      },
                 }
             },
@@ -88,8 +88,8 @@ class ExtrapolationFactor:
                      "2018":{
                          '[60, 80]': 0.1041118,
                          '[80, 100]': 0.0872647,
-                         "[100, 150]": 0.0738956,
-                         '[150, np.inf]': 0.0573968
+                         "[100, 140]": 0.0738956,
+                         '[140, np.inf]': 0.0573968
                      },
                 },
             },
@@ -114,10 +114,10 @@ class ExtrapolationFactor:
                 ef[flavor][year]['[80, 100]'],
                 ak.where(
                     (photon.pt >= 100) & (photon.pt < 150),
-                    ef[flavor][year]['[100, 150]'],
+                    ef[flavor][year]['[100, 140]'],
                     ak.where(
                         (photon.pt >= 150),
-                        ef[flavor][year]['[150, np.inf]'],
+                        ef[flavor][year]['[140, np.inf]'],
                         1
                     )
                 )

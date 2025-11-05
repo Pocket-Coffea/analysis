@@ -51,7 +51,7 @@ cfg = Configurator(
             f"{localdir}/datasets/fileset_Signal.json"            
         ],
         "filter" : {
-            # "samples": ["WJets", "Signal_1000", # "DATA_EGamma", 
+            # "samples": ["WJets", "Signal_1000", "DATA_EGamma", 
             "samples": ["DATA_EGamma",
                         "DYJets", "TGJets", "GJets", "ST", "TTG", "TT", "WJets", "WG", "WW", "WWG", "WZG", "WZ", "ZZG", "ZZ", "ZG",
                         # "Signal_600", "Signal_1000", "Signal_1500", "Signal_2000",
