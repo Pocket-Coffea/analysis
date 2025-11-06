@@ -57,6 +57,24 @@
             "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/64CA226F-1AFB-9E46-A7F6-26F20A6E33F9.root"
         ]
     },
+    "Signal_900_2018": {
+        "metadata": {
+            "das_names": "['/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v3/NANOAODSIM']",
+            "sample": "Signal_900",
+            "year": "2018",
+            "isMC": "True",
+            "xsec": "16.25",
+            "nevents": "100000",
+            "size": "233542007"
+        },
+        "files": [
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/120000/7AF02F45-086B-8D45-9B57-DF33173310A5.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/120000/EBEC69A7-2597-634E-88B1-C784964182B0.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/120000/8B5F9BD3-BD6A-B64A-A90F-C14210E05977.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/120000/7FF1DF23-AFFE-0748-A2B0-13D5DF796478.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/120000/6254278A-1216-2649-88F3-2868E45D576C.root"
+        ]
+    },
     "Signal_1000_2018": {
         "metadata": {
             "das_names": "['/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM']",
@@ -86,6 +104,97 @@
             "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1000_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/5DCD940D-8B74-FA42-8BDE-D42CF414F9DD.root"
         ]
     },
+    "Signal_1100_2018": {
+        "metadata": {
+            "das_names": "['/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM']",
+            "sample": "Signal_1100",
+            "year": "2018",
+            "isMC": "True",
+            "xsec": "16.25",
+            "nevents": "100000",
+            "size": "234793931"
+        },
+        "files": [
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/ADFB1ED2-1316-F24F-A6B9-83C2A346F113.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/9177DFA0-9F75-264B-B350-EB39181D9C62.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/2746D7A5-9624-D349-8BA8-D6BB0AEFE99C.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/AE0DFFCA-8B61-BE43-BCA7-621A1AA14A6E.root"
+        ]
+    },
+    "Signal_1200_2018": {
+        "metadata": {
+            "das_names": "['/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM']",
+            "sample": "Signal_1200",
+            "year": "2018",
+            "isMC": "True",
+            "xsec": "16.25",
+            "nevents": "100000",
+            "size": "278593969"
+        },
+        "files": [
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/65B1351F-C901-744E-A15D-4B04F7698B73.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/BD0F7B45-16F7-2141-919A-1821D2047888.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/A1F015A6-2287-F147-8F58-7C1C35E9CE38.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/C5AD9129-E460-574D-8D84-E5C304135BAC.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/41FBD9C5-A69B-0448-9BE1-9169B7BC0CFC.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/6BB154D6-8EC8-A44C-88B0-4F93FC0562F4.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/C15DC4AE-A29C-A549-90A4-3E15D22BDE1C.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/6B2A7D78-C293-E546-BB0F-B86FA575A187.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/EFF17B9C-44DE-B44C-8904-44A0A5ADC872.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/7A18F3C8-D0F7-E141-8B00-DF9027C81235.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/DB285199-B3D3-5D42-8FE7-0C155A1E1497.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/1504B55A-D517-EE49-8335-C5F2DE4B30BF.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/7B2CB2F6-EDDE-C541-A992-A3B3B1441D1E.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/5145CF63-9B35-264F-AA61-FDD9ECA38E71.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/04F55314-60FB-1F4A-840A-A0CD3C2BC52B.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/3AA163DB-B04D-DE41-9410-2C95E5B9A55C.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/10B9FB8F-2DDA-7A45-BE33-03E7ABCB6AE6.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2560000/300DA559-6A55-4C4E-A103-F61FFE73A1F4.root"
+        ]
+    },
+    "Signal_1300_2018": {
+        "metadata": {
+            "das_names": "['/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM']",
+            "sample": "Signal_1300",
+            "year": "2018",
+            "isMC": "True",
+            "xsec": "16.25",
+            "nevents": "100000",
+            "size": "241343586"
+        },
+        "files": [
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/18A4C3AC-D650-EF41-84B4-15972DB0A191.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/0E609C4C-D92B-2D46-975A-CBB19F520BDD.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/ACC3796C-ACB7-FB48-AE82-DD9C5EB0CB38.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/4F7C5649-99BF-524E-A6EA-D80A46FCDCA6.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/CAAE3E71-C1FB-1241-999B-204BBC311389.root"
+        ]
+    },
+    "Signal_1400_2018": {
+        "metadata": {
+            "das_names": "['/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM']",
+            "sample": "Signal_1400",
+            "year": "2018",
+            "isMC": "True",
+            "xsec": "16.25",
+            "nevents": "100000",
+            "size": "265006318"
+        },
+        "files": [
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/DAEEEDEB-E87B-3648-864B-F2FCD9DC76AE.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/6F1B0DFA-E637-B74F-9074-C6D35984849D.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/695E1996-66DF-BF40-A1CF-101145B1D7DF.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/2961CD73-0547-AE4E-8EFA-51ED3565C36A.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/CDC56FB6-3F4A-AF44-8D69-CFA980BD702F.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/05E385CC-25CD-9C4D-BB45-4CE8E3E01C6E.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/04286A7E-AB4B-2242-8D79-0EE72143D003.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/40DDBB8E-9F6A-AD4E-8413-6C0EB866369F.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/9487BDAF-9564-D444-9830-DBBE5218810D.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/2C53C0B4-A65D-9641-AAAC-221E7EB487CD.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/01EB0B4A-EA65-FD47-A6DD-38E5CA0B2ABB.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/714AA04A-E5E6-A748-88C3-4BB5D1FB0DDD.root"
+        ]
+    },
     "Signal_1500_2018": {
         "metadata": {
             "das_names": "['/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM']",
@@ -110,6 +219,111 @@
             "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/B6D26CC2-3422-BD41-8776-7C158F59A364.root",
             "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/BEAC9B5E-94A9-874D-A830-59C753F412AE.root",
             "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/1399AA13-5A02-2546-85A8-4BD41A1DC14E.root"
+        ]
+    },
+    "Signal_1600_2018": {
+        "metadata": {
+            "das_names": "['/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM']",
+            "sample": "Signal_1600",
+            "year": "2018",
+            "isMC": "True",
+            "xsec": "16.25",
+            "nevents": "100000",
+            "size": "264103074"
+        },
+        "files": [
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/0BA9CDD0-64A2-9840-B27B-56173AD87BB7.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/80058A60-E006-9B43-A24A-1665812AC81A.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/38EB613A-5085-0C44-B53D-EA36DF9D0451.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/9F8DF590-17E3-9749-A01F-6848F0DDAE4F.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/8269F0E4-D20F-8340-805F-436B3F80C4AA.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/9B3B463D-F0EC-4E42-BD59-B820775AD95C.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/271D994E-4FF2-F144-9F9A-0B4158097842.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/54E01162-F54A-D54B-88E6-0F460570DCF7.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/6EDDE63B-FE74-A043-8FC9-F0D4E233A183.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/F66D66FC-0EB4-9F4C-9FC0-20BCDFC76978.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2810000/2FBBB429-E2D6-2D4E-8FB9-3740C0D57428.root"
+        ]
+    },
+    "Signal_1700_2018": {
+        "metadata": {
+            "das_names": "['/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM']",
+            "sample": "Signal_1700",
+            "year": "2018",
+            "isMC": "True",
+            "xsec": "16.25",
+            "nevents": "100000",
+            "size": "282032511"
+        },
+        "files": [
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/04212040-B640-CA4B-8344-4DA8D2A2E1E6.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/36FB1A9B-7BB0-7A4C-A1C7-F8144453795C.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/49D1802F-1B80-694E-AE91-24C8BFD6F9D4.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/E5541943-0342-2340-B822-A8EC91B1185A.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/1274A634-D80E-2B4A-9E15-2D94E8EE82B6.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/89A736C8-6368-F94B-AE83-E05B915F5E63.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/CF2C2BFD-DBE2-2C40-90E9-534C0DBA3946.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/67B7CD25-D036-DC47-8F87-96A2F47C6BF1.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/84146378-C812-3D41-AC18-09F1F0557583.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/CFD49B67-AEE7-F84B-95A5-4FB25B9CD984.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/0C59FBF8-A346-6444-B4B0-1F574F7B5334.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/64FB68A4-6DB8-2045-BE62-34F8C0D4D559.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/77F1B793-EBBF-F448-A06A-E297C4BD6A57.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/029C3C66-9967-CC47-A1AC-990600ABF13E.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/B0DAA57D-E129-8849-8F81-CEFB87417593.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/130000/48FAA472-9B0B-8A42-8B45-FF0BBC780EDD.root"
+        ]
+    },
+    "Signal_1800_2018": {
+        "metadata": {
+            "das_names": "['/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v3/NANOAODSIM']",
+            "sample": "Signal_1800",
+            "year": "2018",
+            "isMC": "True",
+            "xsec": "16.25",
+            "nevents": "99000",
+            "size": "266915083"
+        },
+        "files": [
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/59DCA38A-AA05-514D-8C19-953E48A30453.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/6A4B2968-49D0-B840-81F1-CDC14EC323DE.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/979F19ED-F9A4-4A4B-A788-AC19DCA17223.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/C86274F6-571C-7845-B3D8-26FD336ED202.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/42CD8353-C141-1A4A-BDB4-5D6461C2B72F.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/B4C8AAE4-8CE7-5F4D-AB6E-95B14A82F3BE.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/BA3B27FA-7440-9F45-BA1F-AB2531F1DA82.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/96F1E002-09C1-EF4D-A8D1-AF56C9D90C43.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/A4B59BED-1404-B346-868E-D991E36E9FAB.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/F00B20E5-3CF9-A241-AFE4-B7133D5656FD.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/8CB644C2-BA0F-294D-A10A-1956A7B05004.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v3/130000/652DCA80-262B-C243-B0DB-0566BBA5F01E.root"
+        ]
+    },
+    "Signal_1900_2018": {
+        "metadata": {
+            "das_names": "['/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM']",
+            "sample": "Signal_1900",
+            "year": "2018",
+            "isMC": "True",
+            "xsec": "16.25",
+            "nevents": "99000",
+            "size": "274929971"
+        },
+        "files": [
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/406D30E7-2CD2-AE4C-B7D9-305303AF67A9.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/DFD05ACC-6D56-D245-8D1C-389F9971C843.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/31A4BB21-3E04-D749-9C7F-1222CA3D1423.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/E518053D-747D-6341-8EC5-6ECD57AB15DC.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/2EB09C08-9905-4D41-8595-BC26CA38C525.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/23463686-E321-7F4C-9629-B9BB4104ACCE.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/9D051A3F-DCF6-6A49-95EC-573CDBFB8318.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/16E5687F-5D79-8D41-A845-FD10C674170B.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/E6590FDF-DDBC-3542-A840-C0CF510305A9.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/CBC16A52-08F4-C048-B597-18996547F944.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/299E5886-29C4-AD4A-92C5-A1FE8AB2CCD3.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/AE3601E2-52A5-4B49-BD08-E41094FF186E.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/9E3E8D45-C2E4-B247-9D07-C624BF03A111.root",
+            "root://xrootd-cms.infn.it///store/mc/RunIISummer20UL18NanoAODv9/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v4/2820000/91C2E3D5-65C9-744C-A9AB-48E7AF054F82.root"
         ]
     },
     "Signal_2000_2018": {

@@ -551,6 +551,22 @@
             }
         ]
     },
+    "Signal_900": {
+        "sample": "Signal_900",
+        "json_output": "datasets/fileset_Signal.json",
+        "files": [
+            {
+                "das_names": [
+                    "/VLTquarkToPhotonTop_M-900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v3/NANOAODSIM"
+                ],
+                "metadata": {
+                    "year":"2018",
+                    "isMC": true,
+                    "xsec": 16.25
+                }
+            }
+        ]
+    },
     "Signal_1000": {
         "sample": "Signal_1000",
         "json_output": "datasets/fileset_Signal.json",
@@ -567,6 +583,70 @@
             }
         ]
     },
+    "Signal_1100": {
+        "sample": "Signal_1100",
+        "json_output": "datasets/fileset_Signal.json",
+        "files": [
+            {
+                "das_names": [
+                    "/VLTquarkToPhotonTop_M-1100_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM"
+                ],
+                "metadata": {
+                    "year":"2018",
+                    "isMC": true,
+                    "xsec": 16.25
+                }
+            }
+        ]
+    },
+    "Signal_1200": {
+        "sample": "Signal_1200",
+        "json_output": "datasets/fileset_Signal.json",
+        "files": [
+            {
+                "das_names": [
+                    "/VLTquarkToPhotonTop_M-1200_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM"
+                ],
+                "metadata": {
+                    "year":"2018",
+                    "isMC": true,
+                    "xsec": 16.25
+                }
+            }
+        ]
+    },
+    "Signal_1300": {
+        "sample": "Signal_1300",
+        "json_output": "datasets/fileset_Signal.json",
+        "files": [
+            {
+                "das_names": [
+                    "/VLTquarkToPhotonTop_M-1300_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM"
+                ],
+                "metadata": {
+                    "year":"2018",
+                    "isMC": true,
+                    "xsec": 16.25
+                }
+            }
+        ]
+    },
+    "Signal_1400": {
+        "sample": "Signal_1400",
+        "json_output": "datasets/fileset_Signal.json",
+        "files": [
+            {
+                "das_names": [
+                    "/VLTquarkToPhotonTop_M-1400_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM"
+                ],
+                "metadata": {
+                    "year":"2018",
+                    "isMC": true,
+                    "xsec": 16.25
+                }
+            }
+        ]
+    },
     "Signal_1500": {
         "sample": "Signal_1500",
         "json_output": "datasets/fileset_Signal.json",
@@ -574,6 +654,70 @@
             {
                 "das_names": [
                     "/VLTquarkToPhotonTop_M-1500_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM"
+                ],
+                "metadata": {
+                    "year":"2018",
+                    "isMC": true,
+                    "xsec": 16.25
+                }
+            }
+        ]
+    },
+    "Signal_1600": {
+        "sample": "Signal_1600",
+        "json_output": "datasets/fileset_Signal.json",
+        "files": [
+            {
+                "das_names": [
+                    "/VLTquarkToPhotonTop_M-1600_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM"
+                ],
+                "metadata": {
+                    "year":"2018",
+                    "isMC": true,
+                    "xsec": 16.25
+                }
+            }
+        ]
+    },
+    "Signal_1700": {
+        "sample": "Signal_1700",
+        "json_output": "datasets/fileset_Signal.json",
+        "files": [
+            {
+                "das_names": [
+                    "/VLTquarkToPhotonTop_M-1700_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM"
+                ],
+                "metadata": {
+                    "year":"2018",
+                    "isMC": true,
+                    "xsec": 16.25
+                }
+            }
+        ]
+    },
+    "Signal_1800": {
+        "sample": "Signal_1800",
+        "json_output": "datasets/fileset_Signal.json",
+        "files": [
+            {
+                "das_names": [
+                    "/VLTquarkToPhotonTop_M-1800_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v3/NANOAODSIM"
+                ],
+                "metadata": {
+                    "year":"2018",
+                    "isMC": true,
+                    "xsec": 16.25
+                }
+            }
+        ]
+    },
+    "Signal_1900": {
+        "sample": "Signal_1900",
+        "json_output": "datasets/fileset_Signal.json",
+        "files": [
+            {
+                "das_names": [
+                    "/VLTquarkToPhotonTop_M-1900_PtG-10_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v4/NANOAODSIM"
                 ],
                 "metadata": {
                     "year":"2018",
