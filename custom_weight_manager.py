@@ -113,10 +113,10 @@ class ExtrapolationFactor:
                 (photon.pt >= 80) & (photon.pt < 100),
                 ef[flavor][year]['[80, 100]'],
                 ak.where(
-                    (photon.pt >= 100) & (photon.pt < 150),
+                    (photon.pt >= 100) & (photon.pt < 140),
                     ef[flavor][year]['[100, 140]'],
                     ak.where(
-                        (photon.pt >= 150),
+                        (photon.pt >= 140),
                         ef[flavor][year]['[140, np.inf]'],
                         1
                     )
