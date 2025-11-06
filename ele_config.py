@@ -55,7 +55,7 @@ cfg = Configurator(
             "samples": ["DATA_EGamma",
                         "DYJets", "TGJets", "GJets", "ST", "TTG", "TT", "WJets", "WG", "WW", "WWG", "WZG", "WZ", "ZZG", "ZZ", "ZG",
                         "Signal_600", "Signal_1000", "Signal_1500", "Signal_2000",
-                        # "Signal_700", "Signal_800", "Signal_900", "Signal_1100", "Signal_1200", "Signal_1300", "Signal_1400", "Signal_1600", "Signal_1700", "Signal_1800","Signal_1900",
+                        "Signal_700", "Signal_800", "Signal_900", "Signal_1100", "Signal_1200", "Signal_1300", "Signal_1400", "Signal_1600", "Signal_1700", "Signal_1800","Signal_1900",
                        ],
             # "DATA_SinglePhoton",
             "samples_exclude" : [],
@@ -122,10 +122,10 @@ cfg = Configurator(
        # **lepton_hists(),
        # **jet_hists(),
        "photon_pt" : HistConf([Axis(coll="PhotonGood", field="pt", bins=[(60+i*20) for i in range(12)], label="$p_{T,\gamma}(GeV)$")]),
-       "photon_sieie" : HistConf([Axis(coll="PhotonGood", field="sieie", bins=20, start=0.005, stop=0.02, label="$\sigma_{i\eta i\eta}$")]),
-       "photon_chiso" : HistConf([Axis(coll="PhotonGood", field="chIso", bins=15, start=0, stop=10, label="Charged Hadron Isolation")] ),
+       "photon_sieie" : HistConf([Axis(coll="PhotonGood", field="sieie", bins=[0.006+i*0.0006916666 for i in range(7)]+[(0.0106+j*0.0006916666) for j in range(15)], label="$\sigma_{i\eta i\eta}$")]),
+       "photon_chiso" : HistConf([Axis(coll="PhotonGood", field="chIso", bins=[0, 0.575, 1.141]+[(1.694+j*0.575) for j in range(16)], label="Charged Hadron Isolation")] ),
        "photon_eta" : HistConf( [Axis(coll="PhotonGood", field="eta", bins=6, start=-1.5, stop=1.5, label="$\eta_\gamma$")]),
-       "Electron_pt" : HistConf([Axis(coll="LeptonGood", field="pt", bins=[35 + (i*15) for i in range(8)]+[175, 195, 215, 235, 260], label="$p_{T,e}(GeV)$")]),
+       "Electron_pt" : HistConf([Axis(coll="LeptonGood", field="pt", bins=[35 + (i*15) for i in range(9)]+[175, 195, 215, 235, 260], label="$p_{T,e}(GeV)$")]),
        "WTransverse" : HistConf([Axis(coll="events", field="W_transMass", bins=15, start=0, stop=240, label="$mW_T(GeV)$")]),
        **count_hist(name="nJets", coll="JetGood",bins=10, start=0, stop=10),
        "BJet_pt": HistConf([Axis(coll="BJetGood", field="pt", bins=[(30+i*30) for i in range(8)], label="$p_{T,b}(GeV)$")],
@@ -137,13 +137,13 @@ cfg = Configurator(
        "top_pt": HistConf([Axis(coll="top", field="pt", bins=[i*20 for i in range(16)], label="$p_{T,top}(GeV)$")],
                            exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
                           ),
-       "top_mass": HistConf([Axis(coll="top", field="mass", bins=[(60+i*30) for i in range(21)], label="$top_M(GeV)$")],
+       "top_mass": HistConf([Axis(coll="top", field="mass", bins=[(60+i*30) for i in range(19)], label="$top_M(GeV)$")],
                            exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
                           ),
-       "VLT_pt": HistConf([Axis(coll="VLT", field="pt", bins=[i*15 for i in range(18)], overflow=True, label="$p_{T,VLT}(GeV)$")],
+       "VLT_pt": HistConf([Axis(coll="VLT", field="pt", bins=[i*15 for i in range(20)], overflow=True, label="$p_{T,VLT}(GeV)$")],
                            exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
                           ),
-       "VLT_mass": HistConf([Axis(coll="VLT", field="mass", bins=[(i*100) for i in range(9)]+[(1000+j*200) for j in range(6)], label="$VLT_M(GeV)$")],
+       "VLT_mass": HistConf([Axis(coll="VLT", field="mass", bins=[(i*100) for i in range(10)]+[(1000+j*200) for j in range(6)], label="$VLT_M(GeV)$")],
                            exclude_categories=["b0_SR", "b0_PLJ", "b0_CRB", "b0_CRC", "b0_CRD"]
                           )
    }
