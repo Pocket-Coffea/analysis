@@ -98,7 +98,7 @@ class ExtractHistData:
         for signal in signals:
             hist = self.output["variables"][var][signal][f"{signal}_{self.year}"]
             if cat in hist.axes[0]:
-                self.hist_info["signals"][signal] = hist[{"cat": cat, "variation": "nominal"}].values()*0.15
+                self.hist_info["signals"][signal] = hist[{"cat": cat, "variation": "nominal"}].values()*0.04
                 self.hist_info["has_plot"] = True
 
     def _add_jet_fake_photon_info(self, var, cat, dd_bcs):
